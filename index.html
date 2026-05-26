@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elegance House Bénin — Prestige Nuptial & Haute Couture Traditionnelle</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --vin:    #6B1A2B;
+  --vin2:   #8B2240;
+  --vin3:   #3D0D18;
+  --blush:  #F2D4D0;
+  --blush2: #E8B8B0;
+  --blush3: #FAE9E6;
+  --creme:  #FAF5EE;
+  --creme2: #F3EBD8;
+  --blanc:  #FFFFFF;
+  --dore:   #C9A84C;
+  --dore2:  #E8C97A;
+  --dore3:  #A07828;
+  --text:   #2C0A10;
+  --muted:  #7A5050;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  background: var(--creme);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ══ NAV ══════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 5rem;
+  background: rgba(250,245,238,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,168,76,0.25);
+}
+.nav-brand {
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+.nav-brand-sup {
+  font-size: 7.5px; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--dore); font-weight: 300;
+}
+.nav-brand-name {
+  font-family: 'Cinzel', serif;
+  font-size: 18px; font-weight: 300; letter-spacing: 5px;
+  color: var(--vin); line-height: 1.1;
+}
+.nav-brand-tagline {
+  font-size: 7px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--muted);
+}
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none;
+}
+.nav-links a {
+  font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text); text-decoration: none; font-weight: 300;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 0.5px; background: var(--dore);
+  transform: scaleX(0); transition: transform 0.3s;
+}
+.nav-links a:hover { color: var(--dore); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
+  padding: 10px 26px; background: var(--vin); color: var(--blanc);
+  border: none; cursor: pointer; font-family: 'Jost', sans-serif;
+  font-weight: 300; text-decoration: none; transition: background 0.3s;
+}
+.nav-cta:hover { background: var(--vin2); }
+
+/* ══ HERO ══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: var(--vin3);
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-content {
+  position: relative; z-index: 10;
+  display: grid; grid-template-columns: 1fr 1fr;
+  width: 100%; min-height: 100vh; padding-top: 80px;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 4rem 5rem 5rem;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 8.5px; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--dore); margin-bottom: 2rem;
+}
+.hero-eyebrow-line { width: 40px; height: 0.5px; background: var(--dore); }
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: 52px; font-weight: 300;
+  color: var(--blanc); line-height: 1.1;
+  letter-spacing: 3px; margin-bottom: 0.5rem;
+}
+.hero-title-italic {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px; font-weight: 300; font-style: italic;
+  color: var(--dore2); line-height: 1; letter-spacing: 2px;
+  display: block;
+}
+.hero-title-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 300;
+  color: var(--blush); letter-spacing: 4px; display: block;
+  margin-top: 0.25rem;
+}
+.hero-ornament-line {
+  display: flex; align-items: center; gap: 16px;
+  margin: 2rem 0;
+}
+.hero-ornament-line span { width: 50px; height: 0.5px; background: var(--dore); opacity: 0.5; }
+.hero-ornament-line em {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-style: italic; color: var(--dore); opacity: 0.7;
+}
+.hero-desc {
+  font-size: 13.5px; line-height: 2; color: rgba(242,212,208,0.75);
+  max-width: 440px; margin-bottom: 3rem;
+  letter-spacing: 0.3px;
+}
+.hero-desc strong { color: var(--blush); font-weight: 400; }
+.hero-btns {
+  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+}
+.btn-gold {
+  font-family: 'Jost', sans-serif;
+  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
+  padding: 14px 36px; background: var(--dore); color: var(--vin3);
+  border: none; cursor: pointer; font-weight: 400;
+  transition: background 0.3s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-gold:hover { background: var(--dore2); transform: translateY(-2px); }
+
+.hero-right {
+  display: flex; align-items: center; justify-content: center;
+  padding: 6rem 4rem; position: relative;
+}
+.hero-panel {
+  width: 300px; border: 1px solid rgba(201,168,76,0.35);
+  position: relative; overflow: hidden; height: 480px;
+}
+.hero-panel-overlay {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;
+  background: linear-gradient(to bottom, rgba(61,13,24,0.4) 0%, rgba(61,13,24,0.1) 40%, rgba(61,13,24,0.7) 100%);
+}
+.panel-badge {
+  font-size: 7px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--dore); padding: 5px 14px; border: 0.5px solid rgba(201,168,76,0.5);
+}
+.panel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 300; font-style: italic;
+  color: var(--blanc); letter-spacing: 2px; text-align: center; line-height: 1.3;
+}
+.panel-div { width: 40px; height: 0.5px; background: var(--dore); }
+.panel-sub {
+  font-size: 7.5px; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(242,212,208,0.6);
+}
+
+/* ══ STRIP OBLIQUE / HORIZONTAL ════════════════════ */
+.cer-strip {
+  background: var(--dore); padding: 1.4rem 5rem;
+  display: flex; align-items: center; justify-content: center; gap: 4rem; overflow: hidden;
+}
+.cer-strip-item {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--vin3); font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 400; white-space: nowrap;
+}
+.cer-strip-dot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--vin3); opacity: 0.4;
+}
+
+/* ══ SECTIONS GENERALES ═════════════════════════════ */
+section.catalog {
+  padding: 7rem 5rem; background: var(--blanc);
+}
+.sec-head { text-align: center; margin-bottom: 5rem; }
+.sec-tag {
+  font-size: 8.5px; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--dore); margin-bottom: 0.75rem;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.sec-tag::before, .sec-tag::after { content: ''; display: block; width: 30px; height: 0.5px; background: var(--dore); }
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px; font-weight: 300; color: var(--vin);
+  line-height: 1.1; letter-spacing: 1px;
+}
+.sec-title em { font-style: italic; color: var(--vin2); }
+
+/* ══ GRIDS POUR PRODUITS HAUT DE GAMME ══════════════ */
+.luxury-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; margin-bottom: 5rem;
+}
+.luxury-card {
+  background: var(--creme); border: 1px solid rgba(201,168,76,0.15);
+  padding: 2.5rem 2rem; display: flex; flex-direction: column;
+  justify-content: space-between; transition: all 0.3s ease;
+  position: relative;
+}
+.luxury-card:hover {
+  border-color: var(--dore); transform: translateY(-4px);
+  background: var(--blanc); box-shadow: 0 10px 30px rgba(107,26,43,0.03);
+}
+.card-num {
+  font-family: 'Cinzel', serif; font-size: 14px; color: var(--dore);
+  opacity: 0.5; margin-bottom: 1rem; display: block;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 26px;
+  font-weight: 400; color: var(--vin); margin-bottom: 0.75rem;
+}
+.card-line { width: 30px; height: 0.5px; background: var(--dore); margin-bottom: 1.25rem; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.luxury-tag {
+  font-size: 8px; letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 10px; background: rgba(201,168,76,0.1); color: var(--text);
+  border: 0.5px solid rgba(201,168,76,0.2);
+}
+
+/* ══ ACCESSOIRES DE PRESTIGE ════════════════════════ */
+.accessories-section {
+  padding: 7rem 5rem; background: var(--creme2);
+}
+.acc-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;
+}
+.acc-card {
+  background: var(--blanc); padding: 2rem;
+  border-left: 2px solid var(--dore); transition: background 0.3s;
+}
+.acc-card:hover { background: var(--blush3); }
+.acc-category {
+  font-size: 7.5px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.5rem; display: block;
+}
+.acc-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 22px;
+  color: var(--vin); font-weight: 400;
+}
+
+/* ══ PROCESSUS & RDV ════════════════════════════════ */
+.processus { padding: 7rem 5rem; background: var(--creme); text-align: center;}
+.proc-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 4rem; }
+.proc-step { display: flex; flex-direction: column; align-items: center; }
+.proc-step-num {
+  width: 50px; height: 50px; background: var(--vin); display: flex;
+  align-items: center; justify-content: center; margin-bottom: 1.5rem;
+}
+.proc-step-num span { font-family: 'Cinzel', serif; color: var(--dore); font-size: 16px; }
+.proc-step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--vin); margin-bottom: 0.5rem; }
+.proc-step-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ══ FOOTER & CONTACT ═══════════════════════════════ */
+footer { background: var(--vin3); padding: 5rem 5rem 2rem; color: rgba(242,212,208,0.6); }
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem;
+  padding-bottom: 3rem; border-bottom: 0.5px solid rgba(242,212,208,0.1); margin-bottom: 2rem;
+}
+.f-brand-name { font-family: 'Cinzel', serif; font-size: 22px; color: var(--blanc); letter-spacing: 3px; margin-bottom: 4px; }
+.f-brand-sub { font-size: 7.5px; letter-spacing: 5px; text-transform: uppercase; color: var(--dore); margin-bottom: 1.5rem; }
+.f-brand-desc { font-size: 12px; line-height: 1.8; max-width: 240px; }
+.f-col-title { font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: var(--dore); margin-bottom: 1.5rem; }
+.f-links { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+.f-links a, .f-links li { font-size: 12px; color: rgba(242,212,208,0.5); text-decoration: none; }
+.f-links a:hover { color: var(--dore); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.f-copy { font-size: 10px; color: rgba(242,212,208,0.25); }
+
+/* Animations simple */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-left { animation: fadeUp 1s ease both; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <span class="nav-brand-sup">Maison de Couture</span>
+    <span class="nav-brand-name">Elegance House</span>
+    <span class="nav-brand-tagline">Abomey-Calavi · Bénin</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#textiles">Nos Textiles</a></li>
+    <li><a href="#foulards">Gélé & Foulards</a></li>
+    <li><a href="#accessoires">Accessoires</a></li>
+    <li><a href="#eventails">Éventails Nuptiaux</a></li>
+    <li><a href="#rendezvous">Sur Mesure</a></li>
+  </ul>
+  <a href="https://wa.me/2290190008300" target="_blank" class="nav-cta">Prendre RDV</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg">
+    <svg width="100%" height="100%" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+      <rect width="1200" height="900" fill="#3D0D18"/>
+      <path d="M0,300 L1200,600 M0,400 L1200,700" stroke="#C9A84C" stroke-width="0.5" opacity="0.15"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div> Haute Couture Nuptiale · Prestige & Tradition
+      </div>
+      <h1 class="hero-title">
+        L'excellence<br>
+        <span class="hero-title-italic">du textile d'exception</span>
+        <span class="hero-title-sub">pour les grands événements</span>
+      </h1>
+      <div class="hero-ornament-line">
+        <span></span> <em>Mariage Traditionnel · Dot · Haute Gamme</em> <span></span> </div>
+      <p class="hero-desc">
+        Bienvenue chez <strong>Elegance House Bénin</strong> à Abomey-Calavi. Nous créons la quintessence de la parure nuptiale à travers des pagnes tissés exclusifs, des étoffes royales et des accessoires raffinés pour sublimer vos plus belles cérémonies.
+      </p>
+      <div class="hero-btns">
+        <a href="#textiles" class="btn-gold">Découvrir le Catalogue</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-panel">
+        <div class="hero-panel-overlay">
+          <div class="panel-badge">Ciblage Haute Gamme</div>
+          <div class="panel-title">L'Art de la Dot<br>& du Mariage</div>
+          <div class="panel-div"></div>
+          <div class="panel-sub">Kanvô · Asooké · Kenté</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cer-strip">
+  <div class="cer-strip-item"><div class="cer-strip-dot"></div>Mariage Traditionnel</div>
+  <div class="cer-strip-item"><div class="cer-strip-dot"></div>Cérémonie de Dot</div>
+  <div class="cer-strip-item"><div class="cer-strip-dot"></div>Grands Événements</div>
+  <div class="cer-strip-item"><div class="cer-strip-dot"></div>Prestige Sur-Mesure</div>
+</div>
+
+<section class="catalog" id="textiles">
+  <div class="sec-head">
+    <div class="sec-tag">Étoffes de Prestige</div>
+    <h2 class="sec-title">Les Pagnes Tissés & <em>Tissus Nobles</em></h2>
+  </div>
+ 
+  <div class="luxury-grid">
+    <div class="luxury-card">
+      <div>
+        <span class="card-num">COLLECTION 01</span>
+        <h3 class="card-title">Les Pagnes Tissés</h3>
+        <div class="card-line"></div>
+      </div>
+      <div class="card-tags">
+        <span class="luxury-tag">ASOOKÉ (Nigeria)</span>
+        <span class="luxury-tag">KANVÔ (Bénin)</span>
+        <span class="luxury-tag">KENTÉ (Ghana)</span>
+      </div>
+    </div>
+
+    <div class="luxury-card">
+      <div>
+        <span class="card-num">COLLECTION 02</span>
+        <h3 class="card-title">Tissus Haute Couture</h3>
+        <div class="card-line"></div>
+      </div>
+      <div class="card-tags">
+        <span class="luxury-tag">Tissus Dentelle</span>
+        <span class="luxury-tag">Tissus Brocarde</span>
+        <span class="luxury-tag">Étoffes Nuptiales</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="foulards" style="background: var(--creme);">
+  <div class="sec-head">
+    <div class="sec-tag">Parures de Tête</div>
+    <h2 class="sec-title">Les Gélé & <em>Foulards de Cérémonie</em></h2>
+  </div>
+ 
+  <div class="luxury-grid">
+    <div class="luxury-card" style="background: var(--blanc);">
+      <div>
+        <span class="card-num">COURONNES TRADITIONNELLES</span>
+        <h3 class="card-title">Gélé de Prestige</h3>
+        <div class="card-line"></div>
+      </div>
+      <div class="card-tags">
+        <span class="luxury-tag">Gélé Asooké</span>
+        <span class="luxury-tag">Damask</span>
+        <span class="luxury-tag">Sego</span>
+      </div>
+    </div>
+
+    <div class="luxury-card" style="background: var(--blanc);">
+      <div>
+        <span class="card-num">ÉLÉGANCE MODERNE</span>
+        <h3 class="card-title">Foulards d'Apparat</h3>
+        <div class="card-line"></div>
+      </div>
+      <div class="card-tags">
+        <span class="luxury-tag">Foulard à Broche</span>
+        <span class="luxury-tag">Finitions Haut de Gamme</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="accessories-section" id="accessoires">
+  <div class="sec-head">
+    <div class="sec-tag">Orfèvrerie & Maroquinerie</div>
+    <h2 class="sec-title">Les Accessoires de <em>Mode Nuptiale</em></h2>
+  </div>
+
+  <div class="acc-grid">
+    <div class="acc-card">
+      <span class="acc-category">Joaillerie</span>
+      <h3 class="acc-title">Ensemble Bijoux</h3>
+    </div>
+    <div class="acc-card">
+      <span class="acc-category">Éclat</span>
+      <h3 class="acc-title">Boucles Uniquement</h3>
+    </div>
+    <div class="acc-card">
+      <span class="acc-category">Prestige Souvenir</span>
+      <h3 class="acc-title">Corail Traditionnel</h3>
+    </div>
+    <div class="acc-card">
+      <span class="acc-category">Maroquinerie de Bal</span>
+      <h3 class="acc-title">Minaudières d'Exception</h3>
+    </div>
+    <div class="acc-card">
+      <span class="acc-category">Chausseur</span>
+      <h3 class="acc-title">Chaussures de Mariées</h3>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="eventails">
+  <div class="sec-head">
+    <div class="sec-tag">Fraîcheur & Majesté</div>
+    <h2 class="sec-title">Les Éventails de la <em>Mariée</em></h2>
+  </div>
+ 
+  <div class="luxury-grid">
+    <div class="luxury-card">
+      <div>
+        <span class="card-num">STYLE 01</span>
+        <h3 class="card-title">En Plume</h3>
+        <div class="card-line"></div>
+      </div>
+    </div>
+    <div class="luxury-card">
+      <div>
+        <span class="card-num">STYLE 02</span>
+        <h3 class="card-title">En Dentelle</h3>
+        <div class="card-line"></div>
+      </div>
+    </div>
+    <div class="luxury-card">
+      <div>
+        <span class="card-num">STYLE 03</span>
+        <h3 class="card-title">En Filet</h3>
+        <div class="card-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="processus" id="rendezvous">
+  <div class="sec-head">
+    <div class="sec-tag">Sur-Mesure Privé</div>
+    <h2 class="sec-title">Votre Parcours de <em>Création</em></h2>
+  </div>
+  <div class="proc-steps">
+    <div class="proc-step">
+      <div class="proc-step-num"><span>I</span></div>
+      <h4 class="proc-step-title">Consultation Privée</h4>
+      <p class="proc-step-desc">Étude de votre thème nuptial et sélection des matières et textures de prestige.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-step-num"><span>II</span></div>
+      <h4 class="proc-step-title">Sélection Textile</h4>
+      <p class="proc-step-desc">Choix de vos pagnes tissés (Asooké, Kanvô, Kenté) ou tissus dentelle et brocarde.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-step-num"><span>III</span></div>
+      <h4 class="proc-step-title">Parure d'Accessoires</h4>
+      <p class="proc-step-desc">Harmonisation parfaite avec nos bijoux, minaudières, gélé de luxe et éventails de mariée.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-step-num"><span>IV</span></div>
+      <h4 class="proc-step-title">Livraison d'Apparat</h4>
+      <p class="proc-step-desc">Vos tenues d'apparat finalisées pour célébrer votre dot ou grand événement.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-top">
+    <div>
+      <div class="f-brand-name">Elegance House</div>
+      <div class="f-brand-sub">Bénin · Haute Couture</div>
+      <p class="f-brand-desc">Le raffinement par le textile d'exception et la haute joaillerie de cérémonie traditionnelle.</p>
+    </div>
+    <div>
+      <div class="f-col-title">Collections</div>
+      <ul class="f-links">
+        <li>Asooké & Kenté</li>
+        <li>Kanvô Artisanal</li>
+        <li>Tissus Dentelle & Brocarde</li>
+        <li>Foulards Gélé de Luxe</li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-title">Prestations</div>
+      <ul class="f-links">
+        <li>Cérémonie de Dot</li>
+        <li>Mariage Traditionnel</li>
+        <li>Grands Événements</li>
+        <li>Accompagnement VIP</li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-title">Nous Trouver</div>
+      <ul class="f-links">
+        <li><strong>Adresse :</strong> Abomey-Calavi, Bénin</li>
+        <li><strong>Téléphone :</strong> +229 01 90 00 83 00</li>
+        <li><strong>WhatsApp :</strong> Disponible pour RDV</li>
+        <li>Lun – Sam : 8h – 19h</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2026 Elegance House Bénin · Excellence Traditionnelle & Contemporaine · Tous droits réservés.</div>
+  </div>
+</footer>
+
+</body>
+</html>

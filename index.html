@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elegance House Bénin — Pagne Tissé · Mariage Traditionnel · Dot</title>
+<title>Elegance House Bénin — Textiles, Création Sur-Mesure & Accessoires</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -92,12 +92,9 @@ nav {
   background: var(--vin3);
 }
 
-/* Woven texture bg */
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
 }
-
-/* Diagonal golden bands - pagne inspired */
 .hero-bands {
   position: absolute; inset: 0; z-index: 1;
   overflow: hidden;
@@ -190,7 +187,6 @@ nav {
   position: relative;
 }
 
-/* Vertical woven panel */
 .hero-panel {
   width: 300px;
   border: 1px solid rgba(201,168,76,0.35);
@@ -202,11 +198,9 @@ nav {
   border: 0.5px solid rgba(201,168,76,0.2);
   z-index: 2; pointer-events: none;
 }
-
 .hero-panel-weave {
   width: 100%; height: 100%;
 }
-
 .hero-panel-overlay {
   position: absolute; inset: 0; z-index: 3;
   display: flex; flex-direction: column;
@@ -237,7 +231,6 @@ nav {
   color: rgba(242,212,208,0.6);
 }
 
-/* Floating side label */
 .hero-side-label {
   position: absolute; left: -50px; top: 50%;
   transform: translateY(-50%) rotate(-90deg);
@@ -502,7 +495,6 @@ nav {
 }
 .m-div { width: 24px; height: 0.5px; background: var(--dore); opacity: 0.4; margin-bottom: 1rem; }
 
-/* Tissu recommendation badges */
 .m-tissus {
   display: flex; gap: 6px; flex-wrap: wrap; margin-top: 1.25rem;
 }
@@ -707,36 +699,89 @@ nav {
   color: var(--muted); margin-top: 2px;
 }
 
-/* ══ NEWSLETTER ═════════════════════════════════════ */
+/* ══ NEWSLETTER / FICHIER CLIENT ════════════════════ */
 .newsletter {
-  background: var(--creme);
-  padding: 5rem;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 4rem;
-  border-top: 0.5px solid rgba(201,168,76,0.25);
-  border-bottom: 0.5px solid rgba(201,168,76,0.25);
+  background: var(--vin3);
+  padding: 6rem 5rem;
+  border-top: 0.5px solid rgba(201,168,76,0.2);
+}
+.nl-inner {
+  max-width: 900px; margin: 0 auto;
+}
+.nl-header {
+  text-align: center; margin-bottom: 3.5rem;
 }
 .nl-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 32px; font-weight: 300; color: var(--vin); margin-bottom: 0.4rem;
+  font-size: 40px; font-weight: 300; color: var(--blanc);
+  margin-bottom: 0.5rem; line-height: 1.15;
 }
-.nl-sub { font-size: 12px; color: var(--muted); }
-.nl-form { display: flex; flex: 1; max-width: 480px; }
+.nl-title em { color: var(--dore2); font-style: italic; }
+.nl-sub { font-size: 13px; color: rgba(242,212,208,0.6); line-height: 1.9; }
+.nl-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; margin-bottom: 2px;
+}
+.nl-field {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.nl-label {
+  font-size: 8px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--dore); font-weight: 300;
+}
 .nl-input {
-  flex: 1; padding: 14px 20px;
-  background: var(--blanc); border: 0.5px solid rgba(201,168,76,0.4);
-  font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
-  color: var(--text); outline: none;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(201,168,76,0.3);
+  font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
+  color: var(--blanc); outline: none; width: 100%;
+  transition: border-color 0.3s;
 }
-.nl-input::placeholder { color: var(--muted); }
-.nl-input:focus { border-color: var(--dore); }
+.nl-input::placeholder { color: rgba(242,212,208,0.3); }
+.nl-input:focus { border-color: var(--dore); background: rgba(255,255,255,0.08); }
+.nl-select {
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(201,168,76,0.3);
+  font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
+  color: var(--blanc); outline: none; width: 100%;
+  appearance: none; cursor: pointer;
+  transition: border-color 0.3s;
+}
+.nl-select option { background: var(--vin3); color: var(--blanc); }
+.nl-select:focus { border-color: var(--dore); }
+.nl-full { grid-column: 1 / -1; }
+.nl-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; margin-top: 2px; flex-wrap: wrap;
+}
+.nl-mention {
+  font-size: 10px; color: rgba(242,212,208,0.35); line-height: 1.7; flex: 1;
+}
 .nl-btn {
-  padding: 14px 22px; background: var(--vin); color: var(--blanc);
+  padding: 16px 40px; background: var(--dore); color: var(--vin3);
   border: none; cursor: pointer; font-family: 'Jost', sans-serif;
-  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
-  font-weight: 300; transition: background 0.3s;
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  font-weight: 400; transition: background 0.3s, transform 0.2s;
+  white-space: nowrap; flex-shrink: 0;
 }
-.nl-btn:hover { background: var(--vin2); }
+.nl-btn:hover { background: var(--dore2); transform: translateY(-2px); }
+.nl-success {
+  display: none; text-align: center; padding: 2rem;
+  font-family: 'Cormorant Garamond', serif; font-size: 22px;
+  font-style: italic; color: var(--dore2);
+}
+.nl-export {
+  display: none; margin-top: 1.5rem; text-align: center;
+}
+.nl-export-btn {
+  padding: 10px 28px; background: transparent;
+  border: 0.5px solid rgba(201,168,76,0.4); color: var(--dore);
+  font-family: 'Jost', sans-serif; font-size: 8.5px; letter-spacing: 3px;
+  text-transform: uppercase; cursor: pointer; transition: all 0.3s;
+}
+.nl-export-btn:hover { background: rgba(201,168,76,0.1); }
+
 
 /* ══ FOOTER ═════════════════════════════════════════ */
 footer {
@@ -805,10 +850,17 @@ footer {
 
 <!-- ══ NAV ══════════════════════════════════════════ -->
 <nav>
-  <div class="nav-brand" style="align-items: center;">
-    <img src="eh_logo.jpg" alt="Elegance House Logo" style="height: 60px; margin-bottom: 5px; object-fit: contain;">
-    <span class="nav-brand-tagline">Abomey-Calavi · Bénin</span>
+  <!-- LOGO VERSION 1 INTEGRÉ ICI -->
+  <div class="nav-brand" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <div style="font-family: 'Cinzel', serif; font-size: 28px; font-weight: 300; letter-spacing: 12px; color: var(--vin); line-height: 1; text-transform: uppercase; margin-left: 12px;">Elegance</div>
+    <div style="display: flex; align-items: center; gap: 15px; margin-top: 8px; margin-bottom: 2px;">
+      <div style="width: 25px; height: 0.5px; background: var(--dore); opacity: 0.6;"></div>
+      <div style="font-family: 'Jost', sans-serif; font-size: 8px; letter-spacing: 8px; text-transform: uppercase; color: var(--dore3); margin-right: -8px;">House</div>
+      <div style="width: 25px; height: 0.5px; background: var(--dore); opacity: 0.6;"></div>
+    </div>
+    <span class="nav-brand-tagline" style="margin-top: 5px; opacity: 0.7;">Abomey-Calavi · Bénin</span>
   </div>
+  
   <ul class="nav-links">
     <li><a href="#collections">Collections</a></li>
     <li><a href="#tissus">Nos Tissus</a></li>
@@ -821,7 +873,6 @@ footer {
 
 <!-- ══ HERO ══════════════════════════════════════════ -->
 <section class="hero">
-  <!-- Woven background pattern -->
   <div class="hero-bg">
     <svg width="100%" height="100%" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
       <defs>
@@ -835,7 +886,6 @@ footer {
       </defs>
       <rect width="1200" height="900" fill="#3D0D18"/>
       <rect width="1200" height="900" fill="url(#hero-weave)"/>
-      <!-- Horizontal pagne bands -->
       <rect x="0" y="100" width="1200" height="3" fill="#C9A84C" opacity="0.12"/>
       <rect x="0" y="200" width="1200" height="1" fill="#C9A84C" opacity="0.06"/>
       <rect x="0" y="350" width="1200" height="3" fill="#F2D4D0" opacity="0.08"/>
@@ -853,27 +903,25 @@ footer {
       </div>
       <h1 class="hero-title">
         L'élégance<br>
-        <span class="hero-title-italic">nuptiale</span>
-        <span class="hero-title-sub">tissée à la main</span>
+        <span class="hero-title-italic">africaine</span>
+        <span class="hero-title-sub">de la tête aux pieds</span>
       </h1>
       <div class="hero-ornament-line">
         <span></span>
-        <em>Mariage · Dot · Cérémonie</em>
+        <em>Le grand jour mérite la grande paix.</em>
         <span></span>
       </div>
       <p class="hero-desc">
-        Au cœur du mariage traditionnel africain, <strong>Elegance House Bénin</strong> habille les familles avec les plus beaux textiles — tissus dentelle, brocarde, pagnes tissés Asooké, Kanvô, Kenté — et une large gamme d'accessoires de mode haut de gamme. Basée à <strong>Abomey-Calavi</strong>.
+        <strong>Elegance House Bénin</strong> est votre showroom haut de gamme de textiles et accessoires africains. Tissus dentelle, brocarde, pagnes Asooké, Kanvô, Kenté, bijoux, éventails, gélés — tout ce qu'il faut pour briller lors de votre dot, mariage ou grande cérémonie. En un seul lieu, à <strong>Abomey-Calavi</strong>.
       </p>
       <div class="hero-btns">
-        <button class="btn-gold">Nos collections nuptiales</button>
-        <button class="btn-outline-blanc">Réserver une consultation</button>
+        <button class="btn-gold">Voir nos collections</button>
+        <button class="btn-outline-blanc">Nous contacter</button>
       </div>
     </div>
 
     <div class="hero-right">
       <span class="hero-side-label">Elegance House Bénin · Abomey-Calavi · Haute Gamme 2026</span>
-
-      <!-- Decorative woven panel -->
       <div class="hero-panel" style="height:480px;">
         <svg class="hero-panel-weave" width="300" height="480" viewBox="0 0 300 480">
           <defs>
@@ -883,13 +931,11 @@ footer {
               <rect x="0" y="5" width="30" height="2" fill="#C9A84C" opacity="0.6"/>
               <rect x="0" y="7" width="30" height="5" fill="#3D0D18"/>
               <rect x="0" y="12" width="30" height="1" fill="#C9A84C" opacity="0.3"/>
-              <!-- Vertical threads -->
               <line x1="10" y1="0" x2="10" y2="15" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
               <line x1="20" y1="0" x2="20" y2="15" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
             </pattern>
           </defs>
           <rect width="300" height="480" fill="url(#panel-asoke)"/>
-          <!-- Kente-like bands overlay -->
           <rect x="0" y="0" width="300" height="60" fill="#6B1A2B" opacity="0.4"/>
           <rect x="0" y="60" width="300" height="3" fill="#C9A84C" opacity="0.8"/>
           <rect x="0" y="63" width="300" height="80" opacity="0.0"/>
@@ -945,20 +991,20 @@ footer {
         Chez Elegance House Bénin, nous croyons que le mariage traditionnel africain est l'une des cérémonies les plus belles et les plus riches du monde. Chaque tissu raconte une histoire, chaque couleur porte un message.
       </p>
       <p class="intro-para">
-        De la cérémonie de dot aux retrouvailles familiales, nous accompagnons les familles avec des pagnes tissés d'exception, sélectionnés pour leur authenticité et leur prestige.
+        De la cérémonie de dot aux grandes réceptions familiales, nous proposons les plus beaux textiles et accessoires sélectionnés avec soin — pour que vous arriviez chez votre couturier avec le meilleur.
       </p>
     </div>
   </div>
   <div class="intro-right">
     <div class="intro-right-top">
       <div class="kw-tag">Notre identité</div>
-      <div class="kw-title">Au cœur du<br>mariage traditionnel</div>
-      <p class="kw-desc">Elegance House est née de la passion pour les textiles africains et la volonté de sublimer les cérémonies traditionnelles béninoises. Nous sommes spécialistes des tenues de dot, de mariage et de cérémonie.</p>
+      <div class="kw-title">Le showroom de<br>référence nuptiale</div>
+      <p class="kw-desc">Elegance House est née de la passion pour les textiles africains d'exception. Nous sommes spécialistes de la vente et de la sélection de tissus, pagnes et accessoires pour les cérémonies de dot, de mariage et les grands événements.</p>
     </div>
     <div class="intro-right-bottom">
       <div class="kw-tag">Notre engagement</div>
-      <div class="kw-title">Authenticité<br>& Savoir-faire</div>
-      <p class="kw-desc">Chaque pagne est sélectionné directement auprès des tisserands au Nigeria, au Ghana et au Bénin. Nous garantissons l'authenticité de chaque tissu et la qualité de chaque création.</p>
+      <div class="kw-title">Authenticité<br>& Expertise de sélection</div>
+      <p class="kw-desc">Chaque pagne est sourcé directement auprès des tisserands au Nigeria, au Ghana et au Bénin. Notre expertise, c'est de vous guider vers le bon tissu, la bonne couleur, le bon accessoire — pour que votre cérémonie soit parfaite.</p>
     </div>
   </div>
 </section>
@@ -1114,7 +1160,6 @@ footer {
             </pattern>
           </defs>
           <rect width="500" height="620" fill="url(#c1-pat)"/>
-          <!-- Decorative diamond pattern overlay -->
           <polygon points="250,80 320,200 250,320 180,200" fill="#C9A84C" opacity="0.06"/>
           <polygon points="250,200 340,360 250,520 160,360" fill="#C9A84C" opacity="0.04"/>
         </svg>
@@ -1268,7 +1313,6 @@ footer {
 
   <!-- Éventails & Gélés -->
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px;">
-
     <!-- Éventails mariées -->
     <div style="background:var(--blanc); padding:3rem; border:0.5px solid rgba(201,168,76,0.25);">
       <div class="kw-tag">Éventails mariées</div>
@@ -1335,11 +1379,12 @@ footer {
         <div class="m-sub">Fiançailles · Union des familles</div>
         <div class="m-div"></div>
         <p class="m-desc">
-          La dot est le rite fondateur du mariage traditionnel béninois. Les familles se réunissent, les cadeaux sont présentés, et les pagnes habillent cet instant sacré. Elegance House crée des tenues de dot qui honorent cette tradition millénaire.
+          La dot est le rite fondateur du mariage traditionnel béninois. Les familles se réunissent, les cadeaux sont présentés, et les pagnes habillent cet instant sacré. Elegance House propose les plus beaux textiles et accessoires pour honorer cette tradition millénaire.
         </p>
         <div class="m-tissus">
           <span class="m-tissu-badge">Asooké</span>
-          <span class="m-tissu-badge">Kente</span>
+          <span class="m-tissu-badge">Kenté</span>
+          <span class="m-tissu-badge">Corail</span>
         </div>
       </div>
 
@@ -1349,12 +1394,13 @@ footer {
         <div class="m-sub">Union sacrée · Fête de famille</div>
         <div class="m-div"></div>
         <p class="m-desc">
-          Le grand jour mérite les plus beaux pagnes. Mariée, marié, familles des deux côtés — Elegance House habille toute la noce dans une harmonie de couleurs et de tissus qui célèbre l'amour et l'héritage culturel.
+          Le grand jour mérite les plus beaux pagnes. Mariée, marié, familles des deux côtés — Elegance House vous propose tous les textiles et accessoires pour coordonner la noce dans une harmonie de couleurs qui célèbre l'amour et l'héritage culturel.
         </p>
         <div class="m-tissus">
           <span class="m-tissu-badge">Kanvô</span>
           <span class="m-tissu-badge">Asooké</span>
-          <span class="m-tissu-badge">Kente</span>
+          <span class="m-tissu-badge">Kenté</span>
+          <span class="m-tissu-badge">Gélés</span>
         </div>
       </div>
 
@@ -1364,10 +1410,10 @@ footer {
         <div class="m-sub">Événements · Fêtes · Réceptions</div>
         <div class="m-div"></div>
         <p class="m-desc">
-          Au-delà du mariage, Elegance House habille toutes vos cérémonies importantes : baptêmes, funérailles royales, fêtes de communauté, cérémonies d'initiation. Chaque occasion mérite l'éclat du pagne tissé.
+          Au-delà du mariage, Elegance House fournit les textiles et accessoires pour toutes vos cérémonies importantes : baptêmes, funérailles royales, fêtes de communauté. Chaque occasion mérite l'éclat du pagne tissé d'exception.
         </p>
         <div class="m-tissus">
-          <span class="m-tissu-badge">Sur mesure</span>
+          <span class="m-tissu-badge">Tous tissus</span>
           <span class="m-tissu-badge">Toutes occasions</span>
         </div>
       </div>
@@ -1387,21 +1433,21 @@ footer {
         <div class="dot-icon"><span class="dot-icon-inner">I</span></div>
         <div>
           <div class="dot-item-title">Pagnes de prestige pour la famille de la mariée</div>
-          <p class="dot-item-desc">La famille de la jeune fille reçoit des pagnes tissés soigneusement sélectionnés selon leur rang et leur dignité. L'Asooké et le Kente sont les tissus d'honneur par excellence.</p>
+          <p class="dot-item-desc">Nous proposons les plus beaux pagnes tissés pour la famille de la jeune fille — sélectionnés selon leur rang et leur dignité. L'Asooké et le Kenté sont les tissus d'honneur par excellence pour la dot.</p>
         </div>
       </div>
       <div class="dot-item">
         <div class="dot-icon"><span class="dot-icon-inner">II</span></div>
         <div>
-          <div class="dot-item-title">Tenue de la mariée pour la cérémonie de dot</div>
-          <p class="dot-item-desc">La mariée porte un Kanvô ou un Asooké soigneusement choisi — souvent bordeaux et doré — symbole de la richesse et de la beauté qu'elle apporte à l'union.</p>
+          <div class="dot-item-title">Tissus & accessoires pour la mariée</div>
+          <p class="dot-item-desc">Choisissez chez nous votre Kanvô ou Asooké pour la dot — souvent bordeaux et doré, symbole de richesse et de beauté. Complétez avec nos bijoux corail, gélés et éventails assortis.</p>
         </div>
       </div>
       <div class="dot-item">
         <div class="dot-icon"><span class="dot-icon-inner">III</span></div>
         <div>
-          <div class="dot-item-title">Tenues assorties pour les deux familles</div>
-          <p class="dot-item-desc">Elegance House crée des collections coordonnées pour les deux familles, dans des couleurs harmonieuses qui signifient visuellement l'union des deux clans.</p>
+          <div class="dot-item-title">Tissus coordonnés pour les deux familles</div>
+          <p class="dot-item-desc">Elegance House vous conseille et vous fournit des pagnes coordonnés pour les deux familles, dans des coloris harmonieux qui signifient visuellement l'union des deux clans.</p>
         </div>
       </div>
     </div>
@@ -1430,7 +1476,7 @@ footer {
       <!-- Stats -->
       <div class="dot-table">
         <div class="dot-cell" style="border-right:0.5px solid rgba(201,168,76,0.15); border-bottom:0.5px solid rgba(201,168,76,0.15);">
-          <div class="dot-cell-num">3</div>
+          <div class="dot-cell-num">5</div>
           <div class="dot-cell-label">Tissus d'exception</div>
         </div>
         <div class="dot-cell" style="border-bottom:0.5px solid rgba(201,168,76,0.15);">
@@ -1438,44 +1484,44 @@ footer {
           <div class="dot-cell-label">Authenticité garantie</div>
         </div>
         <div class="dot-cell" style="border-right:0.5px solid rgba(201,168,76,0.15);">
-          <div class="dot-cell-num">500+</div>
-          <div class="dot-cell-label">Mariages habillés</div>
+          <div class="dot-cell-num">10+</div>
+          <div class="dot-cell-label">Types d'accessoires</div>
         </div>
         <div class="dot-cell">
-          <div class="dot-cell-num">Sur mesure</div>
-          <div class="dot-cell-label">Chaque commande</div>
+          <div class="dot-cell-num">1</div>
+          <div class="dot-cell-label">Lieu unique</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ PROCESSUS ══════════════════════════════════════ -->
+<!-- ══ PROCESSUS (MIX COMPLET V1 & V2) ══════════════════════════════════════ -->
 <section class="processus" id="processus">
   <div class="sec-head">
-    <div class="sec-tag">Notre accompagnement</div>
-    <h2 class="sec-title">De la consultation<br><em>à votre tenue</em></h2>
+    <div class="sec-tag">Votre expérience sur-mesure</div>
+    <h2 class="sec-title">De la consultation<br><em>à votre tenue finale</em></h2>
   </div>
   <div class="proc-steps">
     <div class="proc-step">
       <div class="proc-step-num"><span>I</span></div>
-      <div class="proc-step-title">Consultation</div>
-      <p class="proc-step-desc">Rencontrez notre équipe à Cotonou. Décrivez votre cérémonie, vos couleurs, vos désirs. Nous vous conseillons sur le tissu adapté.</p>
+      <div class="proc-step-title">Conseil & Consultation</div>
+      <p class="proc-step-desc">Rencontrez notre équipe à Abomey-Calavi. Nous vous conseillons sur les tissus et couleurs adaptés à votre cérémonie et à votre tradition.</p>
     </div>
     <div class="proc-step">
       <div class="proc-step-num"><span>II</span></div>
       <div class="proc-step-title">Sélection</div>
-      <p class="proc-step-desc">Nous sélectionnons ensemble les pagnes — Asooké, Kente ou Kanvô — et les coloris qui correspondent à votre vision et à votre tradition.</p>
+      <p class="proc-step-desc">Touchez, comparez, choisissez. Asooké, Kanvô, Kenté, dentelle — notre showroom vous présente une sélection haut de gamme exclusive.</p>
     </div>
     <div class="proc-step">
       <div class="proc-step-num"><span>III</span></div>
-      <div class="proc-step-title">Création</div>
-      <p class="proc-step-desc">Nos couturières et artisans créent votre tenue sur mesure. Chaque détail est soigné : broderies, coupes, finitions dorées.</p>
+      <div class="proc-step-title">Création & Accessoires</div>
+      <p class="proc-step-desc">Complétez avec nos bijoux et gélés. Confiez-nous la création sur-mesure par nos couturières, ou repartez avec vos textiles pour votre propre artisan.</p>
     </div>
     <div class="proc-step">
       <div class="proc-step-num"><span>IV</span></div>
-      <div class="proc-step-title">Livraison</div>
-      <p class="proc-step-desc">Votre tenue est livrée en temps voulu, parfaitement emballée. Essayage final et derniers ajustements inclus.</p>
+      <div class="proc-step-title">Achat & Livraison</div>
+      <p class="proc-step-desc">Vos textiles et tenues finies vous sont livrés ou remis en main propre, parfaitement emballés. Qualité garantie et ajustements finaux inclus.</p>
     </div>
   </div>
 </section>
@@ -1494,17 +1540,17 @@ footer {
   <div class="banner-deco-top"></div>
   <div class="banner-deco-bot"></div>
   <div class="banner-content">
-    <div class="banner-pre">Elegance House Bénin</div>
+    <div class="banner-pre">Le grand jour mérite la grande paix.</div>
     <h2 class="banner-title">
-      Votre mariage,
-      <span class="banner-title-it">notre passion</span>
+      Votre cérémonie,
+      <span class="banner-title-it">notre sélection</span>
     </h2>
     <p class="banner-sub">
-      Confiez-nous vos plus beaux moments. De la cérémonie de dot au grand mariage traditionnel, nous créons les tenues qui immortalisent votre union dans la splendeur du pagne tissé africain.
+      Tout ce qu'il vous faut pour briller lors de votre dot, votre mariage ou votre grande cérémonie — tissus d'exception, accessoires haut de gamme et confection sur-mesure, en un seul lieu à Abomey-Calavi. Appelez-nous : <strong style="color:var(--dore);">0190008300</strong>
     </p>
     <div class="banner-btns">
-      <button class="btn-gold">Réserver une consultation</button>
-      <button class="btn-blanc">Découvrir les collections</button>
+      <button class="btn-gold">Voir nos collections</button>
+      <button class="btn-blanc">Nous contacter</button>
     </div>
   </div>
 </section>
@@ -1518,21 +1564,21 @@ footer {
   <div class="temo-grid">
     <div class="temo-card">
       <p class="temo-text">
-        "Mon Asooké était absolument magnifique lors de ma dot. Toute la famille du marié en était bouche bée. Elegance House a compris exactement ce que je voulais."
+        "Mon Asooké acheté chez Elegance House était absolument magnifique lors de ma dot. Toute la famille du marié en était bouche bée. Ils m'ont conseillée à la perfection sur les couleurs et les accessoires."
       </p>
       <div class="temo-author">Adaeze K.</div>
       <div class="temo-event">Cérémonie de dot · Cotonou 2025</div>
     </div>
     <div class="temo-card">
       <p class="temo-text">
-        "Les tenues assorties pour nos deux familles en Kente étaient parfaites. La coordination des couleurs bordeaux et dorées a créé une harmonie visuelle inoubliable."
+        "Nous avons acheté tous nos pagnes et accessoires chez Elegance House pour nos deux familles en Kenté. La qualité était parfaite, les conseils sur les coloris bordeaux et dorés ont fait toute la différence."
       </p>
       <div class="temo-author">Fatou & Kofi M.</div>
       <div class="temo-event">Mariage traditionnel · Porto-Novo 2025</div>
     </div>
     <div class="temo-card">
       <p class="temo-text">
-        "Le Kanvô blush que j'ai porté pour ma dot était d'une douceur et d'une élégance sans pareil. Elegance House, c'est le summum du raffinement béninois."
+        "Le Kanvô blush et le gélé assorti que j'ai trouvés chez Elegance House étaient d'une douceur et d'une élégance sans pareil. Une adresse incontournable pour toute cérémonie haut de gamme au Bénin."
       </p>
       <div class="temo-author">Aïssatou D.</div>
       <div class="temo-event">Dot & Mariage · Parakou 2024</div>
@@ -1545,6 +1591,7 @@ footer {
   <div>
     <div style="font-size:8px; letter-spacing:6px; text-transform:uppercase; color:var(--vin3); margin-bottom:0.5rem; opacity:0.7;">Contactez-nous directement</div>
     <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--vin3); line-height:1.1;">Abomey-Calavi, Bénin</div>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--vin3); opacity:0.6; margin-top:6px;">Le grand jour mérite la grande paix.</div>
   </div>
   <div style="display:flex; align-items:center; gap:2rem; flex-wrap:wrap;">
     <a href="tel:0190008300" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
@@ -1560,24 +1607,159 @@ footer {
   </div>
 </section>
 
-<!-- ══ NEWSLETTER ═════════════════════════════════════ -->
+<!-- ══ FICHIER CLIENT / NEWSLETTER ═══════════════════ -->
 <section class="newsletter" id="contact">
-  <div>
-    <h3 class="nl-title">Rejoignez la Maison Elegance</h3>
-    <p class="nl-sub">Nouvelles collections, conseils cérémonie, inspirations nuptiales africaines</p>
-  </div>
-  <div class="nl-form">
-    <input type="email" class="nl-input" placeholder="votre@email.com">
-    <button class="nl-btn">S'inscrire</button>
+  <div class="nl-inner">
+
+    <div class="nl-header">
+      <div class="sec-tag" style="color:var(--dore); border-color:rgba(201,168,76,0.3);">Rejoindre la Maison</div>
+      <h3 class="nl-title">Restez informée des<br><em>nouveaux arrivages</em></h3>
+      <p class="nl-sub">Nouveaux tissus, accessoires exclusifs, conseils cérémonie —<br>soyez la première à savoir, avant tout le monde.</p>
+    </div>
+
+    <div id="nl-form-wrap">
+      <div class="nl-grid">
+
+        <div class="nl-field">
+          <label class="nl-label">Prénom *</label>
+          <input class="nl-input" type="text" id="nl-prenom" placeholder="Votre prénom" required>
+        </div>
+
+        <div class="nl-field">
+          <label class="nl-label">Nom *</label>
+          <input class="nl-input" type="text" id="nl-nom" placeholder="Votre nom">
+        </div>
+
+        <div class="nl-field">
+          <label class="nl-label">Numéro WhatsApp *</label>
+          <input class="nl-input" type="tel" id="nl-whatsapp" placeholder="ex : 0190008300">
+        </div>
+
+        <div class="nl-field">
+          <label class="nl-label">Email</label>
+          <input class="nl-input" type="email" id="nl-email" placeholder="votre@email.com">
+        </div>
+
+        <div class="nl-field">
+          <label class="nl-label">Type de cérémonie</label>
+          <select class="nl-select" id="nl-ceremonie">
+            <option value="" disabled selected>Choisissez...</option>
+            <option value="dot">Cérémonie de dot</option>
+            <option value="mariage">Mariage traditionnel</option>
+            <option value="mariage-civil">Mariage civil</option>
+            <option value="grand-evenement">Grand événement / Fête</option>
+            <option value="autre">Autre occasion</option>
+          </select>
+        </div>
+
+        <div class="nl-field">
+          <label class="nl-label">Date approximative</label>
+          <input class="nl-input" type="month" id="nl-date" style="color-scheme: dark;">
+        </div>
+
+        <div class="nl-field">
+          <label class="nl-label">Ville de résidence</label>
+          <input class="nl-input" type="text" id="nl-ville" placeholder="ex : Cotonou, Abomey-Calavi...">
+        </div>
+
+        <div class="nl-field">
+          <label class="nl-label">Intérêt principal</label>
+          <select class="nl-select" id="nl-interet">
+            <option value="" disabled selected>Ce que vous recherchez...</option>
+            <option value="pagnes">Pagnes tissés (Asooké, Kanvô, Kenté)</option>
+            <option value="tissus">Tissus (dentelle, brocarde)</option>
+            <option value="accessoires">Accessoires (bijoux, chaussures, corail)</option>
+            <option value="eventails">Éventails mariées</option>
+            <option value="geles">Gélés & Foulards</option>
+            <option value="tout">Tout — je cherche une tenue complète</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="nl-bottom">
+        <p class="nl-mention">Vos informations sont confidentielles et utilisées uniquement par Elegance House Bénin pour vous informer de nos nouveautés et vous contacter pour vos besoins en cérémonie.</p>
+        <button class="nl-btn" onclick="nlSubmit()">Rejoindre la Maison ✦</button>
+      </div>
+    </div>
+
+    <div class="nl-success" id="nl-success">
+      ✦ &nbsp; Bienvenue dans la Maison Elegance, <span id="nl-prenom-confirm"></span> !<br>
+      <span style="font-size:14px; color:rgba(242,212,208,0.5); font-family:'Jost',sans-serif; font-style:normal;">Nous vous contacterons très bientôt sur WhatsApp.</span>
+    </div>
+
+    <div class="nl-export" id="nl-export">
+      <button class="nl-export-btn" onclick="nlExport()">⬇ Télécharger le fichier client (CSV)</button>
+    </div>
+
   </div>
 </section>
+
+<script>
+// Fichier client stocké localement
+var clientsEH = JSON.parse(localStorage.getItem('ehClients') || '[]');
+
+function nlSubmit() {
+  var prenom = document.getElementById('nl-prenom').value.trim();
+  var nom = document.getElementById('nl-nom').value.trim();
+  var whatsapp = document.getElementById('nl-whatsapp').value.trim();
+  var email = document.getElementById('nl-email').value.trim();
+  var ceremonie = document.getElementById('nl-ceremonie').value;
+  var date = document.getElementById('nl-date').value;
+  var ville = document.getElementById('nl-ville').value.trim();
+  var interet = document.getElementById('nl-interet').value;
+
+  if (!prenom || !whatsapp) {
+    alert('Veuillez renseigner au minimum votre prénom et votre numéro WhatsApp.');
+    return;
+  }
+
+  var client = {
+    date_inscription: new Date().toLocaleDateString('fr-FR'),
+    prenom: prenom,
+    nom: nom,
+    whatsapp: whatsapp,
+    email: email,
+    ceremonie: ceremonie,
+    date_ceremonie: date,
+    ville: ville,
+    interet: interet
+  };
+
+  clientsEH.push(client);
+  localStorage.setItem('ehClients', JSON.stringify(clientsEH));
+
+  document.getElementById('nl-form-wrap').style.display = 'none';
+  document.getElementById('nl-prenom-confirm').textContent = prenom;
+  document.getElementById('nl-success').style.display = 'block';
+  document.getElementById('nl-export').style.display = 'block';
+}
+
+function nlExport() {
+  if (clientsEH.length === 0) { alert('Aucun client enregistré.'); return; }
+  var headers = ['Date inscription','Prénom','Nom','WhatsApp','Email','Cérémonie','Date cérémonie','Ville','Intérêt'];
+  var rows = clientsEH.map(function(c) {
+    return [c.date_inscription, c.prenom, c.nom, c.whatsapp, c.email, c.ceremonie, c.date_ceremonie, c.ville, c.interet].map(function(v){ return '"'+(v||'').replace(/"/g,'""')+'"'; }).join(',');
+  });
+  var csv = '\uFEFF' + headers.join(',') + '\n' + rows.join('\n');
+  var blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = 'fichier_clients_elegance_house.csv';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+if (clientsEH.length > 0) {
+  document.getElementById('nl-export').style.display = 'block';
+}
+</script>
 
 <!-- ══ FOOTER ═════════════════════════════════════════ -->
 <footer>
   <div class="footer-top">
     <div>
       <div class="f-brand-name">Elegance House</div>
-      <div class="f-brand-sub">Abomey-Calavi · Bénin · Haute Gamme</div>
+      <div class="f-brand-sub">« Le grand jour mérite la grande paix. »</div>
       <p class="f-brand-desc">Maison de mode haut de gamme spécialisée dans le textile africain — Asooké, Kanvô, Kenté, dentelle, brocarde, bijoux, éventails, gélés. Au cœur du mariage traditionnel et de la cérémonie de dot à Abomey-Calavi, Bénin.</p>
     </div>
     <div>
@@ -1595,9 +1777,9 @@ footer {
       <ul class="f-links">
         <li><a href="#">Cérémonie de Dot</a></li>
         <li><a href="#">Mariage Traditionnel</a></li>
-        <li><a href="#">Fiançailles</a></li>
-        <li><a href="#">Tenues Familiales</a></li>
-        <li><a href="#">Sur Mesure</a></li>
+        <li><a href="#">Grands Événements</a></li>
+        <li><a href="#">Confection Sur Mesure</a></li>
+        <li><a href="#">Haute Gamme</a></li>
       </ul>
     </div>
     <div>
@@ -1612,7 +1794,7 @@ footer {
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="f-copy">© 2026 Elegance House Bénin · Tous droits réservés · Pagne Tissé Artisanal</div>
+    <div class="f-copy">© 2026 Elegance House Bénin · Tous droits réservés · Textiles, Création & Accessoires Africains</div>
     <div class="f-socials">
       <a href="#">Instagram</a>
       <a href="#">Facebook</a>

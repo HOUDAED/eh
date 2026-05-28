@@ -176,6 +176,7 @@ const EH = {
     this.renderAccessoires();
     this.renderMariages();
     this.renderTemoignages();
+    this.renderRDV();
     this.initMobileNav();
     this.initFooterHover();
     this.initExportButton();
@@ -417,6 +418,78 @@ const EH = {
     });
   },
 
+  // ── RDV : ouverture / fermeture du modal ─────────────────────────────────
+
+  openRDV() {
+    const overlay = document.getElementById('rdv-overlay');
+    if (!overlay) return;
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Réinitialiser le modal si déjà utilisé
+    const form    = document.getElementById('rdv-form');
+    const success = document.getElementById('rdv-success');
+    const btn     = document.getElementById('rdv-submit-btn');
+    if (form)    { form.style.display = '';  form.reset(); }
+    if (success) { success.style.display = 'none'; }
+    if (btn)     { btn.disabled = false; btn.textContent = 'Confirmer ma demande de RDV ✦'; }
+  },
+
+  closeRDV() {
+    const overlay = document.getElementById('rdv-overlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  },
+
+  // ── RDV : injection des options depuis content.json ───────────────────────
+
+  renderRDV() {
+    const rdv = this.data.rdv;
+    if (!rdv) return;
+
+    const objetSel = document.getElementById('rdv-objet');
+    if (objetSel) {
+      rdv.visitTypes.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value       = t.value;
+        opt.textContent = t.label;
+        objetSel.appendChild(opt);
+      });
+    }
+
+    const heureSel = document.getElementById('rdv-heure');
+    if (heureSel) {
+      rdv.timeSlots.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value       = s.value;
+        opt.textContent = s.label;
+        heureSel.appendChild(opt);
+      });
+    }
+
+    // Date min = aujourd'hui
+    const dateInput = document.getElementById('rdv-date');
+    if (dateInput) {
+      dateInput.min = new Date().toISOString().split('T')[0];
+    }
+
+    // Fermeture : bouton ✕ + clic overlay (hors modal)
+    document.getElementById('rdv-close')
+      ?.addEventListener('click', () => this.closeRDV());
+
+    document.getElementById('rdv-overlay')
+      ?.addEventListener('click', e => {
+        if (e.target === e.currentTarget) this.closeRDV();
+      });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') this.closeRDV();
+    });
+  },
+
   // ── Bouton export CSV (si clients déjà enregistrés) ───────────────────────
 
   initExportButton() {
@@ -576,6 +649,94 @@ function nlExport() {
   var a    = Object.assign(document.createElement('a'), { href: url, download: 'clients_elegance_house.csv' });
   a.click();
   URL.revokeObjectURL(url);
+}
+
+// ── RDV : soumission ────────────────────────────────────────────────────────
+
+var JOURS_FR = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+
+function formatDateRDV(raw) {
+  if (!raw) return 'Non précisée';
+  var d = new Date(raw + 'T00:00:00');
+  return JOURS_FR[d.getDay()] + ' ' + d.getDate() + ' ' + MOIS_FR[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+function rdvSubmit() {
+  var prenom   = document.getElementById('rdv-prenom').value.trim();
+  var whatsapp = document.getElementById('rdv-whatsapp').value.trim();
+  var objet    = document.getElementById('rdv-objet');
+  var date     = document.getElementById('rdv-date').value;
+  var heure    = document.getElementById('rdv-heure');
+  var message  = document.getElementById('rdv-message').value.trim();
+
+  if (!prenom || !whatsapp) {
+    alert('Veuillez renseigner votre prénom et votre numéro WhatsApp.');
+    return;
+  }
+  if (!objet.value) {
+    alert('Veuillez préciser l\'objet de votre visite.');
+    return;
+  }
+
+  var btn = document.getElementById('rdv-submit-btn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
+
+  var objetLabel = objet.options[objet.selectedIndex]?.text || objet.value;
+  var heureLabel = heure.value ? (heure.options[heure.selectedIndex]?.text || heure.value) : 'Non précisée';
+  var dateLabel  = formatDateRDV(date);
+
+  // ── WhatsApp à la gérante ──────────────────────────────────────────────────
+  var waNumber = (EH.data && EH.data.site && EH.data.site.whatsapp_intl) || '2290190008300';
+
+  var waLines = [
+    '📅 *Demande de RDV — Elegance House Bénin*',
+    '',
+    '👤 *Cliente*',
+    'Prénom : '   + prenom,
+    'WhatsApp : ' + whatsapp,
+    '',
+    '📋 *Objet de la visite*',
+    objetLabel,
+    '',
+    '🗓️ *Disponibilité souhaitée*',
+    'Date : '  + dateLabel,
+    'Heure : ' + heureLabel,
+    message ? '' : null,
+    message ? '💬 *Message*' : null,
+    message ? '"' + message + '"' : null,
+    '',
+    '_Demande reçue le ' + new Date().toLocaleDateString('fr-FR') + ' via elegancehouse.bj_'
+  ].filter(l => l !== null).join('\n');
+
+  window.open('https://wa.me/' + waNumber + '?text=' + encodeURIComponent(waLines), '_blank');
+
+  // ── Email Formspree (non-bloquant) ─────────────────────────────────────────
+  var formspreeId = (EH.data && EH.data.site && EH.data.site.formspree_id) || '';
+  if (formspreeId && formspreeId !== 'VOTRE_ID_FORMSPREE') {
+    fetch('https://formspree.io/f/' + formspreeId, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: '📅 Demande de RDV — ' + prenom,
+        prenom, whatsapp,
+        objet:   objetLabel,
+        date:    dateLabel,
+        heure:   heureLabel,
+        message: message || '—'
+      })
+    }).catch(e => console.warn('[EH] Email RDV non envoyé :', e));
+  }
+
+  // ── Afficher confirmation ──────────────────────────────────────────────────
+  var recap = document.getElementById('rdv-recap');
+  if (recap) {
+    recap.textContent = objetLabel
+      + (date ? ' · ' + dateLabel : '')
+      + (heure.value ? ' · ' + heureLabel : '');
+  }
+
+  document.getElementById('rdv-form').style.display    = 'none';
+  document.getElementById('rdv-success').style.display = 'flex';
 }
 
 // ── Démarrage ────────────────────────────────────────────────────────────────

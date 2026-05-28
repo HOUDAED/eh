@@ -27,9 +27,9 @@
     <li><a href="#accessoires">Accessoires</a></li>
     <li><a href="#mariage">Mariage & Dot</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li class="nav-links-cta-mobile"><a href="#processus" class="nav-cta">Prendre RDV</a></li>
+    <li class="nav-links-cta-mobile"><button class="nav-cta" onclick="EH.openRDV()">Prendre RDV</button></li>
   </ul>
-  <a href="#processus" class="nav-cta nav-cta-desktop">Prendre RDV</a>
+  <button class="nav-cta nav-cta-desktop" onclick="EH.openRDV()">Prendre RDV</button>
 
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
     <span></span>
@@ -516,6 +516,89 @@
     </div>
   </div>
 </footer>
+
+<!-- ══ MODAL PRISE DE RDV ══════════════════════════════════════════════════ -->
+<div class="rdv-overlay" id="rdv-overlay" aria-hidden="true" role="dialog" aria-labelledby="rdv-title">
+  <div class="rdv-modal">
+
+    <button type="button" class="rdv-close" id="rdv-close" aria-label="Fermer">✕</button>
+
+    <!-- En-tête -->
+    <div class="rdv-header">
+      <div class="rdv-eyebrow">Abomey-Calavi · Bénin · Showroom</div>
+      <h2 class="rdv-title" id="rdv-title">Prendre<br><em>Rendez-vous</em></h2>
+      <div class="rdv-divider"><span></span><span class="rdv-diamond">✦</span><span></span></div>
+      <p class="rdv-subtitle">Venez découvrir nos tissus et accessoires en boutique.<br>Notre équipe vous accueille et vous conseille personnellement.</p>
+    </div>
+
+    <!-- Formulaire -->
+    <form class="rdv-form" id="rdv-form" novalidate>
+
+      <div class="rdv-row">
+        <div class="nl-field">
+          <label class="nl-label" for="rdv-prenom">Prénom *</label>
+          <input class="nl-input" type="text" id="rdv-prenom" placeholder="Votre prénom" required>
+        </div>
+        <div class="nl-field">
+          <label class="nl-label" for="rdv-whatsapp">WhatsApp *</label>
+          <input class="nl-input" type="tel" id="rdv-whatsapp" placeholder="ex : 0190008300" required>
+        </div>
+      </div>
+
+      <div class="nl-field">
+        <label class="nl-label" for="rdv-objet">Objet de la visite *</label>
+        <select class="nl-select" id="rdv-objet" required>
+          <option value="" disabled selected>Pour quoi venez-vous ?</option>
+        </select>
+      </div>
+
+      <div class="rdv-row">
+        <div class="nl-field">
+          <label class="nl-label" for="rdv-date">Date souhaitée</label>
+          <input class="nl-input" type="date" id="rdv-date">
+        </div>
+        <div class="nl-field">
+          <label class="nl-label" for="rdv-heure">Heure préférée</label>
+          <select class="nl-select" id="rdv-heure">
+            <option value="" disabled selected>Choisissez...</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="nl-field">
+        <label class="nl-label" for="rdv-message">Message (optionnel)</label>
+        <textarea class="nl-input rdv-textarea" id="rdv-message"
+          placeholder="Décrivez votre besoin, vos couleurs préférées, votre budget..."></textarea>
+      </div>
+
+      <button type="button" class="nl-btn rdv-btn" id="rdv-submit-btn" onclick="rdvSubmit()">
+        Confirmer ma demande de RDV ✦
+      </button>
+
+      <p class="rdv-mention">
+        Après confirmation, notre équipe vous contactera sur WhatsApp pour valider le créneau.
+      </p>
+    </form>
+
+    <!-- Confirmation -->
+    <div class="rdv-success" id="rdv-success">
+      <div class="rdv-success-icon">✦</div>
+      <div class="rdv-success-title">Demande envoyée,<br><em>à très bientôt !</em></div>
+      <div class="rdv-success-channels">
+        <div class="nl-success-channel">
+          <span class="nl-success-icon">📲</span>
+          <span>Notre équipe vient de recevoir votre demande sur WhatsApp et vous recontactera très bientôt.</span>
+        </div>
+        <div class="nl-success-channel">
+          <span class="nl-success-icon">🕐</span>
+          <span id="rdv-recap"></span>
+        </div>
+      </div>
+      <button type="button" class="rdv-close-success" onclick="EH.closeRDV()">Fermer</button>
+    </div>
+
+  </div>
+</div>
 
 <script src="js/app.js"></script>
 </body>

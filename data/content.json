@@ -195,6 +195,24 @@
     }
   ],
 
+  "rdv": {
+    "visitTypes": [
+      { "value": "dot-complete",   "label": "Tenue de dot complète (mariée + famille)" },
+      { "value": "mariage-tenue",  "label": "Tenue de mariage traditionnel" },
+      { "value": "tissus",         "label": "Sélection de tissus (Asooké, Kanvô, Kenté)" },
+      { "value": "couture",        "label": "Tissus de couture (dentelle, brocarde)" },
+      { "value": "accessoires",    "label": "Accessoires (bijoux, corail, chaussures)" },
+      { "value": "eventails-gele", "label": "Éventails & Gélés mariées" },
+      { "value": "famille",        "label": "Coordination tenues famille" },
+      { "value": "decouverte",     "label": "Visite découverte / Je veux tout voir" }
+    ],
+    "timeSlots": [
+      { "value": "matin",     "label": "Matin  (8h – 12h)" },
+      { "value": "midi",      "label": "Après-midi  (12h – 16h)" },
+      { "value": "fin-aprem", "label": "Fin d'après-midi  (16h – 19h)" }
+    ]
+  },
+
   "temoignages": [
     {
       "text": "Mon Asooké acheté chez Elegance House était absolument magnifique lors de ma dot. Toute la famille du marié en était bouche bée. Ils m'ont conseillée à la perfection sur les couleurs et les accessoires.",

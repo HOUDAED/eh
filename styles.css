@@ -1211,30 +1211,79 @@ footer {
   /* ── Nav mobile ── */
   nav { padding: 1rem 1.5rem; }
 
-  .nav-cta-desktop { display: none; }
+  /* Le hamburger devient visible, le CTA desktop disparaît */
+  .nav-cta-desktop { display: none !important; }
   .nav-hamburger   { display: flex; }
 
-  /* Nav links → overlay plein écran */
+  /* Barres du hamburger — bien contrastées sur fond crème de la nav */
+  .nav-hamburger span { background: var(--vin); }
+
+  /* ── Overlay menu mobile : fond sombre luxury ── */
   .nav-links {
     position: fixed; inset: 0; z-index: 190;
-    flex-direction: column; align-items: center; justify-content: center;
-    gap: 2.5rem;
-    background: rgba(250,245,238,0.98);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: stretch; justify-content: center;
+    gap: 0;
+    background: var(--vin3);
+    border-left: 1px solid rgba(201,168,76,0.18);
     transform: translateX(100%);
     transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    padding: 5rem 0 3rem;
+    overflow-y: auto;
   }
   .nav-links.is-open { transform: translateX(0); }
-  .nav-links a {
-    font-size: 12px; letter-spacing: 4px;
+
+  /* Barres hamburger deviennent blanches sur fond sombre */
+  .nav-links.is-open ~ .nav-hamburger span,
+  .nav-hamburger.is-open span { background: var(--dore); }
+
+  /* Chaque item de nav */
+  .nav-links > li {
+    border-bottom: 0.5px solid rgba(201,168,76,0.1);
   }
+  .nav-links > li:first-child {
+    border-top: 0.5px solid rgba(201,168,76,0.1);
+  }
+
+  /* Liens : texte clair sur fond sombre */
+  .nav-links a {
+    display: block;
+    font-size: 10px; letter-spacing: 5px;
+    color: rgba(242,212,208,0.7);
+    padding: 1.2rem 2rem;
+    text-align: left;
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .nav-links a:hover {
+    color: var(--dore);
+    padding-left: 2.5rem;
+  }
+  /* Supprimer l'underline animé desktop */
+  .nav-links a::after { display: none; }
+
+  /* ── Bouton "Prendre RDV" dans l'overlay ── */
   .nav-links-cta-mobile {
-    display: block; margin-top: 1rem;
+    border-bottom: none !important;
+    padding: 2rem 2rem 0;
+    display: block;
   }
   .nav-links-cta-mobile .nav-cta {
-    display: inline-block;
+    /* Reset navigateur */
+    -webkit-appearance: none;
+    appearance: none;
+    display: block; width: 100%;
+    /* Style explicite */
+    font-family: 'Jost', sans-serif;
+    font-size: 9px; letter-spacing: 4px;
+    text-transform: uppercase; font-weight: 300;
+    padding: 15px 20px;
+    background: var(--dore);
+    color: var(--vin3);
+    border: none; outline: none;
+    cursor: pointer; text-align: center;
+    transition: background 0.25s;
   }
+  .nav-links-cta-mobile .nav-cta:hover { background: var(--dore2); }
 
   /* ── Hero ── */
   .hero-left   { padding: 6rem 1.5rem 4rem; }

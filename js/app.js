@@ -12,52 +12,131 @@
 const PATTERNS = {
 
   tissus: {
-    asoke: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+
+    // Tissus Femmes — bandes douces blush & bordeaux
+    femme: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <pattern id="pat-asoke" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+        <pattern id="pat-femme" x="0" y="0" width="40" height="12" patternUnits="userSpaceOnUse">
+          <rect width="40" height="12" fill="#8B2240"/>
+          <rect x="0" y="0" width="40" height="3" fill="#F2D4D0" opacity="0.55"/>
+          <rect x="0" y="4" width="40" height="1" fill="#C9A84C" opacity="0.5"/>
+          <rect x="0" y="6" width="40" height="3" fill="#E8B8B0" opacity="0.45"/>
+          <rect x="0" y="10" width="40" height="1" fill="#C9A84C" opacity="0.3"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-femme)"/>
+    </svg>`,
+
+    // Tissus Homme — géométrie sobre bordeaux profond
+    homme: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-homme" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+          <rect width="32" height="32" fill="#3D0D18"/>
+          <rect x="0" y="0" width="32" height="8" fill="#5A0F1E" opacity="0.9"/>
+          <rect x="0" y="8" width="32" height="8" fill="#6B1A2B" opacity="0.7"/>
+          <line x1="0" y1="16" x2="32" y2="16" stroke="#C9A84C" stroke-width="0.8" opacity="0.35"/>
+          <line x1="16" y1="0" x2="16" y2="32" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-homme)"/>
+    </svg>`,
+
+    // Tissus Mixtes — damier bicolore
+    mixte: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-mixte" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+          <rect width="24" height="24" fill="#6B1A2B"/>
+          <rect x="0" y="0" width="12" height="12" fill="#8B2240" opacity="0.8"/>
+          <rect x="12" y="12" width="12" height="12" fill="#8B2240" opacity="0.8"/>
+          <line x1="0" y1="12" x2="24" y2="12" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
+          <line x1="12" y1="0" x2="12" y2="24" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
+          <line x1="0" y1="0" x2="24" y2="24" stroke="#F2D4D0" stroke-width="0.3" opacity="0.12"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-mixte)"/>
+    </svg>`,
+
+    // Pagnes Tissés — Asooké heritage weave
+    pagne: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-pagne" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
           <rect width="24" height="24" fill="#6B1A2B"/>
           <rect x="0" y="0" width="8" height="8" fill="#8B2240" opacity="0.7"/>
           <rect x="16" y="0" width="8" height="8" fill="#8B2240" opacity="0.7"/>
           <rect x="8" y="8" width="8" height="8" fill="#4A0E1A" opacity="0.8"/>
           <rect x="0" y="16" width="8" height="8" fill="#8B2240" opacity="0.5"/>
           <rect x="16" y="16" width="8" height="8" fill="#8B2240" opacity="0.5"/>
-          <line x1="0" y1="8" x2="24" y2="8" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-          <line x1="0" y1="16" x2="24" y2="16" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
-          <line x1="8" y1="0" x2="8" y2="24" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
-          <line x1="16" y1="0" x2="16" y2="24" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+          <line x1="0" y1="8"  x2="24" y2="8"  stroke="#C9A84C" stroke-width="0.5" opacity="0.35"/>
+          <line x1="0" y1="16" x2="24" y2="16" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
+          <line x1="8" y1="0"  x2="8"  y2="24" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
+          <line x1="16" y1="0" x2="16" y2="24" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
         </pattern>
       </defs>
-      <rect width="400" height="460" fill="url(#pat-asoke)"/>
+      <rect width="400" height="460" fill="url(#pat-pagne)"/>
     </svg>`,
 
-    kanvo: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+    // Dentelle — résille fine crème & bordeaux
+    dentelle: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <pattern id="pat-kanvo" x="0" y="0" width="16" height="8" patternUnits="userSpaceOnUse">
-          <rect width="16" height="8" fill="#F2D4D0"/>
-          <rect x="0" y="0" width="16" height="2" fill="#6B1A2B" opacity="0.4"/>
-          <rect x="0" y="3" width="16" height="1" fill="#C9A84C" opacity="0.5"/>
-          <rect x="0" y="5" width="16" height="2" fill="#E8B8B0" opacity="0.6"/>
-          <line x1="4" y1="0" x2="4" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.2"/>
-          <line x1="8" y1="0" x2="8" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.2"/>
-          <line x1="12" y1="0" x2="12" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.2"/>
+        <pattern id="pat-dentelle" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <rect width="20" height="20" fill="#FAE9E6"/>
+          <line x1="0" y1="0" x2="20" y2="20" stroke="#6B1A2B" stroke-width="0.4" opacity="0.2"/>
+          <line x1="20" y1="0" x2="0" y2="20" stroke="#6B1A2B" stroke-width="0.4" opacity="0.2"/>
+          <circle cx="10" cy="10" r="2.5" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.4"/>
+          <circle cx="0"  cy="0"  r="1.5" fill="#6B1A2B" opacity="0.18"/>
+          <circle cx="20" cy="20" r="1.5" fill="#6B1A2B" opacity="0.18"/>
+          <circle cx="20" cy="0"  r="1.5" fill="#6B1A2B" opacity="0.18"/>
+          <circle cx="0"  cy="20" r="1.5" fill="#6B1A2B" opacity="0.18"/>
         </pattern>
       </defs>
-      <rect width="400" height="460" fill="url(#pat-kanvo)"/>
+      <rect width="400" height="460" fill="url(#pat-dentelle)"/>
     </svg>`,
 
-    kente: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+    // Brocarde — motif diamant doré en relief
+    brocarde: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <pattern id="pat-kente" x="0" y="0" width="32" height="16" patternUnits="userSpaceOnUse">
-          <rect width="32" height="16" fill="#C9A84C"/>
-          <rect x="0" y="0" width="32" height="4" fill="#6B1A2B" opacity="0.9"/>
-          <rect x="0" y="4" width="32" height="4" fill="#FAF5EE" opacity="0.7"/>
-          <rect x="0" y="8" width="32" height="4" fill="#6B1A2B" opacity="0.7"/>
-          <line x1="8" y1="0" x2="8" y2="16" stroke="#6B1A2B" stroke-width="1" opacity="0.3"/>
-          <line x1="16" y1="0" x2="16" y2="16" stroke="#6B1A2B" stroke-width="1" opacity="0.3"/>
-          <line x1="24" y1="0" x2="24" y2="16" stroke="#6B1A2B" stroke-width="1" opacity="0.3"/>
+        <pattern id="pat-brocarde" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+          <rect width="28" height="28" fill="#6B1A2B"/>
+          <polygon points="14,2 26,14 14,26 2,14" fill="#C9A84C" opacity="0.28"/>
+          <polygon points="14,6 22,14 14,22 6,14"  fill="#C9A84C" opacity="0.15"/>
+          <line x1="0" y1="14" x2="28" y2="14" stroke="#C9A84C" stroke-width="0.4" opacity="0.2"/>
+          <line x1="14" y1="0" x2="14" y2="28" stroke="#C9A84C" stroke-width="0.4" opacity="0.2"/>
         </pattern>
       </defs>
-      <rect width="400" height="460" fill="url(#pat-kente)"/>
+      <rect width="400" height="460" fill="url(#pat-brocarde)"/>
+      <rect width="400" height="460" fill="#8B2240" opacity="0.15"/>
+    </svg>`,
+
+    // Tissu 360 — lignes diagonales satinées
+    t360: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-t360" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+          <rect width="16" height="16" fill="#3D0D18"/>
+          <line x1="0" y1="0" x2="16" y2="16" stroke="#C9A84C" stroke-width="1.2" opacity="0.25"/>
+          <line x1="0" y1="8" x2="8"  y2="16" stroke="#C9A84C" stroke-width="0.6" opacity="0.15"/>
+          <line x1="8" y1="0" x2="16" y2="8"  stroke="#C9A84C" stroke-width="0.6" opacity="0.15"/>
+          <rect x="0" y="0" width="16" height="2" fill="#FAF5EE" opacity="0.04"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-t360)"/>
+      <rect width="400" height="460" fill="#6B1A2B" opacity="0.2"/>
+    </svg>`,
+
+    // Wax — imprimé bloc coloré africain
+    wax: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-wax" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+          <rect width="40" height="40" fill="#6B1A2B"/>
+          <rect x="0"  y="0"  width="20" height="20" fill="#8B2240" opacity="0.7"/>
+          <rect x="20" y="20" width="20" height="20" fill="#8B2240" opacity="0.7"/>
+          <rect x="10" y="5"  width="20" height="8"  fill="#C9A84C" opacity="0.3"/>
+          <rect x="10" y="27" width="20" height="8"  fill="#C9A84C" opacity="0.3"/>
+          <rect x="5"  y="15" width="8"  height="10" fill="#F2D4D0" opacity="0.2"/>
+          <rect x="27" y="15" width="8"  height="10" fill="#F2D4D0" opacity="0.2"/>
+          <circle cx="20" cy="20" r="4" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-wax)"/>
     </svg>`
   },
 
@@ -229,33 +308,22 @@ const EH = {
 
   renderTissus() {
     const grid = document.getElementById('tissus-grid');
-    if (grid) {
-      grid.innerHTML = this.data.tissus.map(t => `
-        <div class="tissu-card" id="tissu-${t.id}" data-eh-item="tissu" data-eh-id="${t.id}">
-          <div class="tissu-bg">${bg(t, PATTERNS.tissus)}</div>
-          <div class="tissu-overlay" style="background:linear-gradient(to top,${t.overlayStart} 0%,${t.overlayMid} 60%,transparent 100%);"></div>
-          <div class="tissu-content">
-            <div class="tissu-num" style="color:#C9A84C;">${esc(t.num)}</div>
-            <div class="tissu-country"><span class="tissu-flag">${t.flag}</span> ${esc(t.country)}</div>
-            <div class="tissu-name" style="color:#FAF5EE;">${esc(t.name)}</div>
-            <div class="tissu-div" style="background:var(--dore);"></div>
-            <p class="tissu-desc" style="color:rgba(242,212,208,0.8);">${esc(t.description)}</p>
-            <p class="tissu-role" style="color:var(--dore2);">${esc(t.role)}</p>
-          </div>
-        </div>
-      `).join('');
-    }
+    if (!grid) return;
 
-    const extra = document.getElementById('tissus-extra');
-    if (extra) {
-      extra.innerHTML = this.data.tissusExtra.map(c => `
-        <div class="tissus-extra-card tissus-extra-card--${c.style}" id="tissu-${c.id}" data-eh-item="tissu-extra" data-eh-id="${c.id}">
-          <div class="kw-tag">${esc(c.tag)}</div>
-          <div class="kw-title" style="font-size:26px;">${esc(c.title)}</div>
-          <p class="kw-desc">${c.description}</p>
+    grid.innerHTML = this.data.tissus.map(t => `
+      <div class="tissu-card" id="tissu-${t.id}" data-eh-item="tissu" data-eh-id="${t.id}">
+        <div class="tissu-bg">${bg(t, PATTERNS.tissus)}</div>
+        <div class="tissu-overlay" style="background:linear-gradient(to top,${t.overlayStart} 0%,${t.overlayMid} 60%,transparent 100%);"></div>
+        <div class="tissu-content">
+          <div class="tissu-num" style="color:#C9A84C;">${esc(t.num)}</div>
+          <div class="tissu-badge-label">${esc(t.badge)}</div>
+          <div class="tissu-name" style="color:#FAF5EE;">${esc(t.name)}</div>
+          <div class="tissu-div" style="background:var(--dore);"></div>
+          <p class="tissu-desc" style="color:rgba(242,212,208,0.8);">${esc(t.description)}</p>
+          <p class="tissu-role" style="color:var(--dore2);">${esc(t.exemples)}</p>
         </div>
-      `).join('');
-    }
+      </div>
+    `).join('');
   },
 
   // ── Collections ───────────────────────────────────────────────────────────

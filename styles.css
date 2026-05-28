@@ -391,7 +391,7 @@ nav {
   background: var(--creme);
 }
 .tissus-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
+  display: grid; grid-template-columns: repeat(4,1fr);
   gap: 3px; margin-top: 4rem;
 }
 .tissu-card {
@@ -409,6 +409,13 @@ nav {
   font-family: 'Cinzel', serif;
   font-size: 52px; font-weight: 300;
   line-height: 1; margin-bottom: 0.5rem; opacity: 0.2;
+}
+.tissu-badge-label {
+  display: inline-block;
+  font-size: 7px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--dore); padding: 3px 8px;
+  border: 0.5px solid rgba(201,168,76,0.4);
+  margin-bottom: 0.6rem;
 }
 .tissu-country {
   display: inline-flex; align-items: center; gap: 8px;
@@ -1177,7 +1184,7 @@ footer {
   .contact-bar   { padding: 2.5rem 2.5rem; }
   .cer-strip     { padding: 1.4rem 2.5rem; gap: 2rem; }
 
-  /* Grilles 3 → 2 colonnes */
+  /* Grilles → 2 colonnes */
   .tissus-grid  { grid-template-columns: 1fr 1fr; }
   .mariage-grid { grid-template-columns: 1fr 1fr; }
   .temo-grid    { grid-template-columns: 1fr 1fr; }

@@ -1,888 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elegance House Bénin — Textiles & Accessoires Africains · Mariage · Dot · Haute Gamme</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --vin:    #6B1A2B;
-  --vin2:   #8B2240;
-  --vin3:   #3D0D18;
-  --blush:  #F2D4D0;
-  --blush2: #E8B8B0;
-  --blush3: #FAE9E6;
-  --creme:  #FAF5EE;
-  --creme2: #F3EBD8;
-  --blanc:  #FFFFFF;
-  --dore:   #C9A84C;
-  --dore2:  #E8C97A;
-  --dore3:  #A07828;
-  --text:   #2C0A10;
-  --muted:  #7A5050;
-}
-
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  background: var(--creme);
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-/* ══ NAV ══════════════════════════════════════════ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 5rem;
-  background: rgba(250,245,238,0.95);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(201,168,76,0.25);
-}
-.nav-brand {
-  display: flex; flex-direction: column; align-items: flex-start;
-}
-.nav-brand-sup {
-  font-size: 7.5px; letter-spacing: 6px; text-transform: uppercase;
-  color: var(--dore); font-weight: 300;
-}
-.nav-brand-name {
-  font-family: 'Cinzel', serif;
-  font-size: 18px; font-weight: 300; letter-spacing: 5px;
-  color: var(--vin); line-height: 1.1;
-}
-.nav-brand-tagline {
-  font-size: 7px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--muted);
-}
-.nav-links {
-  display: flex; gap: 3rem; list-style: none;
-}
-.nav-links a {
-  font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--text); text-decoration: none; font-weight: 300;
-  transition: color 0.3s;
-  position: relative;
-}
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
-  height: 0.5px; background: var(--dore);
-  transform: scaleX(0); transition: transform 0.3s;
-}
-.nav-links a:hover { color: var(--dore); }
-.nav-links a:hover::after { transform: scaleX(1); }
-.nav-cta {
-  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
-  padding: 10px 26px; background: var(--vin); color: var(--blanc);
-  border: none; cursor: pointer; font-family: 'Jost', sans-serif;
-  font-weight: 300; text-decoration: none; transition: background 0.3s;
-}
-.nav-cta:hover { background: var(--vin2); }
-
-/* ══ HERO ══════════════════════════════════════════ */
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: flex; align-items: center;
-  overflow: hidden;
-  background: var(--vin3);
-}
-
-/* Woven texture bg */
-.hero-bg {
-  position: absolute; inset: 0; z-index: 0;
-}
-
-/* Diagonal golden bands - pagne inspired */
-.hero-bands {
-  position: absolute; inset: 0; z-index: 1;
-  overflow: hidden;
-}
-.hero-band {
-  position: absolute;
-  width: 3px; height: 200%;
-  top: -50%; opacity: 0.12;
-  background: var(--dore);
-  transform-origin: top center;
-}
-
-.hero-content {
-  position: relative; z-index: 10;
-  display: grid; grid-template-columns: 1fr 1fr;
-  width: 100%; min-height: 100vh; padding-top: 80px;
-}
-
-.hero-left {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 5rem 4rem 5rem 5rem;
-}
-
-.hero-eyebrow {
-  display: flex; align-items: center; gap: 12px;
-  font-size: 8.5px; letter-spacing: 6px; text-transform: uppercase;
-  color: var(--dore); margin-bottom: 2rem;
-}
-.hero-eyebrow-line { width: 40px; height: 0.5px; background: var(--dore); }
-
-.hero-title {
-  font-family: 'Cinzel', serif;
-  font-size: 58px; font-weight: 300;
-  color: var(--blanc); line-height: 1.1;
-  letter-spacing: 3px; margin-bottom: 0.5rem;
-}
-.hero-title-italic {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 66px; font-weight: 300; font-style: italic;
-  color: var(--dore2); line-height: 1; letter-spacing: 2px;
-  display: block;
-}
-.hero-title-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 38px; font-weight: 300;
-  color: var(--blush); letter-spacing: 4px; display: block;
-  margin-top: 0.25rem;
-}
-
-.hero-ornament-line {
-  display: flex; align-items: center; gap: 16px;
-  margin: 2rem 0;
-}
-.hero-ornament-line span { width: 50px; height: 0.5px; background: var(--dore); opacity: 0.5; }
-.hero-ornament-line em {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px; font-style: italic; color: var(--dore); opacity: 0.7;
-}
-
-.hero-desc {
-  font-size: 13.5px; line-height: 2; color: rgba(242,212,208,0.75);
-  max-width: 420px; margin-bottom: 3rem;
-  letter-spacing: 0.3px;
-}
-.hero-desc strong { color: var(--blush); font-weight: 400; }
-
-.hero-btns {
-  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-}
-.btn-gold {
-  font-family: 'Jost', sans-serif;
-  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
-  padding: 14px 36px; background: var(--dore); color: var(--vin3);
-  border: none; cursor: pointer; font-weight: 400;
-  transition: background 0.3s, transform 0.2s;
-}
-.btn-gold:hover { background: var(--dore2); transform: translateY(-2px); }
-.btn-outline-blanc {
-  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
-  padding: 13px 32px; background: transparent; color: var(--blush);
-  border: 0.5px solid rgba(242,212,208,0.4); cursor: pointer;
-  font-family: 'Jost', sans-serif; font-weight: 300;
-  transition: border-color 0.3s, color 0.3s;
-}
-.btn-outline-blanc:hover { border-color: var(--dore); color: var(--dore); }
-
-.hero-right {
-  display: flex; align-items: center; justify-content: center;
-  padding: 6rem 4rem;
-  position: relative;
-}
-
-/* Vertical woven panel */
-.hero-panel {
-  width: 300px;
-  border: 1px solid rgba(201,168,76,0.35);
-  position: relative;
-  overflow: hidden;
-}
-.hero-panel::before {
-  content: ''; position: absolute; inset: 10px;
-  border: 0.5px solid rgba(201,168,76,0.2);
-  z-index: 2; pointer-events: none;
-}
-
-.hero-panel-weave {
-  width: 100%; height: 100%;
-}
-
-.hero-panel-overlay {
-  position: absolute; inset: 0; z-index: 3;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 0.75rem;
-  background: linear-gradient(to bottom,
-    rgba(61,13,24,0.4) 0%,
-    rgba(61,13,24,0.1) 40%,
-    rgba(61,13,24,0.1) 60%,
-    rgba(61,13,24,0.6) 100%
-  );
-}
-
-.panel-badge {
-  font-size: 7px; letter-spacing: 5px; text-transform: uppercase;
-  color: var(--dore); padding: 5px 14px;
-  border: 0.5px solid rgba(201,168,76,0.5);
-}
-.panel-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 300; font-style: italic;
-  color: var(--blanc); letter-spacing: 2px; text-align: center;
-  line-height: 1.3;
-}
-.panel-div { width: 40px; height: 0.5px; background: var(--dore); }
-.panel-sub {
-  font-size: 7.5px; letter-spacing: 4px; text-transform: uppercase;
-  color: rgba(242,212,208,0.6);
-}
-
-/* Floating side label */
-.hero-side-label {
-  position: absolute; left: -50px; top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  font-size: 7.5px; letter-spacing: 6px; text-transform: uppercase;
-  color: rgba(201,168,76,0.4); white-space: nowrap;
-}
-
-/* ══ CEREMONIES STRIP ══════════════════════════════ */
-.cer-strip {
-  background: var(--dore);
-  padding: 1.4rem 5rem;
-  display: flex; align-items: center; justify-content: center;
-  gap: 4rem;
-  overflow: hidden;
-}
-.cer-strip-item {
-  display: flex; align-items: center; gap: 12px;
-  color: var(--vin3); font-size: 9px; letter-spacing: 3px;
-  text-transform: uppercase; font-weight: 400; white-space: nowrap;
-}
-.cer-strip-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--vin3); opacity: 0.4; flex-shrink: 0;
-}
-
-/* ══ INTRO NUPTIALE ════════════════════════════════ */
-.intro {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 85vh;
-}
-.intro-left {
-  background: var(--vin);
-  padding: 7rem 5rem;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; overflow: hidden;
-}
-.intro-left-pattern {
-  position: absolute; inset: 0; opacity: 0.05;
-}
-.intro-left-content { position: relative; z-index: 1; }
-
-.intro-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px; font-weight: 300; font-style: italic;
-  color: var(--blanc); line-height: 1.2; margin-bottom: 1.5rem;
-  letter-spacing: 1px;
-}
-.intro-quote em { color: var(--dore2); }
-
-.intro-quote-source {
-  font-size: 8.5px; letter-spacing: 5px; text-transform: uppercase;
-  color: rgba(201,168,76,0.6);
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 2.5rem;
-}
-.intro-quote-source::before {
-  content: ''; display: block; width: 30px; height: 0.5px; background: var(--dore); opacity: 0.5;
-}
-
-.intro-para {
-  font-size: 13px; line-height: 2.1;
-  color: rgba(242,212,208,0.7); max-width: 380px;
-}
-.intro-para + .intro-para { margin-top: 1rem; }
-
-.intro-right {
-  background: var(--blush3);
-  display: grid; grid-template-rows: 1fr 1fr;
-}
-
-.intro-right-top {
-  padding: 4rem 4rem 2rem;
-  border-bottom: 0.5px solid rgba(107,26,43,0.12);
-}
-.intro-right-bottom {
-  padding: 2rem 4rem 4rem;
-}
-
-.kw-tag {
-  font-size: 8.5px; letter-spacing: 5px; text-transform: uppercase;
-  color: var(--dore3); margin-bottom: 1rem;
-  display: flex; align-items: center; gap: 10px;
-}
-.kw-tag::before { content: ''; display: block; width: 20px; height: 0.5px; background: var(--dore3); }
-
-.kw-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 34px; font-weight: 400;
-  color: var(--vin); margin-bottom: 0.75rem; line-height: 1.1;
-}
-.kw-desc {
-  font-size: 13px; line-height: 1.9; color: var(--muted);
-}
-
-/* ══ SECTION TITLE ══════════════════════════════════ */
-.sec-head {
-  text-align: center; margin-bottom: 4rem;
-}
-.sec-tag {
-  font-size: 8.5px; letter-spacing: 6px; text-transform: uppercase;
-  color: var(--dore); margin-bottom: 0.75rem;
-  display: flex; align-items: center; justify-content: center; gap: 16px;
-}
-.sec-tag::before, .sec-tag::after {
-  content: ''; display: block; width: 30px; height: 0.5px; background: var(--dore);
-}
-.sec-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 46px; font-weight: 300; color: var(--vin);
-  line-height: 1.1; letter-spacing: 1px;
-}
-.sec-title em { font-style: italic; color: var(--vin2); }
-
-/* ══ COLLECTIONS ════════════════════════════════════ */
-.collections {
-  padding: 7rem 5rem;
-  background: var(--blanc);
-}
-
-.coll-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 3px;
-}
-
-.coll-card {
-  position: relative; overflow: hidden; cursor: pointer;
-}
-.coll-card-main { grid-row: 1 / 3; min-height: 620px; }
-.coll-card-sm { min-height: 300px; }
-
-.coll-bg { position: absolute; inset: 0; transition: transform 0.7s ease; }
-.coll-card:hover .coll-bg { transform: scale(1.06); }
-
-.coll-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(160deg, transparent 30%, rgba(61,13,24,0.88) 100%);
-  z-index: 1;
-}
-
-.coll-content {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 2rem 2.5rem; z-index: 2;
-}
-.coll-badge {
-  display: inline-block;
-  font-size: 7px; letter-spacing: 3px; text-transform: uppercase;
-  padding: 4px 10px; background: var(--dore); color: var(--vin3);
-  margin-bottom: 0.75rem; font-weight: 400;
-}
-.coll-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 30px; font-weight: 300; color: var(--blanc);
-  line-height: 1.1; margin-bottom: 0.3rem; letter-spacing: 1px;
-}
-.coll-sub {
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: rgba(242,212,208,0.7);
-}
-
-/* ══ NOS TISSUS ═════════════════════════════════════ */
-.tissus {
-  padding: 7rem 5rem;
-  background: var(--creme);
-}
-
-.tissus-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 3px; margin-top: 4rem;
-}
-
-.tissu-card {
-  padding: 3rem 2.5rem 2.5rem;
-  position: relative; overflow: hidden;
-  cursor: pointer; transition: transform 0.35s;
-  min-height: 460px;
-  display: flex; flex-direction: column; justify-content: flex-end;
-}
-.tissu-card:hover { transform: translateY(-5px); }
-
-.tissu-bg { position: absolute; inset: 0; z-index: 0; }
-.tissu-overlay { position: absolute; inset: 0; z-index: 1; }
-.tissu-content { position: relative; z-index: 2; }
-
-.tissu-num {
-  font-family: 'Cinzel', serif;
-  font-size: 52px; font-weight: 300;
-  line-height: 1; margin-bottom: 0.5rem; opacity: 0.2;
-}
-.tissu-country {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 7.5px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--dore); margin-bottom: 0.75rem;
-}
-.tissu-flag { font-size: 14px; }
-.tissu-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 34px; font-weight: 300;
-  line-height: 1; margin-bottom: 0.75rem; letter-spacing: 1px;
-}
-.tissu-div { width: 32px; height: 0.5px; margin-bottom: 1rem; }
-.tissu-desc {
-  font-size: 12px; line-height: 1.9; opacity: 0.75;
-}
-.tissu-role {
-  margin-top: 1.25rem;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px; font-style: italic;
-  opacity: 0.6;
-}
-
-/* ══ MARIAGE TRADITION ══════════════════════════════ */
-.mariage {
-  background: var(--vin3);
-  position: relative; overflow: hidden;
-}
-
-.mariage-pattern-bg {
-  position: absolute; inset: 0; opacity: 0.04; z-index: 0;
-}
-
-.mariage-inner {
-  position: relative; z-index: 1;
-  padding: 7rem 5rem;
-}
-
-.mariage-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2px; margin-top: 4rem;
-}
-
-.m-card {
-  padding: 2.5rem 2rem;
-  border: 0.5px solid rgba(201,168,76,0.15);
-  transition: border-color 0.3s, background 0.3s;
-  cursor: default;
-}
-.m-card:hover {
-  border-color: rgba(201,168,76,0.4);
-  background: rgba(201,168,76,0.04);
-}
-
-.m-num {
-  font-family: 'Cinzel', serif;
-  font-size: 36px; font-weight: 300; color: var(--dore);
-  opacity: 0.3; margin-bottom: 1.25rem; line-height: 1;
-}
-.m-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px; font-weight: 300; font-style: italic;
-  color: var(--blanc); margin-bottom: 0.5rem;
-}
-.m-sub {
-  font-size: 8px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--dore); margin-bottom: 1.25rem;
-}
-.m-desc {
-  font-size: 12px; line-height: 1.9;
-  color: rgba(242,212,208,0.6);
-}
-.m-div { width: 24px; height: 0.5px; background: var(--dore); opacity: 0.4; margin-bottom: 1rem; }
-
-/* Tissu recommendation badges */
-.m-tissus {
-  display: flex; gap: 6px; flex-wrap: wrap; margin-top: 1.25rem;
-}
-.m-tissu-badge {
-  font-size: 7px; letter-spacing: 2px; text-transform: uppercase;
-  padding: 3px 8px; color: var(--dore);
-  border: 0.5px solid rgba(201,168,76,0.4);
-}
-
-/* ══ DOT SECTION ════════════════════════════════════ */
-.dot-section {
-  display: grid; grid-template-columns: 1fr 1.2fr;
-  min-height: 80vh;
-}
-
-.dot-left {
-  background: var(--blush);
-  padding: 7rem 4rem 7rem 5rem;
-  display: flex; flex-direction: column; justify-content: center;
-}
-
-.dot-visual {
-  background: var(--vin2);
-  display: flex; align-items: center; justify-content: center;
-  position: relative; overflow: hidden;
-  min-height: 600px;
-}
-.dot-visual-pattern { position: absolute; inset: 0; opacity: 0.08; }
-.dot-visual-content { position: relative; z-index: 2; text-align: center; padding: 3rem; }
-
-.dot-items {
-  display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem;
-}
-.dot-item {
-  display: flex; align-items: flex-start; gap: 1.25rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 0.5px solid rgba(107,26,43,0.12);
-}
-.dot-item:last-child { border-bottom: none; }
-.dot-icon {
-  width: 36px; height: 36px; flex-shrink: 0;
-  background: var(--vin);
-  display: flex; align-items: center; justify-content: center;
-}
-.dot-icon-inner {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px; font-style: italic; color: var(--dore);
-}
-.dot-item-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; font-weight: 400; color: var(--vin);
-  margin-bottom: 4px;
-}
-.dot-item-desc {
-  font-size: 12px; line-height: 1.8; color: var(--muted);
-}
-
-/* Tableau visuel de la dot */
-.dot-table {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 2px; margin-top: 2rem;
-}
-.dot-cell {
-  padding: 1.5rem; text-align: center;
-}
-.dot-cell-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px; font-weight: 300; color: var(--dore2);
-  line-height: 1;
-}
-.dot-cell-label {
-  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
-  color: rgba(242,212,208,0.6); margin-top: 4px;
-}
-
-/* ══ PROCESSUS ══════════════════════════════════════ */
-.processus {
-  padding: 7rem 5rem;
-  background: var(--creme2);
-}
-
-.proc-steps {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 0; margin-top: 4rem; position: relative;
-}
-
-.proc-steps::before {
-  content: '';
-  position: absolute; top: 28px; left: 14%; right: 14%;
-  height: 0.5px; background: linear-gradient(to right, var(--dore), var(--blush2), var(--dore));
-  z-index: 0;
-}
-
-.proc-step {
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center; padding: 0 1.5rem;
-  position: relative; z-index: 1;
-}
-
-.proc-step-num {
-  width: 56px; height: 56px;
-  background: var(--vin);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.75rem;
-}
-.proc-step-num span {
-  font-family: 'Cinzel', serif;
-  font-size: 18px; font-weight: 300; color: var(--dore);
-}
-.proc-step-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 400; color: var(--vin);
-  margin-bottom: 0.5rem;
-}
-.proc-step-desc {
-  font-size: 11.5px; line-height: 1.8; color: var(--muted);
-}
-
-/* ══ BANNER CTA ═════════════════════════════════════ */
-.banner {
-  position: relative;
-  background: var(--vin);
-  overflow: hidden; text-align: center;
-  padding: 8rem 5rem;
-}
-.banner-bg { position: absolute; inset: 0; opacity: 0.05; }
-.banner-deco-top {
-  position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(to right, transparent, var(--dore), transparent);
-}
-.banner-deco-bot {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(to right, transparent, var(--dore), transparent);
-}
-.banner-content { position: relative; z-index: 1; }
-.banner-pre {
-  font-size: 8.5px; letter-spacing: 7px; text-transform: uppercase;
-  color: var(--dore); margin-bottom: 1.5rem;
-  display: flex; align-items: center; justify-content: center; gap: 18px;
-}
-.banner-pre::before, .banner-pre::after {
-  content: ''; display: block; width: 50px; height: 0.5px; background: var(--dore);
-}
-.banner-title {
-  font-family: 'Cinzel', serif;
-  font-size: 52px; font-weight: 300;
-  color: var(--blanc); line-height: 1.1;
-  letter-spacing: 4px; margin-bottom: 0.75rem;
-}
-.banner-title-it {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 60px; font-weight: 300; font-style: italic;
-  color: var(--blush); display: block; letter-spacing: 2px;
-}
-.banner-sub {
-  font-size: 13px; line-height: 2; color: rgba(242,212,208,0.65);
-  max-width: 520px; margin: 1.5rem auto 3rem;
-}
-.banner-btns {
-  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
-}
-.btn-blanc {
-  font-family: 'Jost', sans-serif;
-  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
-  padding: 14px 38px; background: var(--blanc); color: var(--vin);
-  border: none; cursor: pointer; font-weight: 400;
-  transition: background 0.3s, transform 0.2s;
-}
-.btn-blanc:hover { background: var(--creme); transform: translateY(-2px); }
-
-/* ══ TEMOIGNAGES ════════════════════════════════════ */
-.temoignages {
-  padding: 7rem 5rem;
-  background: var(--blanc);
-}
-.temo-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 2px; margin-top: 4rem;
-}
-.temo-card {
-  padding: 2.5rem 2rem;
-  background: var(--blush3);
-  position: relative;
-}
-.temo-card::before {
-  content: '\201C';
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 80px; color: var(--dore); opacity: 0.2;
-  position: absolute; top: 0.5rem; left: 1rem; line-height: 1;
-}
-.temo-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px; font-style: italic; line-height: 1.7;
-  color: var(--vin); margin-bottom: 1.25rem; position: relative;
-}
-.temo-author {
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--dore3);
-}
-.temo-event {
-  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--muted); margin-top: 2px;
-}
-
-/* ══ NEWSLETTER / FICHIER CLIENT ════════════════════ */
-.newsletter {
-  background: var(--vin3);
-  padding: 6rem 5rem;
-  border-top: 0.5px solid rgba(201,168,76,0.2);
-}
-.nl-inner {
-  max-width: 900px; margin: 0 auto;
-}
-.nl-header {
-  text-align: center; margin-bottom: 3.5rem;
-}
-.nl-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px; font-weight: 300; color: var(--blanc);
-  margin-bottom: 0.5rem; line-height: 1.15;
-}
-.nl-title em { color: var(--dore2); font-style: italic; }
-.nl-sub { font-size: 13px; color: rgba(242,212,208,0.6); line-height: 1.9; }
-.nl-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 2px; margin-bottom: 2px;
-}
-.nl-field {
-  display: flex; flex-direction: column; gap: 8px;
-}
-.nl-label {
-  font-size: 8px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--dore); font-weight: 300;
-}
-.nl-input {
-  padding: 14px 18px;
-  background: rgba(255,255,255,0.05);
-  border: 0.5px solid rgba(201,168,76,0.3);
-  font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
-  color: var(--blanc); outline: none; width: 100%;
-  transition: border-color 0.3s;
-}
-.nl-input::placeholder { color: rgba(242,212,208,0.3); }
-.nl-input:focus { border-color: var(--dore); background: rgba(255,255,255,0.08); }
-.nl-select {
-  padding: 14px 18px;
-  background: rgba(255,255,255,0.05);
-  border: 0.5px solid rgba(201,168,76,0.3);
-  font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
-  color: var(--blanc); outline: none; width: 100%;
-  appearance: none; cursor: pointer;
-  transition: border-color 0.3s;
-}
-.nl-select option { background: var(--vin3); color: var(--blanc); }
-.nl-select:focus { border-color: var(--dore); }
-.nl-full { grid-column: 1 / -1; }
-.nl-bottom {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 2rem; margin-top: 2px; flex-wrap: wrap;
-}
-.nl-mention {
-  font-size: 10px; color: rgba(242,212,208,0.35); line-height: 1.7; flex: 1;
-}
-.nl-btn {
-  padding: 16px 40px; background: var(--dore); color: var(--vin3);
-  border: none; cursor: pointer; font-family: 'Jost', sans-serif;
-  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
-  font-weight: 400; transition: background 0.3s, transform 0.2s;
-  white-space: nowrap; flex-shrink: 0;
-}
-.nl-btn:hover { background: var(--dore2); transform: translateY(-2px); }
-.nl-success {
-  display: none; text-align: center; padding: 2rem;
-  font-family: 'Cormorant Garamond', serif; font-size: 22px;
-  font-style: italic; color: var(--dore2);
-}
-/* Export button */
-.nl-export {
-  display: none; margin-top: 1.5rem; text-align: center;
-}
-.nl-export-btn {
-  padding: 10px 28px; background: transparent;
-  border: 0.5px solid rgba(201,168,76,0.4); color: var(--dore);
-  font-family: 'Jost', sans-serif; font-size: 8.5px; letter-spacing: 3px;
-  text-transform: uppercase; cursor: pointer; transition: all 0.3s;
-}
-.nl-export-btn:hover { background: rgba(201,168,76,0.1); }
-
-
-/* ══ FOOTER ═════════════════════════════════════════ */
-footer {
-  background: var(--vin3); padding: 5rem 5rem 2rem;
-}
-.footer-top {
-  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 4rem; padding-bottom: 3rem;
-  border-bottom: 0.5px solid rgba(242,212,208,0.1);
-  margin-bottom: 2rem;
-}
-.f-brand-name {
-  font-family: 'Cinzel', serif;
-  font-size: 22px; font-weight: 300; color: var(--blanc);
-  letter-spacing: 4px; margin-bottom: 4px;
-}
-.f-brand-sub {
-  font-size: 7.5px; letter-spacing: 5px; text-transform: uppercase;
-  color: var(--dore); margin-bottom: 1.5rem;
-}
-.f-brand-desc {
-  font-size: 12px; line-height: 1.9;
-  color: rgba(242,212,208,0.5); max-width: 230px;
-}
-.f-col-title {
-  font-size: 8px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--dore); margin-bottom: 1.5rem;
-}
-.f-links { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
-.f-links a {
-  font-size: 12px; color: rgba(242,212,208,0.5); text-decoration: none;
-  transition: color 0.3s;
-}
-.f-links a:hover { color: var(--dore); }
-.footer-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-}
-.f-copy {
-  font-size: 10px; color: rgba(242,212,208,0.25); letter-spacing: 1px;
-}
-.f-socials { display: flex; gap: 2rem; }
-.f-socials a {
-  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
-  color: rgba(242,212,208,0.35); text-decoration: none; transition: color 0.3s;
-}
-.f-socials a:hover { color: var(--dore); }
-
-/* ══ ANIMATIONS ═════════════════════════════════════ */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes shimmer {
-  0%   { opacity: 0.05; }
-  50%  { opacity: 0.12; }
-  100% { opacity: 0.05; }
-}
-.hero-eyebrow { animation: fadeUp 0.7s ease 0.1s both; }
-.hero-title   { animation: fadeUp 0.8s ease 0.2s both; }
-.hero-ornament-line { animation: fadeUp 0.7s ease 0.35s both; }
-.hero-desc    { animation: fadeUp 0.7s ease 0.45s both; }
-.hero-btns    { animation: fadeUp 0.7s ease 0.6s both; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegance House Bénin — Textiles & Accessoires Africains · Mariage · Dot · Haute Gamme</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════ -->
+<!-- ══ NAV ══════════════════════════════════════════════════════════════════ -->
 <nav>
-  <!-- LOGO VERSION 1 INTEGRÉ ICI -->
-  <div class="nav-brand" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-    <div style="font-family: 'Cinzel', serif; font-size: 28px; font-weight: 300; letter-spacing: 12px; color: var(--vin); line-height: 1; text-transform: uppercase; margin-left: 12px;">Elegance</div>
-    <div style="display: flex; align-items: center; gap: 15px; margin-top: 8px; margin-bottom: 2px;">
-      <div style="width: 25px; height: 0.5px; background: var(--dore); opacity: 0.6;"></div>
-      <div style="font-family: 'Jost', sans-serif; font-size: 8px; letter-spacing: 8px; text-transform: uppercase; color: var(--dore3); margin-right: -8px;">House</div>
-      <div style="width: 25px; height: 0.5px; background: var(--dore); opacity: 0.6;"></div>
+  <div class="nav-brand">
+    <div class="nav-brand-name">Elegance</div>
+    <div class="nav-brand-rule">
+      <span></span>
+      <span class="nav-brand-house">House</span>
+      <span></span>
     </div>
-    <span class="nav-brand-tagline" style="margin-top: 5px; opacity: 0.7;">Abomey-Calavi · Bénin</span>
+    <span class="nav-brand-tagline">Abomey-Calavi · Bénin</span>
   </div>
-  
-  <ul class="nav-links">
+
+  <ul class="nav-links" id="nav-links">
     <li><a href="#collections">Collections</a></li>
     <li><a href="#tissus">Nos Tissus</a></li>
     <li><a href="#accessoires">Accessoires</a></li>
     <li><a href="#mariage">Mariage & Dot</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li class="nav-links-cta-mobile"><a href="#processus" class="nav-cta">Prendre RDV</a></li>
   </ul>
-  <a href="#processus" class="nav-cta">Prendre RDV</a>
+  <a href="#processus" class="nav-cta nav-cta-desktop">Prendre RDV</a>
+
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
-<!-- ══ HERO ══════════════════════════════════════════ -->
+<!-- ══ HERO ══════════════════════════════════════════════════════════════════ -->
 <section class="hero">
-  <!-- Woven background pattern -->
   <div class="hero-bg">
     <svg width="100%" height="100%" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
       <defs>
@@ -896,7 +53,6 @@ footer {
       </defs>
       <rect width="1200" height="900" fill="#3D0D18"/>
       <rect width="1200" height="900" fill="url(#hero-weave)"/>
-      <!-- Horizontal pagne bands -->
       <rect x="0" y="100" width="1200" height="3" fill="#C9A84C" opacity="0.12"/>
       <rect x="0" y="200" width="1200" height="1" fill="#C9A84C" opacity="0.06"/>
       <rect x="0" y="350" width="1200" height="3" fill="#F2D4D0" opacity="0.08"/>
@@ -926,15 +82,13 @@ footer {
         <strong>Elegance House Bénin</strong> est votre showroom haut de gamme de textiles et accessoires africains. Tissus dentelle, brocarde, pagnes Asooké, Kanvô, Kenté, bijoux, éventails, gélés — tout ce qu'il faut pour briller lors de votre dot, mariage ou grande cérémonie. En un seul lieu, à <strong>Abomey-Calavi</strong>.
       </p>
       <div class="hero-btns">
-        <button class="btn-gold">Voir nos collections</button>
-        <button class="btn-outline-blanc">Nous contacter</button>
+        <button class="btn-gold" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">Voir nos collections</button>
+        <button class="btn-outline-blanc" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Nous contacter</button>
       </div>
     </div>
 
     <div class="hero-right">
       <span class="hero-side-label">Elegance House Bénin · Abomey-Calavi · Haute Gamme 2026</span>
-
-      <!-- Decorative woven panel -->
       <div class="hero-panel" style="height:480px;">
         <svg class="hero-panel-weave" width="300" height="480" viewBox="0 0 300 480">
           <defs>
@@ -944,22 +98,19 @@ footer {
               <rect x="0" y="5" width="30" height="2" fill="#C9A84C" opacity="0.6"/>
               <rect x="0" y="7" width="30" height="5" fill="#3D0D18"/>
               <rect x="0" y="12" width="30" height="1" fill="#C9A84C" opacity="0.3"/>
-              <!-- Vertical threads -->
               <line x1="10" y1="0" x2="10" y2="15" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
               <line x1="20" y1="0" x2="20" y2="15" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
             </pattern>
           </defs>
           <rect width="300" height="480" fill="url(#panel-asoke)"/>
-          <!-- Kente-like bands overlay -->
-          <rect x="0" y="0" width="300" height="60" fill="#6B1A2B" opacity="0.4"/>
-          <rect x="0" y="60" width="300" height="3" fill="#C9A84C" opacity="0.8"/>
-          <rect x="0" y="63" width="300" height="80" opacity="0.0"/>
-          <rect x="0" y="143" width="300" height="3" fill="#C9A84C" opacity="0.8"/>
+          <rect x="0" y="0"   width="300" height="60" fill="#6B1A2B" opacity="0.4"/>
+          <rect x="0" y="60"  width="300" height="3"  fill="#C9A84C" opacity="0.8"/>
+          <rect x="0" y="143" width="300" height="3"  fill="#C9A84C" opacity="0.8"/>
           <rect x="0" y="143" width="300" height="60" fill="#8B2240" opacity="0.3"/>
-          <rect x="0" y="203" width="300" height="3" fill="#F2D4D0" opacity="0.4"/>
-          <rect x="0" y="340" width="300" height="3" fill="#C9A84C" opacity="0.8"/>
+          <rect x="0" y="203" width="300" height="3"  fill="#F2D4D0" opacity="0.4"/>
+          <rect x="0" y="340" width="300" height="3"  fill="#C9A84C" opacity="0.8"/>
+          <rect x="0" y="417" width="300" height="3"  fill="#C9A84C" opacity="0.8"/>
           <rect x="0" y="420" width="300" height="60" fill="#6B1A2B" opacity="0.4"/>
-          <rect x="0" y="417" width="300" height="3" fill="#C9A84C" opacity="0.8"/>
         </svg>
         <div class="hero-panel-overlay">
           <div class="panel-badge">Collection 2026</div>
@@ -972,20 +123,10 @@ footer {
   </div>
 </section>
 
-<!-- ══ CEREMONIES STRIP ══════════════════════════════ -->
-<div class="cer-strip">
-  <div class="cer-strip-item">✦ Mariage traditionnel</div>
-  <div class="cer-strip-dot"></div>
-  <div class="cer-strip-item">✦ Cérémonie de dot</div>
-  <div class="cer-strip-dot"></div>
-  <div class="cer-strip-item">✦ Accessoires de mode</div>
-  <div class="cer-strip-dot"></div>
-  <div class="cer-strip-item">✦ Éventails & Gélé mariées</div>
-  <div class="cer-strip-dot"></div>
-  <div class="cer-strip-item">✦ Haute Gamme · 0190008300</div>
-</div>
+<!-- ══ BANDEAU CÉRÉMONIES — rendu par app.js depuis cerStrip ═══════════════ -->
+<div class="cer-strip" id="cer-strip"></div>
 
-<!-- ══ INTRO NUPTIALE ════════════════════════════════ -->
+<!-- ══ INTRO NUPTIALE ════════════════════════════════════════════════════════ -->
 <section class="intro">
   <div class="intro-left">
     <svg class="intro-left-pattern" viewBox="0 0 500 700" preserveAspectRatio="xMidYMid slice">
@@ -1024,355 +165,51 @@ footer {
   </div>
 </section>
 
-<!-- ══ NOS TISSUS ═════════════════════════════════════ -->
+<!-- ══ NOS TISSUS — rendu par app.js depuis data.tissus ═══════════════════ -->
 <section class="tissus" id="tissus">
   <div class="sec-head">
     <div class="sec-tag">Patrimoine textiles</div>
     <h2 class="sec-title">Nos pagnes tissés,<br><em>trois héritages</em></h2>
   </div>
-  <div class="tissus-grid">
-
-    <!-- Asooké -->
-    <div class="tissu-card">
-      <div class="tissu-bg">
-        <svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="asoke-bg" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-              <rect width="24" height="24" fill="#6B1A2B"/>
-              <rect x="0" y="0" width="8" height="8" fill="#8B2240" opacity="0.7"/>
-              <rect x="16" y="0" width="8" height="8" fill="#8B2240" opacity="0.7"/>
-              <rect x="8" y="8" width="8" height="8" fill="#4A0E1A" opacity="0.8"/>
-              <rect x="0" y="16" width="8" height="8" fill="#8B2240" opacity="0.5"/>
-              <rect x="16" y="16" width="8" height="8" fill="#8B2240" opacity="0.5"/>
-              <line x1="0" y1="8" x2="24" y2="8" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-              <line x1="0" y1="16" x2="24" y2="16" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
-              <line x1="8" y1="0" x2="8" y2="24" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
-              <line x1="16" y1="0" x2="16" y2="24" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
-            </pattern>
-          </defs>
-          <rect width="400" height="460" fill="url(#asoke-bg)"/>
-        </svg>
-      </div>
-      <div class="tissu-overlay" style="background: linear-gradient(to top, rgba(61,13,24,0.85) 0%, rgba(61,13,24,0.2) 60%, transparent 100%);"></div>
-      <div class="tissu-content">
-        <div class="tissu-num" style="color:#C9A84C;">01</div>
-        <div class="tissu-country"><span class="tissu-flag">🇳🇬</span> Origine Nigeria</div>
-        <div class="tissu-name" style="color:#FAF5EE;">Asooké</div>
-        <div class="tissu-div" style="background:var(--dore);"></div>
-        <p class="tissu-desc" style="color:rgba(242,212,208,0.8);">
-          Tissu de prestige Yoruba, tissé en bandes étroites sur métier horizontal. Ses fils de soie et ses broderies dorées en font le symbole de la royauté. L'Asooké est la tenue d'honneur par excellence lors de la dot et du mariage traditionnel.
-        </p>
-        <p class="tissu-role" style="color:var(--dore2);">
-          Idéal pour la cérémonie de dot, les tenues du marié et de sa famille
-        </p>
-      </div>
-    </div>
-
-    <!-- Kanvô -->
-    <div class="tissu-card">
-      <div class="tissu-bg">
-        <svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="kanvo-bg" x="0" y="0" width="16" height="8" patternUnits="userSpaceOnUse">
-              <rect width="16" height="8" fill="#F2D4D0"/>
-              <rect x="0" y="0" width="16" height="2" fill="#6B1A2B" opacity="0.4"/>
-              <rect x="0" y="3" width="16" height="1" fill="#C9A84C" opacity="0.5"/>
-              <rect x="0" y="5" width="16" height="2" fill="#E8B8B0" opacity="0.6"/>
-              <line x1="4" y1="0" x2="4" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.2"/>
-              <line x1="8" y1="0" x2="8" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.2"/>
-              <line x1="12" y1="0" x2="12" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.2"/>
-            </pattern>
-          </defs>
-          <rect width="400" height="460" fill="url(#kanvo-bg)"/>
-        </svg>
-      </div>
-      <div class="tissu-overlay" style="background: linear-gradient(to top, rgba(107,26,43,0.85) 0%, rgba(107,26,43,0.15) 60%, transparent 100%);"></div>
-      <div class="tissu-content">
-        <div class="tissu-num" style="color:#C9A84C;">02</div>
-        <div class="tissu-country"><span class="tissu-flag">🇧🇯</span> Origine Bénin</div>
-        <div class="tissu-name" style="color:#FAF5EE;">Kanvô</div>
-        <div class="tissu-div" style="background:var(--dore);"></div>
-        <p class="tissu-desc" style="color:rgba(242,212,208,0.8);">
-          Notre fierté locale. Tissu traditionnel Fon du Bénin aux bandes douces et harmonieuses, le Kanvô incarne la féminité, la grâce et la beauté de la femme béninoise. Ses teintes naturelles se marient parfaitement avec les nuances blush et crème.
-        </p>
-        <p class="tissu-role" style="color:var(--dore2);">
-          Robes de mariée, tenues de la famille de la mariée
-        </p>
-      </div>
-    </div>
-
-    <!-- Kenté -->
-    <div class="tissu-card">
-      <div class="tissu-bg">
-        <svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="kente-bg" x="0" y="0" width="32" height="16" patternUnits="userSpaceOnUse">
-              <rect width="32" height="16" fill="#C9A84C"/>
-              <rect x="0" y="0" width="32" height="4" fill="#6B1A2B" opacity="0.9"/>
-              <rect x="0" y="4" width="32" height="4" fill="#FAF5EE" opacity="0.7"/>
-              <rect x="0" y="8" width="32" height="4" fill="#6B1A2B" opacity="0.7"/>
-              <rect x="0" y="12" width="32" height="4" fill="#C9A84C"/>
-              <line x1="8" y1="0" x2="8" y2="16" stroke="#6B1A2B" stroke-width="1" opacity="0.3"/>
-              <line x1="16" y1="0" x2="16" y2="16" stroke="#6B1A2B" stroke-width="1" opacity="0.3"/>
-              <line x1="24" y1="0" x2="24" y2="16" stroke="#6B1A2B" stroke-width="1" opacity="0.3"/>
-            </pattern>
-          </defs>
-          <rect width="400" height="460" fill="url(#kente-bg)"/>
-        </svg>
-      </div>
-      <div class="tissu-overlay" style="background: linear-gradient(to top, rgba(61,13,24,0.85) 0%, rgba(107,26,43,0.15) 60%, transparent 100%);"></div>
-      <div class="tissu-content">
-        <div class="tissu-num" style="color:#C9A84C;">03</div>
-        <div class="tissu-country"><span class="tissu-flag">🇬🇭</span> Origine Ghana</div>
-        <div class="tissu-name" style="color:#FAF5EE;">Kenté</div>
-        <div class="tissu-div" style="background:var(--dore);"></div>
-        <p class="tissu-desc" style="color:rgba(242,212,208,0.8);">
-          Chef-d'œuvre géométrique aux bandes multicolores, chaque motif du Kenté Akan porte un nom et une philosophie. Ses fils d'or, de rouge et d'ivoire en font le tissu de la gloire et de la prospérité — couronne de tout grand événement.
-        </p>
-        <p class="tissu-role" style="color:var(--dore2);">
-          Tenues d'apparat pour les familles, chefs de cérémonie
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tissus non-tissés -->
-  <div style="margin-top:3px; display:grid; grid-template-columns:1fr 1fr; gap:3px;">
-    <div style="background:var(--blanc); padding:2.5rem 3rem; border:0.5px solid rgba(201,168,76,0.2);">
-      <div class="kw-tag">Tissus de couture</div>
-      <div class="kw-title" style="font-size:26px;">Dentelle & Brocarde</div>
-      <p class="kw-desc">Nous proposons également une belle sélection de <strong>tissus dentelle</strong> et de <strong>tissus brocarde</strong> — idéaux pour les robes de cérémonie, les tenues de fête et les créations haute couture africaines. Qualité haut de gamme, sélection exclusive.</p>
-    </div>
-    <div style="background:var(--blush3); padding:2.5rem 3rem; border:0.5px solid rgba(201,168,76,0.2);">
-      <div class="kw-tag">Notre promesse</div>
-      <div class="kw-title" style="font-size:26px;">Authenticité garantie</div>
-      <p class="kw-desc">Chaque tissu est sélectionné directement auprès des tisserands au Nigeria, au Ghana et au Bénin. Chez <strong>Elegance House Bénin</strong>, nous garantissons l'authenticité de chaque tissu et la qualité de chaque création, pour les grandes occasions.</p>
-    </div>
-  </div>
+  <div class="tissus-grid" id="tissus-grid"></div>
+  <div class="tissus-extra" id="tissus-extra"></div>
 </section>
 
-<!-- ══ COLLECTIONS ════════════════════════════════════ -->
+<!-- ══ COLLECTIONS — rendu par app.js depuis data.collections ════════════ -->
 <section class="collections" id="collections">
   <div class="sec-head">
     <div class="sec-tag">Nos créations</div>
     <h2 class="sec-title">Collections <em>nuptiales</em></h2>
   </div>
-  <div class="coll-grid">
-
-    <!-- Grande carte principale -->
-    <div class="coll-card coll-card-main">
-      <div class="coll-bg">
-        <svg width="100%" height="100%" viewBox="0 0 500 620" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="c1-pat" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-              <rect width="28" height="28" fill="#6B1A2B"/>
-              <rect x="0" y="0" width="14" height="7" fill="#C9A84C" opacity="0.5"/>
-              <rect x="14" y="7" width="14" height="7" fill="#C9A84C" opacity="0.5"/>
-              <rect x="0" y="14" width="28" height="2" fill="#F2D4D0" opacity="0.3"/>
-              <rect x="0" y="21" width="28" height="7" fill="#8B2240" opacity="0.5"/>
-              <line x1="0" y1="7" x2="28" y2="7" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
-              <line x1="14" y1="0" x2="14" y2="28" stroke="white" stroke-width="0.3" opacity="0.1"/>
-            </pattern>
-          </defs>
-          <rect width="500" height="620" fill="url(#c1-pat)"/>
-          <!-- Decorative diamond pattern overlay -->
-          <polygon points="250,80 320,200 250,320 180,200" fill="#C9A84C" opacity="0.06"/>
-          <polygon points="250,200 340,360 250,520 160,360" fill="#C9A84C" opacity="0.04"/>
-        </svg>
-      </div>
-      <div class="coll-overlay"></div>
-      <div class="coll-content">
-        <div class="coll-badge">Collection Signature</div>
-        <div class="coll-name">Robe de Dot<br>Asooké Royal</div>
-        <div class="coll-sub">Nigeria · Prestige · Sur mesure</div>
-      </div>
-    </div>
-
-    <!-- Colonne 2 -->
-    <div style="display:flex;flex-direction:column;gap:3px;">
-      <div class="coll-card coll-card-sm">
-        <div class="coll-bg">
-          <svg width="100%" height="100%" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="c2-pat" x="0" y="0" width="20" height="10" patternUnits="userSpaceOnUse">
-                <rect width="20" height="10" fill="#C9A84C"/>
-                <rect x="0" y="0" width="20" height="3" fill="#6B1A2B" opacity="0.8"/>
-                <rect x="0" y="7" width="20" height="3" fill="#3D0D18" opacity="0.8"/>
-                <line x1="5" y1="0" x2="5" y2="10" stroke="white" stroke-width="0.3" opacity="0.2"/>
-                <line x1="10" y1="0" x2="10" y2="10" stroke="white" stroke-width="0.3" opacity="0.2"/>
-                <line x1="15" y1="0" x2="15" y2="10" stroke="white" stroke-width="0.3" opacity="0.2"/>
-              </pattern>
-            </defs>
-            <rect width="350" height="300" fill="url(#c2-pat)"/>
-          </svg>
-        </div>
-        <div class="coll-overlay"></div>
-        <div class="coll-content">
-          <div class="coll-badge">Ghana · Royauté</div>
-          <div class="coll-name">Kente Prestige</div>
-          <div class="coll-sub">Ensemble cérémonie</div>
-        </div>
-      </div>
-      <div class="coll-card coll-card-sm">
-        <div class="coll-bg">
-          <svg width="100%" height="100%" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="c3-pat" x="0" y="0" width="16" height="8" patternUnits="userSpaceOnUse">
-                <rect width="16" height="8" fill="#F2D4D0"/>
-                <rect x="0" y="0" width="16" height="2" fill="#6B1A2B" opacity="0.35"/>
-                <rect x="0" y="3" width="16" height="1" fill="#C9A84C" opacity="0.6"/>
-                <rect x="0" y="5" width="16" height="2" fill="#E8B8B0" opacity="0.5"/>
-                <line x1="4" y1="0" x2="4" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.15"/>
-                <line x1="8" y1="0" x2="8" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.15"/>
-                <line x1="12" y1="0" x2="12" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.15"/>
-              </pattern>
-            </defs>
-            <rect width="350" height="300" fill="url(#c3-pat)"/>
-          </svg>
-        </div>
-        <div class="coll-overlay" style="background: linear-gradient(160deg, transparent 30%, rgba(107,26,43,0.85) 100%);"></div>
-        <div class="coll-content">
-          <div class="coll-badge">Bénin · Exclusif</div>
-          <div class="coll-name">Kanvô Blush</div>
-          <div class="coll-sub">Robe mariée · Douceur</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Colonne 3 -->
-    <div style="display:flex;flex-direction:column;gap:3px;">
-      <div class="coll-card coll-card-sm">
-        <div class="coll-bg">
-          <svg width="100%" height="100%" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="c4-pat" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect width="20" height="20" fill="#FAF5EE"/>
-                <rect x="0" y="0" width="10" height="10" fill="#C9A84C" opacity="0.2"/>
-                <rect x="10" y="10" width="10" height="10" fill="#C9A84C" opacity="0.2"/>
-                <circle cx="10" cy="10" r="2" fill="#6B1A2B" opacity="0.3"/>
-                <circle cx="0" cy="0" r="1.5" fill="#C9A84C" opacity="0.4"/>
-                <circle cx="20" cy="20" r="1.5" fill="#C9A84C" opacity="0.4"/>
-              </pattern>
-            </defs>
-            <rect width="350" height="300" fill="url(#c4-pat)"/>
-          </svg>
-        </div>
-        <div class="coll-overlay" style="background: linear-gradient(160deg, transparent 30%, rgba(61,13,24,0.85) 100%);"></div>
-        <div class="coll-content">
-          <div class="coll-badge">Accessoires</div>
-          <div class="coll-name">Sacs & Bijoux</div>
-          <div class="coll-sub">Pochettes tissu · Headwrap</div>
-        </div>
-      </div>
-      <div class="coll-card coll-card-sm">
-        <div class="coll-bg">
-          <svg width="100%" height="100%" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="c5-pat" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
-                <rect width="40" height="20" fill="#3D0D18"/>
-                <rect x="0" y="0" width="40" height="5" fill="#C9A84C" opacity="0.7"/>
-                <rect x="0" y="5" width="40" height="5" fill="#8B2240" opacity="0.6"/>
-                <rect x="0" y="10" width="40" height="5" fill="#F2D4D0" opacity="0.3"/>
-                <rect x="0" y="15" width="40" height="5" fill="#6B1A2B" opacity="0.6"/>
-                <line x1="10" y1="0" x2="10" y2="20" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-                <line x1="20" y1="0" x2="20" y2="20" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-                <line x1="30" y1="0" x2="30" y2="20" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-              </pattern>
-            </defs>
-            <rect width="350" height="300" fill="url(#c5-pat)"/>
-          </svg>
-        </div>
-        <div class="coll-overlay"></div>
-        <div class="coll-content">
-          <div class="coll-badge">Famille</div>
-          <div class="coll-name">Tenues Assorties</div>
-          <div class="coll-sub">Familles en harmonie</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="coll-grid" id="collections-grid"></div>
 </section>
 
-<!-- ══ ACCESSOIRES & GELES ══════════════════════════════ -->
-<section style="padding:7rem 5rem; background:var(--blush3);" id="accessoires">
+<!-- ══ ACCESSOIRES — rendu par app.js depuis data.accessoires ════════════ -->
+<section class="accessoires" id="accessoires">
   <div class="sec-head">
     <div class="sec-tag">Accessoires de mode</div>
     <h2 class="sec-title">L'art de la <em>parure complète</em></h2>
   </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; margin-bottom:3px;">
+  <!-- Grille top (bijoux, chaussures, corail) : rendue par app.js -->
+  <div class="accessoires-grid" id="accessoires-top"></div>
 
-    <!-- Bijoux -->
-    <div style="background:var(--vin); padding:2.5rem 2rem; position:relative; overflow:hidden; min-height:280px; display:flex; flex-direction:column; justify-content:flex-end;">
-      <div style="position:absolute;top:1.5rem;right:1.5rem; font-family:'Cormorant Garamond',serif; font-size:60px; opacity:0.06; color:var(--dore); line-height:1;">✦</div>
-      <div class="coll-badge">Bijoux</div>
-      <div class="coll-name" style="color:var(--blanc);">Ensembles & Boucles</div>
-      <p style="font-size:12px; color:rgba(242,212,208,0.7); margin-top:0.5rem; line-height:1.8;">Bijoux en ensemble complet ou boucles d'oreilles uniquement — parures dorées et colorées assorties à vos tenues de cérémonie.</p>
-    </div>
-
-    <!-- Chaussures & Minaudière -->
-    <div style="background:var(--vin2); padding:2.5rem 2rem; position:relative; overflow:hidden; min-height:280px; display:flex; flex-direction:column; justify-content:flex-end;">
-      <div style="position:absolute;top:1.5rem;right:1.5rem; font-family:'Cormorant Garamond',serif; font-size:60px; opacity:0.06; color:var(--dore); line-height:1;">✦</div>
-      <div class="coll-badge">Souliers & Pochettes</div>
-      <div class="coll-name" style="color:var(--blanc);">Chaussures & Minaudières</div>
-      <p style="font-size:12px; color:rgba(242,212,208,0.7); margin-top:0.5rem; line-height:1.8;">Des chaussures élégantes et des minaudières raffinées pour compléter chaque tenue de mariage ou de grande cérémonie.</p>
-    </div>
-
-    <!-- Corail -->
-    <div style="background:var(--vin3); padding:2.5rem 2rem; position:relative; overflow:hidden; min-height:280px; display:flex; flex-direction:column; justify-content:flex-end;">
-      <div style="position:absolute;top:1.5rem;right:1.5rem; font-family:'Cormorant Garamond',serif; font-size:60px; opacity:0.08; color:var(--dore); line-height:1;">✦</div>
-      <div class="coll-badge">Prestige</div>
-      <div class="coll-name" style="color:var(--blanc);">Corail Royal</div>
-      <p style="font-size:12px; color:rgba(242,212,208,0.7); margin-top:0.5rem; line-height:1.8;">Le corail, symbole de noblesse et de richesse, est un accessoire incontournable pour la mariée et les membres d'honneur lors des cérémonies de dot.</p>
-    </div>
-  </div>
-
-  <!-- Éventails & Gélés -->
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px;">
-
-    <!-- Éventails mariées -->
-    <div style="background:var(--blanc); padding:3rem; border:0.5px solid rgba(201,168,76,0.25);">
+  <!-- Éventails & Gélés : structure statique, items rendus par app.js -->
+  <div class="acc-bottom">
+    <div class="acc-bottom-card acc-bottom-card--blanc" id="acc-eventails">
       <div class="kw-tag">Éventails mariées</div>
       <div class="kw-title">Trois collections<br>d'éventails</div>
-      <div style="display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap;">
-        <div style="flex:1; min-width:120px; background:var(--blush3); padding:1rem 1.25rem; border-left:2px solid var(--dore);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--vin); font-weight:400; margin-bottom:4px;">En Plume</div>
-          <p style="font-size:11px; color:var(--muted); line-height:1.7;">Éventails de plumes naturelles — élégance royale et féminité absolue pour la mariée.</p>
-        </div>
-        <div style="flex:1; min-width:120px; background:var(--blush3); padding:1rem 1.25rem; border-left:2px solid var(--dore);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--vin); font-weight:400; margin-bottom:4px;">En Filet</div>
-          <p style="font-size:11px; color:var(--muted); line-height:1.7;">Éventails en filet brodé — légèreté et raffinement pour les grandes occasions.</p>
-        </div>
-        <div style="flex:1; min-width:120px; background:var(--blush3); padding:1rem 1.25rem; border-left:2px solid var(--dore);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--vin); font-weight:400; margin-bottom:4px;">En Dentelle</div>
-          <p style="font-size:11px; color:var(--muted); line-height:1.7;">Éventails en dentelle fine — romantisme et tradition pour un mariage inoubliable.</p>
-        </div>
-      </div>
+      <div class="acc-items-row"></div>
     </div>
-
-    <!-- Gélés / Foulards -->
-    <div style="background:var(--creme2); padding:3rem; border:0.5px solid rgba(201,168,76,0.25);">
+    <div class="acc-bottom-card acc-bottom-card--creme2" id="acc-geles">
       <div class="kw-tag">Gélés & Foulards</div>
       <div class="kw-title">L'art du<br>headwrap africain</div>
-      <div style="display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap;">
-        <div style="flex:1; min-width:120px; background:var(--blanc); padding:1rem 1.25rem; border-left:2px solid var(--vin);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--vin); font-weight:400; margin-bottom:4px;">Gélé Asooké</div>
-          <p style="font-size:11px; color:var(--muted); line-height:1.7;">Foulard en tissu Asooké assorti à votre tenue — headwrap de prestige Yoruba.</p>
-        </div>
-        <div style="flex:1; min-width:120px; background:var(--blanc); padding:1rem 1.25rem; border-left:2px solid var(--vin);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--vin); font-weight:400; margin-bottom:4px;">Damask & Sego</div>
-          <p style="font-size:11px; color:var(--muted); line-height:1.7;">Gélés en damask et en sego — belles textures, idéales pour les mariages et cérémonies.</p>
-        </div>
-        <div style="flex:1; min-width:120px; background:var(--blanc); padding:1rem 1.25rem; border-left:2px solid var(--vin);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--vin); font-weight:400; margin-bottom:4px;">Foulard à Broche</div>
-          <p style="font-size:11px; color:var(--muted); line-height:1.7;">Foulards ornés de broches décoratives dorées — touche finale luxueuse et unique.</p>
-        </div>
-      </div>
+      <div class="acc-items-row"></div>
     </div>
   </div>
 </section>
 
-<!-- ══ MARIAGE & DOT ══════════════════════════════════ -->
+<!-- ══ MARIAGE & DOT — rendu par app.js depuis data.mariages ════════════ -->
 <section class="mariage" id="mariage">
   <svg class="mariage-pattern-bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
     <defs>
@@ -1384,67 +221,19 @@ footer {
     <rect width="1200" height="700" fill="url(#mar-pat)"/>
   </svg>
   <div class="mariage-inner">
-    <div class="sec-head" style="color:var(--blanc);">
+    <div class="sec-head">
       <div class="sec-tag">Cérémonies africaines</div>
       <h2 class="sec-title" style="color:var(--blanc);">Mariage traditionnel<br><em style="color:var(--blush);">& Cérémonie de Dot</em></h2>
     </div>
-    <div class="mariage-grid">
-
-      <div class="m-card">
-        <div class="m-num">01</div>
-        <div class="m-title">La Cérémonie de Dot</div>
-        <div class="m-sub">Fiançailles · Union des familles</div>
-        <div class="m-div"></div>
-        <p class="m-desc">
-          La dot est le rite fondateur du mariage traditionnel béninois. Les familles se réunissent, les cadeaux sont présentés, et les pagnes habillent cet instant sacré. Elegance House propose les plus beaux textiles et accessoires pour honorer cette tradition millénaire.
-        </p>
-        <div class="m-tissus">
-          <span class="m-tissu-badge">Asooké</span>
-          <span class="m-tissu-badge">Kenté</span>
-          <span class="m-tissu-badge">Corail</span>
-        </div>
-      </div>
-
-      <div class="m-card">
-        <div class="m-num">02</div>
-        <div class="m-title">Le Mariage Traditionnel</div>
-        <div class="m-sub">Union sacrée · Fête de famille</div>
-        <div class="m-div"></div>
-        <p class="m-desc">
-          Le grand jour mérite les plus beaux pagnes. Mariée, marié, familles des deux côtés — Elegance House vous propose tous les textiles et accessoires pour coordonner la noce dans une harmonie de couleurs qui célèbre l'amour et l'héritage culturel.
-        </p>
-        <div class="m-tissus">
-          <span class="m-tissu-badge">Kanvô</span>
-          <span class="m-tissu-badge">Asooké</span>
-          <span class="m-tissu-badge">Kenté</span>
-          <span class="m-tissu-badge">Gélés</span>
-        </div>
-      </div>
-
-      <div class="m-card">
-        <div class="m-num">03</div>
-        <div class="m-title">Tenues de Cérémonie</div>
-        <div class="m-sub">Événements · Fêtes · Réceptions</div>
-        <div class="m-div"></div>
-        <p class="m-desc">
-          Au-delà du mariage, Elegance House fournit les textiles et accessoires pour toutes vos cérémonies importantes : baptêmes, funérailles royales, fêtes de communauté. Chaque occasion mérite l'éclat du pagne tissé d'exception.
-        </p>
-        <div class="m-tissus">
-          <span class="m-tissu-badge">Tous tissus</span>
-          <span class="m-tissu-badge">Toutes occasions</span>
-        </div>
-      </div>
-
-    </div>
+    <div class="mariage-grid" id="mariages-grid"></div>
   </div>
 </section>
 
-<!-- ══ DOT SECTION ════════════════════════════════════ -->
+<!-- ══ DOT SECTION (statique — contenu permanent) ════════════════════════ -->
 <section class="dot-section">
   <div class="dot-left">
     <div class="kw-tag">La dot au Bénin</div>
-    <h2 class="sec-title" style="text-align:left; margin-bottom:0;">Le pagne,<br><em>cœur de la dot</em></h2>
-
+    <h2 class="sec-title" style="text-align:left;margin-bottom:0;">Le pagne,<br><em>cœur de la dot</em></h2>
     <div class="dot-items">
       <div class="dot-item">
         <div class="dot-icon"><span class="dot-icon-inner">I</span></div>
@@ -1469,7 +258,6 @@ footer {
       </div>
     </div>
   </div>
-
   <div class="dot-visual">
     <svg class="dot-visual-pattern" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice">
       <defs>
@@ -1481,26 +269,20 @@ footer {
       <rect width="600" height="700" fill="url(#dot-pat)"/>
     </svg>
     <div class="dot-visual-content">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:12px; font-style:italic; color:rgba(242,212,208,0.5); letter-spacing:4px; text-transform:uppercase; margin-bottom:2rem;">La dot béninoise</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; color:#FAF5EE; letter-spacing:2px; line-height:1.1; margin-bottom:1rem;">
-        Union<br><em style="color:var(--dore2);">sacrée</em>
-      </div>
-      <div style="width:50px; height:0.5px; background:var(--dore); margin:1.5rem auto;"></div>
-      <p style="font-size:13px; line-height:2; color:rgba(242,212,208,0.6); max-width:300px; margin:0 auto 2.5rem;">
-        Chaque pagne offert lors de la dot est porteur d'un message d'amour, de respect et de prospérité pour le nouveau foyer.
-      </p>
-
-      <!-- Stats -->
+      <div class="dot-visual-pre">La dot béninoise</div>
+      <div class="dot-visual-title">Union<br><em>sacrée</em></div>
+      <div class="dot-visual-divider"></div>
+      <p class="dot-visual-desc">Chaque pagne offert lors de la dot est porteur d'un message d'amour, de respect et de prospérité pour le nouveau foyer.</p>
       <div class="dot-table">
-        <div class="dot-cell" style="border-right:0.5px solid rgba(201,168,76,0.15); border-bottom:0.5px solid rgba(201,168,76,0.15);">
+        <div class="dot-cell dot-cell--tl">
           <div class="dot-cell-num">5</div>
           <div class="dot-cell-label">Tissus d'exception</div>
         </div>
-        <div class="dot-cell" style="border-bottom:0.5px solid rgba(201,168,76,0.15);">
+        <div class="dot-cell dot-cell--tr">
           <div class="dot-cell-num">100%</div>
           <div class="dot-cell-label">Authenticité garantie</div>
         </div>
-        <div class="dot-cell" style="border-right:0.5px solid rgba(201,168,76,0.15);">
+        <div class="dot-cell dot-cell--bl">
           <div class="dot-cell-num">10+</div>
           <div class="dot-cell-label">Types d'accessoires</div>
         </div>
@@ -1513,7 +295,7 @@ footer {
   </div>
 </section>
 
-<!-- ══ PROCESSUS ══════════════════════════════════════ -->
+<!-- ══ PROCESSUS (statique) ═══════════════════════════════════════════════ -->
 <section class="processus" id="processus">
   <div class="sec-head">
     <div class="sec-tag">Votre expérience en boutique</div>
@@ -1543,16 +325,16 @@ footer {
   </div>
 </section>
 
-<!-- ══ BANNER CTA ═════════════════════════════════════ -->
+<!-- ══ BANNER CTA (statique) ═════════════════════════════════════════════ -->
 <section class="banner">
   <svg class="banner-bg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
     <defs>
-      <pattern id="ban2" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <pattern id="ban-pat" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
         <rect x="0" y="0" width="25" height="25" fill="white" opacity="0.5"/>
         <rect x="25" y="25" width="25" height="25" fill="white" opacity="0.5"/>
       </pattern>
     </defs>
-    <rect width="1200" height="600" fill="url(#ban2)"/>
+    <rect width="1200" height="600" fill="url(#ban-pat)"/>
   </svg>
   <div class="banner-deco-top"></div>
   <div class="banner-deco-bot"></div>
@@ -1563,102 +345,73 @@ footer {
       <span class="banner-title-it">notre sélection</span>
     </h2>
     <p class="banner-sub">
-      Tout ce qu'il vous faut pour briller lors de votre dot, votre mariage ou votre grande cérémonie — tissus d'exception, accessoires haut de gamme, en un seul lieu à Abomey-Calavi. Appelez-nous : <strong style="color:var(--dore);">0190008300</strong>
+      Tout ce qu'il vous faut pour briller lors de votre dot, votre mariage ou votre grande cérémonie — tissus d'exception, accessoires haut de gamme, en un seul lieu à Abomey-Calavi.
+      Appelez-nous : <strong><a data-eh="phone-href" href="tel:0190008300"><span data-eh="phone-text">0190008300</span></a></strong>
     </p>
     <div class="banner-btns">
-      <button class="btn-gold">Voir nos collections</button>
-      <button class="btn-blanc">Nous contacter</button>
+      <button class="btn-gold" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">Voir nos collections</button>
+      <button class="btn-blanc" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Nous contacter</button>
     </div>
   </div>
 </section>
 
-<!-- ══ TEMOIGNAGES ════════════════════════════════════ -->
+<!-- ══ TÉMOIGNAGES — rendu par app.js depuis data.temoignages ════════════ -->
 <section class="temoignages">
   <div class="sec-head">
     <div class="sec-tag">Elles nous font confiance</div>
     <h2 class="sec-title">Paroles de <em>mariées</em></h2>
   </div>
-  <div class="temo-grid">
-    <div class="temo-card">
-      <p class="temo-text">
-        "Mon Asooké acheté chez Elegance House était absolument magnifique lors de ma dot. Toute la famille du marié en était bouche bée. Ils m'ont conseillée à la perfection sur les couleurs et les accessoires."
-      </p>
-      <div class="temo-author">Adaeze K.</div>
-      <div class="temo-event">Cérémonie de dot · Cotonou 2025</div>
-    </div>
-    <div class="temo-card">
-      <p class="temo-text">
-        "Nous avons acheté tous nos pagnes et accessoires chez Elegance House pour nos deux familles en Kenté. La qualité était parfaite, les conseils sur les coloris bordeaux et dorés ont fait toute la différence."
-      </p>
-      <div class="temo-author">Fatou & Kofi M.</div>
-      <div class="temo-event">Mariage traditionnel · Porto-Novo 2025</div>
-    </div>
-    <div class="temo-card">
-      <p class="temo-text">
-        "Le Kanvô blush et le gélé assorti que j'ai trouvés chez Elegance House étaient d'une douceur et d'une élégance sans pareil. Une adresse incontournable pour toute cérémonie haut de gamme au Bénin."
-      </p>
-      <div class="temo-author">Aïssatou D.</div>
-      <div class="temo-event">Dot & Mariage · Parakou 2024</div>
-    </div>
-  </div>
+  <div class="temo-grid" id="temo-grid"></div>
 </section>
 
-<!-- ══ CONTACT CTA ══════════════════════════════════════ -->
-<section style="background:var(--dore); padding:3rem 5rem; display:flex; align-items:center; justify-content:space-between; gap:3rem;">
+<!-- ══ BARRE CONTACT — données depuis content.json via data-eh ═══════════ -->
+<div class="contact-bar">
   <div>
-    <div style="font-size:8px; letter-spacing:6px; text-transform:uppercase; color:var(--vin3); margin-bottom:0.5rem; opacity:0.7;">Contactez-nous directement</div>
-    <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--vin3); line-height:1.1;">Abomey-Calavi, Bénin</div>
-    <div style="font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--vin3); opacity:0.6; margin-top:6px;">Le grand jour mérite la grande paix.</div>
+    <div class="contact-bar-label">Contactez-nous directement</div>
+    <div class="contact-bar-city" data-eh="location">Abomey-Calavi, Bénin</div>
+    <div class="contact-bar-tagline" data-eh="tagline">Le grand jour mérite la grande paix.</div>
   </div>
-  <div style="display:flex; align-items:center; gap:2rem; flex-wrap:wrap;">
-    <a href="tel:0190008300" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
-      <div style="width:48px; height:48px; background:var(--vin); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-        <span style="color:var(--dore); font-size:18px;">📞</span>
-      </div>
+  <div class="contact-bar-actions">
+    <a class="contact-bar-phone" data-eh="phone-href" href="tel:0190008300">
+      <div class="contact-bar-phone-icon">📞</div>
       <div>
-        <div style="font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--vin3); opacity:0.7;">Téléphone & WhatsApp</div>
-        <div style="font-family:'Cinzel',serif; font-size:22px; color:var(--vin3); letter-spacing:2px; font-weight:400;">0190008300</div>
+        <div class="contact-bar-phone-label">Téléphone & WhatsApp</div>
+        <div class="contact-bar-phone-num" data-eh="phone-text">0190008300</div>
       </div>
     </a>
-    <a href="tel:0190008300" style="padding:14px 32px; background:var(--vin); color:var(--blanc); text-decoration:none; font-family:'Jost',sans-serif; font-size:8.5px; letter-spacing:3px; text-transform:uppercase;">Nous Appeler</a>
+    <a class="contact-bar-cta" data-eh="phone-href" href="tel:0190008300">Nous Appeler</a>
   </div>
-</section>
+</div>
 
-<!-- ══ FICHIER CLIENT / NEWSLETTER ═══════════════════ -->
+<!-- ══ NEWSLETTER / FICHIER CLIENT ═══════════════════════════════════════ -->
 <section class="newsletter" id="contact">
   <div class="nl-inner">
-
     <div class="nl-header">
-      <div class="sec-tag" style="color:var(--dore); border-color:rgba(201,168,76,0.3);">Rejoindre la Maison</div>
+      <div class="sec-tag">Rejoindre la Maison</div>
       <h3 class="nl-title">Restez informée des<br><em>nouveaux arrivages</em></h3>
       <p class="nl-sub">Nouveaux tissus, accessoires exclusifs, conseils cérémonie —<br>soyez la première à savoir, avant tout le monde.</p>
     </div>
 
     <div id="nl-form-wrap">
       <div class="nl-grid">
-
         <div class="nl-field">
-          <label class="nl-label">Prénom *</label>
+          <label class="nl-label" for="nl-prenom">Prénom *</label>
           <input class="nl-input" type="text" id="nl-prenom" placeholder="Votre prénom" required>
         </div>
-
         <div class="nl-field">
-          <label class="nl-label">Nom *</label>
+          <label class="nl-label" for="nl-nom">Nom *</label>
           <input class="nl-input" type="text" id="nl-nom" placeholder="Votre nom">
         </div>
-
         <div class="nl-field">
-          <label class="nl-label">Numéro WhatsApp *</label>
+          <label class="nl-label" for="nl-whatsapp">Numéro WhatsApp *</label>
           <input class="nl-input" type="tel" id="nl-whatsapp" placeholder="ex : 0190008300">
         </div>
-
         <div class="nl-field">
-          <label class="nl-label">Email</label>
+          <label class="nl-label" for="nl-email">Email</label>
           <input class="nl-input" type="email" id="nl-email" placeholder="votre@email.com">
         </div>
-
         <div class="nl-field">
-          <label class="nl-label">Type de cérémonie</label>
+          <label class="nl-label" for="nl-ceremonie">Type de cérémonie</label>
           <select class="nl-select" id="nl-ceremonie">
             <option value="" disabled selected>Choisissez...</option>
             <option value="dot">Cérémonie de dot</option>
@@ -1668,19 +421,16 @@ footer {
             <option value="autre">Autre occasion</option>
           </select>
         </div>
-
         <div class="nl-field">
-          <label class="nl-label">Date approximative</label>
-          <input class="nl-input" type="month" id="nl-date" style="color-scheme: dark;">
+          <label class="nl-label" for="nl-date">Date approximative</label>
+          <input class="nl-input" type="month" id="nl-date">
         </div>
-
         <div class="nl-field">
-          <label class="nl-label">Ville de résidence</label>
+          <label class="nl-label" for="nl-ville">Ville de résidence</label>
           <input class="nl-input" type="text" id="nl-ville" placeholder="ex : Cotonou, Abomey-Calavi...">
         </div>
-
         <div class="nl-field">
-          <label class="nl-label">Intérêt principal</label>
+          <label class="nl-label" for="nl-interet">Intérêt principal</label>
           <select class="nl-select" id="nl-interet">
             <option value="" disabled selected>Ce que vous recherchez...</option>
             <option value="pagnes">Pagnes tissés (Asooké, Kanvô, Kenté)</option>
@@ -1691,9 +441,7 @@ footer {
             <option value="tout">Tout — je cherche une tenue complète</option>
           </select>
         </div>
-
       </div>
-
       <div class="nl-bottom">
         <p class="nl-mention">Vos informations sont confidentielles et utilisées uniquement par Elegance House Bénin pour vous informer de nos nouveautés et vous contacter pour vos besoins en cérémonie.</p>
         <button class="nl-btn" onclick="nlSubmit()">Rejoindre la Maison ✦</button>
@@ -1701,126 +449,74 @@ footer {
     </div>
 
     <div class="nl-success" id="nl-success">
-      ✦ &nbsp; Bienvenue dans la Maison Elegance, <span id="nl-prenom-confirm"></span> !<br>
-      <span style="font-size:14px; color:rgba(242,212,208,0.5); font-family:'Jost',sans-serif; font-style:normal;">Nous vous contacterons très bientôt sur WhatsApp.</span>
+      ✦ &nbsp; Bienvenue dans la Maison Elegance, <span id="nl-prenom-confirm"></span> !
+      <div class="nl-success-channels">
+        <div class="nl-success-channel">
+          <span class="nl-success-icon">📲</span>
+          <span>Un message WhatsApp vient d'être envoyé à notre équipe avec votre résumé</span>
+        </div>
+        <div class="nl-success-channel">
+          <span class="nl-success-icon">✉️</span>
+          <span>Nous vous recontacterons très bientôt pour préparer votre cérémonie</span>
+        </div>
+      </div>
     </div>
-
     <div class="nl-export" id="nl-export">
       <button class="nl-export-btn" onclick="nlExport()">⬇ Télécharger le fichier client (CSV)</button>
     </div>
-
   </div>
 </section>
 
-<script>
-// Fichier client stocké localement
-var clientsEH = JSON.parse(localStorage.getItem('ehClients') || '[]');
-
-function nlSubmit() {
-  var prenom = document.getElementById('nl-prenom').value.trim();
-  var nom = document.getElementById('nl-nom').value.trim();
-  var whatsapp = document.getElementById('nl-whatsapp').value.trim();
-  var email = document.getElementById('nl-email').value.trim();
-  var ceremonie = document.getElementById('nl-ceremonie').value;
-  var date = document.getElementById('nl-date').value;
-  var ville = document.getElementById('nl-ville').value.trim();
-  var interet = document.getElementById('nl-interet').value;
-
-  if (!prenom || !whatsapp) {
-    alert('Veuillez renseigner au minimum votre prénom et votre numéro WhatsApp.');
-    return;
-  }
-
-  var client = {
-    date_inscription: new Date().toLocaleDateString('fr-FR'),
-    prenom: prenom,
-    nom: nom,
-    whatsapp: whatsapp,
-    email: email,
-    ceremonie: ceremonie,
-    date_ceremonie: date,
-    ville: ville,
-    interet: interet
-  };
-
-  clientsEH.push(client);
-  localStorage.setItem('ehClients', JSON.stringify(clientsEH));
-
-  document.getElementById('nl-form-wrap').style.display = 'none';
-  document.getElementById('nl-prenom-confirm').textContent = prenom;
-  document.getElementById('nl-success').style.display = 'block';
-  document.getElementById('nl-export').style.display = 'block';
-}
-
-function nlExport() {
-  if (clientsEH.length === 0) { alert('Aucun client enregistré.'); return; }
-  var headers = ['Date inscription','Prénom','Nom','WhatsApp','Email','Cérémonie','Date cérémonie','Ville','Intérêt'];
-  var rows = clientsEH.map(function(c) {
-    return [c.date_inscription, c.prenom, c.nom, c.whatsapp, c.email, c.ceremonie, c.date_ceremonie, c.ville, c.interet].map(function(v){ return '"'+(v||'').replace(/"/g,'""')+'"'; }).join(',');
-  });
-  var csv = '\uFEFF' + headers.join(',') + '\n' + rows.join('\n');
-  var blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url; a.download = 'fichier_clients_elegance_house.csv';
-  a.click(); URL.revokeObjectURL(url);
-}
-
-// Montrer le bouton export si des clients existent déjà
-if (clientsEH.length > 0) {
-  document.getElementById('nl-export').style.display = 'block';
-}
-</script>
-
-<!-- ══ FOOTER ═════════════════════════════════════════ -->
+<!-- ══ FOOTER — liens de contact depuis content.json via data-eh ══════════ -->
 <footer>
   <div class="footer-top">
     <div>
       <div class="f-brand-name">Elegance House</div>
-      <div class="f-brand-sub">« Le grand jour mérite la grande paix. »</div>
+      <div class="f-brand-sub" data-eh="tagline">« Le grand jour mérite la grande paix. »</div>
       <p class="f-brand-desc">Maison de mode haut de gamme spécialisée dans le textile africain — Asooké, Kanvô, Kenté, dentelle, brocarde, bijoux, éventails, gélés. Au cœur du mariage traditionnel et de la cérémonie de dot à Abomey-Calavi, Bénin.</p>
     </div>
     <div>
       <div class="f-col-title">Collections</div>
       <ul class="f-links">
-        <li><a href="#">Asooké · Kanvô · Kenté</a></li>
-        <li><a href="#">Tissus Dentelle & Brocarde</a></li>
-        <li><a href="#">Tenues de Dot</a></li>
-        <li><a href="#">Éventails Mariées</a></li>
-        <li><a href="#">Gélés & Foulards</a></li>
+        <li><a href="#tissu-asoke">Asooké · Kanvô · Kenté</a></li>
+        <li><a href="#tissu-dentelle">Tissus Dentelle & Brocarde</a></li>
+        <li><a href="#mariage-dot">Tenues de Dot</a></li>
+        <li><a href="#acc-eventails">Éventails Mariées</a></li>
+        <li><a href="#acc-geles">Gélés & Foulards</a></li>
       </ul>
     </div>
     <div>
       <div class="f-col-title">Cérémonies</div>
       <ul class="f-links">
-        <li><a href="#">Cérémonie de Dot</a></li>
-        <li><a href="#">Mariage Traditionnel</a></li>
-        <li><a href="#">Grands Événements</a></li>
-        <li><a href="#">Tenues Familiales</a></li>
-        <li><a href="#">Haute Gamme</a></li>
+        <li><a href="#mariage-dot">Cérémonie de Dot</a></li>
+        <li><a href="#mariage-traditionnel">Mariage Traditionnel</a></li>
+        <li><a href="#mariage-ceremonies">Grands Événements</a></li>
+        <li><a href="#coll-famille">Tenues Familiales</a></li>
+        <li><a href="#coll-signature">Haute Gamme</a></li>
       </ul>
     </div>
     <div>
       <div class="f-col-title">Nous Trouver</div>
       <ul class="f-links">
-        <li><a href="#">Abomey-Calavi, Bénin</a></li>
-        <li><a href="tel:0190008300">📞 0190008300</a></li>
-        <li><a href="#">contact@elegancehouse.bj</a></li>
-        <li><a href="#">Lun–Sam : 8h–19h</a></li>
-        <li><a href="#">WhatsApp disponible</a></li>
+        <li><a href="#contact" data-eh="location">Abomey-Calavi, Bénin</a></li>
+        <li><a data-eh="phone-href" href="tel:0190008300">📞 <span data-eh="phone-text">0190008300</span></a></li>
+        <li><a data-eh="email-href" href="mailto:contact@elegancehouse.bj">contact@elegancehouse.bj</a></li>
+        <li><a href="#contact" data-eh="hours">Lun–Sam : 8h–19h</a></li>
+        <li><a data-eh="whatsapp" href="#">WhatsApp disponible</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="f-copy">© 2026 Elegance House Bénin · Tous droits réservés · Vente de Textiles & Accessoires Africains</div>
+    <div class="f-copy">© <span data-eh="year">2026</span> Elegance House Bénin · Tous droits réservés · Vente de Textiles & Accessoires Africains</div>
     <div class="f-socials">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">TikTok</a>
-      <a href="#">WhatsApp</a>
+      <a data-eh="instagram" href="#">Instagram</a>
+      <a data-eh="facebook"  href="#">Facebook</a>
+      <a data-eh="tiktok"    href="#">TikTok</a>
+      <a data-eh="whatsapp"  href="#">WhatsApp</a>
     </div>
   </div>
 </footer>
 
+<script src="js/app.js"></script>
 </body>
 </html>

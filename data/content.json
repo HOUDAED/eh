@@ -1,0 +1,215 @@
+{
+  "site": {
+    "name": "Elegance House Bénin",
+    "tagline": "Le grand jour mérite la grande paix.",
+    "location": "Abomey-Calavi, Bénin",
+    "phone": "0190008300",
+    "whatsapp_intl": "2290190008300",
+    "email": "contact@elegancehouse.bj",
+    "hours": "Lun–Sam : 8h–19h",
+    "formspree_id": "VOTRE_ID_FORMSPREE",
+    "instagram": "#",
+    "facebook": "#",
+    "tiktok": "#",
+    "whatsapp": "#",
+    "year": "2026"
+  },
+
+  "cerStrip": [
+    "Mariage traditionnel",
+    "Cérémonie de dot",
+    "Accessoires de mode",
+    "Éventails & Gélé mariées",
+    "Haute Gamme · 0190008300"
+  ],
+
+  "tissus": [
+    {
+      "id": "asoke",
+      "num": "01",
+      "flag": "🇳🇬",
+      "country": "Origine Nigeria",
+      "name": "Asooké",
+      "description": "Tissu de prestige Yoruba, tissé en bandes étroites sur métier horizontal. Ses fils de soie et ses broderies dorées en font le symbole de la royauté. L'Asooké est la tenue d'honneur par excellence lors de la dot et du mariage traditionnel.",
+      "role": "Idéal pour la cérémonie de dot, les tenues du marié et de sa famille",
+      "image": "",
+      "overlayStart": "rgba(61,13,24,0.85)",
+      "overlayMid": "rgba(61,13,24,0.2)"
+    },
+    {
+      "id": "kanvo",
+      "num": "02",
+      "flag": "🇧🇯",
+      "country": "Origine Bénin",
+      "name": "Kanvô",
+      "description": "Notre fierté locale. Tissu traditionnel Fon du Bénin aux bandes douces et harmonieuses, le Kanvô incarne la féminité, la grâce et la beauté de la femme béninoise. Ses teintes naturelles se marient parfaitement avec les nuances blush et crème.",
+      "role": "Robes de mariée, tenues de la famille de la mariée",
+      "image": "",
+      "overlayStart": "rgba(107,26,43,0.85)",
+      "overlayMid": "rgba(107,26,43,0.15)"
+    },
+    {
+      "id": "kente",
+      "num": "03",
+      "flag": "🇬🇭",
+      "country": "Origine Ghana",
+      "name": "Kenté",
+      "description": "Chef-d'œuvre géométrique aux bandes multicolores, chaque motif du Kenté Akan porte un nom et une philosophie. Ses fils d'or, de rouge et d'ivoire en font le tissu de la gloire et de la prospérité — couronne de tout grand événement.",
+      "role": "Tenues d'apparat pour les familles, chefs de cérémonie",
+      "image": "",
+      "overlayStart": "rgba(61,13,24,0.85)",
+      "overlayMid": "rgba(107,26,43,0.15)"
+    }
+  ],
+
+  "tissusExtra": [
+    {
+      "id": "dentelle",
+      "tag": "Tissus de couture",
+      "title": "Dentelle & Brocarde",
+      "description": "Nous proposons également une belle sélection de <strong>tissus dentelle</strong> et de <strong>tissus brocarde</strong> — idéaux pour les robes de cérémonie, les tenues de fête et les créations haute couture africaines. Qualité haut de gamme, sélection exclusive.",
+      "style": "light"
+    },
+    {
+      "id": "authenticite",
+      "tag": "Notre promesse",
+      "title": "Authenticité garantie",
+      "description": "Chaque tissu est sélectionné directement auprès des tisserands au Nigeria, au Ghana et au Bénin. Chez <strong>Elegance House Bénin</strong>, nous garantissons l'authenticité de chaque tissu et la qualité de chaque création, pour les grandes occasions.",
+      "style": "blush"
+    }
+  ],
+
+  "collections": [
+    {
+      "id": "signature",
+      "size": "main",
+      "col": 1,
+      "badge": "Collection Signature",
+      "name": "Robe de Dot\nAsooké Royal",
+      "sub": "Nigeria · Prestige · Sur mesure",
+      "image": "",
+      "overlayColor": ""
+    },
+    {
+      "id": "kente",
+      "size": "sm",
+      "col": 2,
+      "badge": "Ghana · Royauté",
+      "name": "Kente Prestige",
+      "sub": "Ensemble cérémonie",
+      "image": "",
+      "overlayColor": ""
+    },
+    {
+      "id": "kanvo",
+      "size": "sm",
+      "col": 2,
+      "badge": "Bénin · Exclusif",
+      "name": "Kanvô Blush",
+      "sub": "Robe mariée · Douceur",
+      "image": "",
+      "overlayColor": "rgba(107,26,43,0.85)"
+    },
+    {
+      "id": "bijoux",
+      "size": "sm",
+      "col": 3,
+      "badge": "Accessoires",
+      "name": "Sacs & Bijoux",
+      "sub": "Pochettes tissu · Headwrap",
+      "image": "",
+      "overlayColor": "rgba(61,13,24,0.85)"
+    },
+    {
+      "id": "famille",
+      "size": "sm",
+      "col": 3,
+      "badge": "Famille",
+      "name": "Tenues Assorties",
+      "sub": "Familles en harmonie",
+      "image": "",
+      "overlayColor": ""
+    }
+  ],
+
+  "accessoires": {
+    "topCards": [
+      {
+        "id": "bijoux",
+        "badge": "Bijoux",
+        "name": "Ensembles & Boucles",
+        "description": "Bijoux en ensemble complet ou boucles d'oreilles uniquement — parures dorées et colorées assorties à vos tenues de cérémonie.",
+        "bg": "vin"
+      },
+      {
+        "id": "chaussures",
+        "badge": "Souliers & Pochettes",
+        "name": "Chaussures & Minaudières",
+        "description": "Des chaussures élégantes et des minaudières raffinées pour compléter chaque tenue de mariage ou de grande cérémonie.",
+        "bg": "vin2"
+      },
+      {
+        "id": "corail",
+        "badge": "Prestige",
+        "name": "Corail Royal",
+        "description": "Le corail, symbole de noblesse et de richesse, est un accessoire incontournable pour la mariée et les membres d'honneur lors des cérémonies de dot.",
+        "bg": "vin3"
+      }
+    ],
+    "eventails": [
+      { "name": "En Plume",    "description": "Éventails de plumes naturelles — élégance royale et féminité absolue pour la mariée." },
+      { "name": "En Filet",    "description": "Éventails en filet brodé — légèreté et raffinement pour les grandes occasions." },
+      { "name": "En Dentelle", "description": "Éventails en dentelle fine — romantisme et tradition pour un mariage inoubliable." }
+    ],
+    "geles": [
+      { "name": "Gélé Asooké",      "description": "Foulard en tissu Asooké assorti à votre tenue — headwrap de prestige Yoruba." },
+      { "name": "Damask & Sego",    "description": "Gélés en damask et en sego — belles textures, idéales pour les mariages et cérémonies." },
+      { "name": "Foulard à Broche", "description": "Foulards ornés de broches décoratives dorées — touche finale luxueuse et unique." }
+    ]
+  },
+
+  "mariages": [
+    {
+      "id": "dot",
+      "num": "01",
+      "title": "La Cérémonie de Dot",
+      "sub": "Fiançailles · Union des familles",
+      "description": "La dot est le rite fondateur du mariage traditionnel béninois. Les familles se réunissent, les cadeaux sont présentés, et les pagnes habillent cet instant sacré. Elegance House propose les plus beaux textiles et accessoires pour honorer cette tradition millénaire.",
+      "tissus": ["Asooké", "Kenté", "Corail"]
+    },
+    {
+      "id": "traditionnel",
+      "num": "02",
+      "title": "Le Mariage Traditionnel",
+      "sub": "Union sacrée · Fête de famille",
+      "description": "Le grand jour mérite les plus beaux pagnes. Mariée, marié, familles des deux côtés — Elegance House vous propose tous les textiles et accessoires pour coordonner la noce dans une harmonie de couleurs qui célèbre l'amour et l'héritage culturel.",
+      "tissus": ["Kanvô", "Asooké", "Kenté", "Gélés"]
+    },
+    {
+      "id": "ceremonies",
+      "num": "03",
+      "title": "Tenues de Cérémonie",
+      "sub": "Événements · Fêtes · Réceptions",
+      "description": "Au-delà du mariage, Elegance House fournit les textiles et accessoires pour toutes vos cérémonies importantes : baptêmes, funérailles royales, fêtes de communauté. Chaque occasion mérite l'éclat du pagne tissé d'exception.",
+      "tissus": ["Tous tissus", "Toutes occasions"]
+    }
+  ],
+
+  "temoignages": [
+    {
+      "text": "Mon Asooké acheté chez Elegance House était absolument magnifique lors de ma dot. Toute la famille du marié en était bouche bée. Ils m'ont conseillée à la perfection sur les couleurs et les accessoires.",
+      "author": "Adaeze K.",
+      "event": "Cérémonie de dot · Cotonou 2025"
+    },
+    {
+      "text": "Nous avons acheté tous nos pagnes et accessoires chez Elegance House pour nos deux familles en Kenté. La qualité était parfaite, les conseils sur les coloris bordeaux et dorés ont fait toute la différence.",
+      "author": "Fatou & Kofi M.",
+      "event": "Mariage traditionnel · Porto-Novo 2025"
+    },
+    {
+      "text": "Le Kanvô blush et le gélé assorti que j'ai trouvés chez Elegance House étaient d'une douceur et d'une élégance sans pareil. Une adresse incontournable pour toute cérémonie haut de gamme au Bénin.",
+      "author": "Aïssatou D.",
+      "event": "Dot & Mariage · Parakou 2024"
+    }
+  ]
+}

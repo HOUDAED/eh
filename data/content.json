@@ -5,14 +5,40 @@
     "location": "Abomey-Calavi, Bénin",
     "phone": "0190008300",
     "whatsapp_intl": "2290190008300",
+    "maps_url": "https://maps.app.goo.gl/fbpvLAgUfG3Mo9SJ8",
+    "maps_embed": "https://maps.google.com/maps?q=6.4473,2.3554&t=&z=16&ie=UTF8&iwloc=&output=embed",
     "email": "contact@elegancehouse.bj",
-    "hours": "Lun–Sam : 8h–19h",
+    "hours": "Lun–Sam · 8h–19h",
+    "schedule": [
+      { "day": "Lundi",    "hours": "8h – 19h", "open": true  },
+      { "day": "Mardi",    "hours": "8h – 19h", "open": true  },
+      { "day": "Mercredi", "hours": "8h – 19h", "open": true  },
+      { "day": "Jeudi",    "hours": "8h – 19h", "open": true  },
+      { "day": "Vendredi", "hours": "8h – 19h", "open": true  },
+      { "day": "Samedi",   "hours": "8h – 19h", "open": true  },
+      { "day": "Dimanche", "hours": "Fermé",    "open": false }
+    ],
     "formspree_id": "VOTRE_ID_FORMSPREE",
-    "instagram": "#",
-    "facebook": "#",
-    "tiktok": "#",
-    "whatsapp": "#",
+    "instagram": "https://www.instagram.com/elegancehousebenin/",
+    "facebook":  "https://www.facebook.com/share/1GKUn832JC/",
+    "tiktok":    "https://www.tiktok.com/@elegancehousebenin",
+    "whatsapp":  "https://wa.me/2290190008300",
     "year": "2026"
+  },
+
+  "seo": {
+    "title": "Elegance House Bénin — Tissus & Accessoires Africains · Mariage · Dot · Haute Gamme",
+    "description": "Showroom haut de gamme de textiles et accessoires africains à Abomey-Calavi, Bénin. Asooké, Kanvô, Kenté, dentelle, brocarde, wax, bijoux, éventails et gélés — tout pour votre dot, mariage ou grande cérémonie.",
+    "keywords": "tissus africains Bénin, pagnes mariage Cotonou, Asooké, Kenté, Kanvô, dentelle, brocarde, wax, accessoires mariée, cérémonie dot Bénin, showroom textile Abomey-Calavi, Elegance House",
+    "url": "https://elegancehouse.bj",
+    "og_image": "https://elegancehouse.bj/assets/og-image.jpg",
+    "og_image_width": "1200",
+    "og_image_height": "630",
+    "og_image_alt": "Elegance House Bénin — Tissus et Accessoires Africains Haut de Gamme",
+    "locale": "fr_BJ",
+    "geo_latitude": "6.4473",
+    "geo_longitude": "2.3554",
+    "geo_region": "BJ-LI"
   },
 
   "cerStrip": [

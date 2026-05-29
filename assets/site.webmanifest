@@ -1,0 +1,18 @@
+{
+  "name": "Elegance House Bénin",
+  "short_name": "Elegance House",
+  "description": "Showroom de tissus et accessoires africains haut de gamme à Abomey-Calavi, Bénin.",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#3D0D18",
+  "background_color": "#3D0D18",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -255,10 +255,13 @@ const EH = {
     this.renderAccessoires();
     this.renderMariages();
     this.renderTemoignages();
+    this.injectSchemaOrg();
     this.renderRDV();
+    this.initHoursPopup();
     this.initMobileNav();
     this.initFooterHover();
     this.initExportButton();
+    this.initScrollAnimations();
   },
 
   // ── Informations de contact (injectées partout via data-eh="*") ────────────
@@ -266,14 +269,34 @@ const EH = {
   applyContact() {
     const s = this.data.site;
 
+    // Numéro de téléphone → ouvre WhatsApp directement
     document.querySelectorAll('[data-eh="phone-href"]').forEach(el => {
-      el.href = `tel:${s.phone}`;
+      el.href   = `https://wa.me/${s.whatsapp_intl}`;
+      el.target = '_blank';
+      el.rel    = 'noopener noreferrer';
     });
     document.querySelectorAll('[data-eh="phone-text"]').forEach(el => {
       el.textContent = s.phone;
     });
     document.querySelectorAll('[data-eh="location"]').forEach(el => {
       el.textContent = s.location;
+    });
+
+    // Carte Google Maps
+    const mapIframe = document.getElementById('map-iframe');
+    if (mapIframe && s.maps_embed) mapIframe.src = s.maps_embed;
+
+    document.querySelectorAll('[data-eh="maps-url"]').forEach(el => {
+      el.href   = s.maps_url || '#';
+      el.target = '_blank';
+      el.rel    = 'noopener noreferrer';
+    });
+
+    // Lien adresse → ouvre Google Maps
+    document.querySelectorAll('a[data-eh="location"]').forEach(el => {
+      el.href   = s.maps_url || '#';
+      el.target = '_blank';
+      el.rel    = 'noopener noreferrer';
     });
     document.querySelectorAll('[data-eh="hours"]').forEach(el => {
       el.textContent = s.hours;
@@ -288,10 +311,15 @@ const EH = {
     document.querySelectorAll('[data-eh="year"]').forEach(el => {
       el.textContent = s.year;
     });
-    document.querySelectorAll('[data-eh="instagram"]').forEach(el => { el.href = s.instagram; });
-    document.querySelectorAll('[data-eh="facebook"]').forEach(el => { el.href  = s.facebook; });
-    document.querySelectorAll('[data-eh="tiktok"]').forEach(el => { el.href    = s.tiktok; });
-    document.querySelectorAll('[data-eh="whatsapp"]').forEach(el => { el.href  = s.whatsapp; });
+    // Liens sociaux — toujours en nouvel onglet
+    const socials = { instagram: s.instagram, facebook: s.facebook, tiktok: s.tiktok, whatsapp: s.whatsapp };
+    Object.entries(socials).forEach(([key, url]) => {
+      document.querySelectorAll(`[data-eh="${key}"]`).forEach(el => {
+        el.href   = url;
+        el.target = '_blank';
+        el.rel    = 'noopener noreferrer';
+      });
+    });
   },
 
   // ── Bandeau cérémonies ────────────────────────────────────────────────────
@@ -449,6 +477,57 @@ const EH = {
     });
   },
 
+  // ── Popup horaires d'ouverture ────────────────────────────────────────────
+
+  initHoursPopup() {
+    const btn   = document.getElementById('f-hours-btn');
+    const popup = document.getElementById('f-hours-popup');
+    const list  = document.getElementById('f-hours-list');
+    if (!btn || !popup || !list) return;
+
+    const schedule = this.data.site.schedule || [];
+
+    // Index du jour actuel → position dans le tableau (Lun=0 … Dim=6)
+    const DAY_MAP = [6, 0, 1, 2, 3, 4, 5]; // getDay() Sunday=0 → index 6
+    const todayIdx = DAY_MAP[new Date().getDay()];
+
+    // Remplir la liste des horaires depuis le JSON (1 ligne par jour)
+    list.innerHTML = schedule.map((row, i) => `
+      <li class="${i === todayIdx ? 'f-hours-today' : ''}">
+        <span class="f-hours-day">
+          ${i === todayIdx ? '▸ ' : ''}${esc(row.day)}
+        </span>
+        <span class="f-hours-time ${row.open ? 'f-hours-time--open' : 'f-hours-time--closed'}">
+          ${esc(row.hours)}
+        </span>
+      </li>
+    `).join('');
+
+    const open  = () => {
+      popup.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+    };
+    const close = () => {
+      popup.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+    };
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      popup.hidden ? open() : close();
+    });
+
+    // Ferme si on clique ailleurs
+    document.addEventListener('click', e => {
+      if (!popup.hidden && !popup.contains(e.target) && e.target !== btn) close();
+    });
+
+    // Ferme sur Échap
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !popup.hidden) close();
+    });
+  },
+
   // ── Menu hamburger mobile ─────────────────────────────────────────────────
 
   initMobileNav() {
@@ -484,6 +563,70 @@ const EH = {
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) close();
     });
+  },
+
+  // ── Schema.org JSON-LD (référencement local Google) ──────────────────────
+
+  injectSchemaOrg() {
+    const s   = this.data.site;
+    const seo = this.data.seo || {};
+
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'ClothingStore',
+      'name': s.name,
+      'description': seo.description || '',
+      'url': seo.url || '',
+      'telephone': '+229' + s.phone.replace(/^0/, ''),
+      'email': s.email,
+      'image': seo.og_image || '',
+      'priceRange': '$$$$',
+      'currenciesAccepted': 'XOF',
+      'paymentAccepted': 'Espèces, Mobile Money',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'Abomey-Calavi',
+        'addressLocality': 'Abomey-Calavi',
+        'addressRegion': 'Littoral',
+        'addressCountry': 'BJ'
+      },
+      'geo': {
+        '@type': 'GeoCoordinates',
+        'latitude': parseFloat(seo.geo_latitude  || '6.4473'),
+        'longitude': parseFloat(seo.geo_longitude || '2.3554')
+      },
+      'openingHoursSpecification': [
+        {
+          '@type': 'OpeningHoursSpecification',
+          'dayOfWeek': ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+          'opens': '08:00',
+          'closes': '19:00'
+        }
+      ],
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Tissus & Accessoires Africains',
+        'itemListElement': this.data.tissus.map((t, i) => ({
+          '@type': 'ListItem',
+          'position': i + 1,
+          'item': {
+            '@type': 'Product',
+            'name': t.name,
+            'description': t.description
+          }
+        }))
+      },
+      'sameAs': [
+        s.instagram !== '#' ? s.instagram : null,
+        s.facebook  !== '#' ? s.facebook  : null,
+        s.tiktok    !== '#' ? s.tiktok    : null
+      ].filter(Boolean)
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
   },
 
   // ── RDV : ouverture / fermeture du modal ─────────────────────────────────
@@ -555,6 +698,71 @@ const EH = {
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') this.closeRDV();
+    });
+  },
+
+  // ── Animations au scroll (IntersectionObserver) ──────────────────────────
+
+  initScrollAnimations() {
+    // Respect de prefers-reduced-motion (accessibilité)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // anime une seule fois
+        }
+      });
+    }, {
+      threshold: 0.10,   // déclenche à 10% de visibilité
+      rootMargin: '0px 0px -40px 0px' // légère avance avant le bord bas
+    });
+
+    // Éléments animés individuellement
+    const SINGLES = [
+      '.sec-head',
+      '.intro-left-content', '.intro-right-top', '.intro-right-bottom',
+      '.dot-item',
+      '.dot-visual-content',
+      '.proc-step',
+      '.banner-content',
+      '.nl-header',
+      '.social-header',
+      '.f-brand-desc',
+      '.contact-bar > div'
+    ].join(',');
+
+    // Éléments en grille (stagger automatique par position dans le parent)
+    const GRIDS = [
+      '.tissu-card',
+      '.tissus-extra-card',
+      '.coll-card',
+      '.m-card',
+      '.temo-card',
+      '.acc-card',
+      '.acc-bottom-card',
+      '.social-card',
+      '.dot-cell'
+    ].join(',');
+
+    // Appliquer et observer les singletons
+    document.querySelectorAll(SINGLES).forEach(el => {
+      el.classList.add('anim-up');
+      observer.observe(el);
+    });
+
+    // Appliquer avec délai de stagger sur les grilles
+    document.querySelectorAll(GRIDS).forEach(el => {
+      el.classList.add('anim-up');
+
+      // Calcule la position de l'élément parmi ses frères du même type
+      const siblings = Array.from(el.parentElement.children)
+        .filter(c => c.classList.contains(el.classList[0]));
+      const idx = siblings.indexOf(el);
+      if (idx > 0 && idx <= 7) el.dataset.delay = String(idx);
+
+      observer.observe(el);
     });
   },
 

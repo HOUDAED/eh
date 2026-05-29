@@ -127,92 +127,138 @@ const PATTERNS = {
       <defs>
         <pattern id="pat-wax" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
           <rect width="40" height="40" fill="#6B1A2B"/>
-          <rect x="0"  y="0"  width="20" height="20" fill="#8B2240" opacity="0.7"/>
+          <rect x="0" y="0" width="20" height="20" fill="#8B2240" opacity="0.7"/>
           <rect x="20" y="20" width="20" height="20" fill="#8B2240" opacity="0.7"/>
-          <rect x="10" y="5"  width="20" height="8"  fill="#C9A84C" opacity="0.3"/>
-          <rect x="10" y="27" width="20" height="8"  fill="#C9A84C" opacity="0.3"/>
-          <rect x="5"  y="15" width="8"  height="10" fill="#F2D4D0" opacity="0.2"/>
-          <rect x="27" y="15" width="8"  height="10" fill="#F2D4D0" opacity="0.2"/>
+          <rect x="10" y="5" width="20" height="8" fill="#C9A84C" opacity="0.3"/>
           <circle cx="20" cy="20" r="4" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
         </pattern>
       </defs>
       <rect width="400" height="460" fill="url(#pat-wax)"/>
-    </svg>`
-  },
-
-  collections: {
-    signature: `<svg width="100%" height="100%" viewBox="0 0 500 620" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <pattern id="pc-sig" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-          <rect width="28" height="28" fill="#6B1A2B"/>
-          <rect x="0" y="0" width="14" height="7" fill="#C9A84C" opacity="0.5"/>
-          <rect x="14" y="7" width="14" height="7" fill="#C9A84C" opacity="0.5"/>
-          <rect x="0" y="14" width="28" height="2" fill="#F2D4D0" opacity="0.3"/>
-          <rect x="0" y="21" width="28" height="7" fill="#8B2240" opacity="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="500" height="620" fill="url(#pc-sig)"/>
-      <polygon points="250,80 320,200 250,320 180,200" fill="#C9A84C" opacity="0.06"/>
-      <polygon points="250,200 340,360 250,520 160,360" fill="#C9A84C" opacity="0.04"/>
     </svg>`,
 
-    kente: `<svg width="100%" height="100%" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid slice">
+    // Sequin — paillettes dorées sur fond sombre
+    sequin: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <pattern id="pc-kte" x="0" y="0" width="20" height="10" patternUnits="userSpaceOnUse">
-          <rect width="20" height="10" fill="#C9A84C"/>
-          <rect x="0" y="0" width="20" height="3" fill="#6B1A2B" opacity="0.8"/>
-          <rect x="0" y="7" width="20" height="3" fill="#3D0D18" opacity="0.8"/>
-          <line x1="5" y1="0" x2="5" y2="10" stroke="white" stroke-width="0.3" opacity="0.2"/>
-          <line x1="10" y1="0" x2="10" y2="10" stroke="white" stroke-width="0.3" opacity="0.2"/>
-          <line x1="15" y1="0" x2="15" y2="10" stroke="white" stroke-width="0.3" opacity="0.2"/>
+        <pattern id="pat-sequin" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <rect width="20" height="20" fill="#3D0D18"/>
+          <polygon points="10,2 12,8 18,8 13,12 15,18 10,14 5,18 7,12 2,8 8,8" fill="#C9A84C" opacity="0.5"/>
         </pattern>
       </defs>
-      <rect width="350" height="300" fill="url(#pc-kte)"/>
+      <rect width="400" height="460" fill="url(#pat-sequin)"/>
+      <rect width="400" height="460" fill="#6B1A2B" opacity="0.3"/>
     </svg>`,
 
-    kanvo: `<svg width="100%" height="100%" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid slice">
+    // 3D — relief géométrique tridimensionnel
+    t3d: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <pattern id="pc-knv" x="0" y="0" width="16" height="8" patternUnits="userSpaceOnUse">
-          <rect width="16" height="8" fill="#F2D4D0"/>
-          <rect x="0" y="0" width="16" height="2" fill="#6B1A2B" opacity="0.35"/>
-          <rect x="0" y="3" width="16" height="1" fill="#C9A84C" opacity="0.6"/>
-          <rect x="0" y="5" width="16" height="2" fill="#E8B8B0" opacity="0.5"/>
-          <line x1="4" y1="0" x2="4" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.15"/>
-          <line x1="8" y1="0" x2="8" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.15"/>
-          <line x1="12" y1="0" x2="12" y2="8" stroke="#6B1A2B" stroke-width="0.4" opacity="0.15"/>
+        <pattern id="pat-t3d" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+          <rect width="30" height="30" fill="#3D0D18"/>
+          <polygon points="0,0 15,0 15,15" fill="#6B1A2B" opacity="0.9"/>
+          <polygon points="15,0 30,0 30,15" fill="#8B2240" opacity="0.7"/>
+          <polygon points="0,15 15,15 0,30" fill="#5A0F1E" opacity="0.8"/>
+          <polygon points="15,15 30,15 30,30 15,30" fill="#4A0E1A" opacity="0.9"/>
+          <line x1="0" y1="0" x2="30" y2="30" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
         </pattern>
       </defs>
-      <rect width="350" height="300" fill="url(#pc-knv)"/>
+      <rect width="400" height="460" fill="url(#pat-t3d)"/>
     </svg>`,
 
-    bijoux: `<svg width="100%" height="100%" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid slice">
+    // Velours — diagonales douces sur fond profond
+    velours: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <pattern id="pc-bij" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-          <rect width="20" height="20" fill="#FAF5EE"/>
-          <rect x="0" y="0" width="10" height="10" fill="#C9A84C" opacity="0.2"/>
-          <rect x="10" y="10" width="10" height="10" fill="#C9A84C" opacity="0.2"/>
-          <circle cx="10" cy="10" r="2" fill="#6B1A2B" opacity="0.3"/>
-          <circle cx="0" cy="0" r="1.5" fill="#C9A84C" opacity="0.4"/>
-          <circle cx="20" cy="20" r="1.5" fill="#C9A84C" opacity="0.4"/>
+        <pattern id="pat-velours" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+          <rect width="16" height="16" fill="#5A0F1E"/>
+          <line x1="0" y1="0" x2="16" y2="16" stroke="#8B2240" stroke-width="2" opacity="0.6"/>
+          <line x1="0" y1="8" x2="8"  y2="16" stroke="#8B2240" stroke-width="2" opacity="0.4"/>
+          <line x1="8" y1="0" x2="16" y2="8"  stroke="#8B2240" stroke-width="2" opacity="0.4"/>
         </pattern>
       </defs>
-      <rect width="350" height="300" fill="url(#pc-bij)"/>
+      <rect width="400" height="460" fill="url(#pat-velours)"/>
+      <rect width="400" height="460" fill="#3D0D18" opacity="0.2"/>
     </svg>`,
 
-    famille: `<svg width="100%" height="100%" viewBox="0 0 350 300" preserveAspectRatio="xMidYMid slice">
+    // Lace — résille guipure sur fond crème
+    lace: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <pattern id="pc-fam" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
-          <rect width="40" height="20" fill="#3D0D18"/>
-          <rect x="0" y="0" width="40" height="5" fill="#C9A84C" opacity="0.7"/>
-          <rect x="0" y="5" width="40" height="5" fill="#8B2240" opacity="0.6"/>
-          <rect x="0" y="10" width="40" height="5" fill="#F2D4D0" opacity="0.3"/>
-          <rect x="0" y="15" width="40" height="5" fill="#6B1A2B" opacity="0.6"/>
-          <line x1="10" y1="0" x2="10" y2="20" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-          <line x1="20" y1="0" x2="20" y2="20" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-          <line x1="30" y1="0" x2="30" y2="20" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+        <pattern id="pat-lace" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+          <rect width="24" height="24" fill="#FAE9E6"/>
+          <circle cx="12" cy="12" r="5" fill="none" stroke="#6B1A2B" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="12" cy="12" r="2" fill="#C9A84C" opacity="0.25"/>
+          <line x1="0" y1="12" x2="24" y2="12" stroke="#6B1A2B" stroke-width="0.4" opacity="0.15"/>
+          <line x1="12" y1="0" x2="12" y2="24" stroke="#6B1A2B" stroke-width="0.4" opacity="0.15"/>
+          <circle cx="0"  cy="0"  r="1.5" fill="#6B1A2B" opacity="0.2"/>
+          <circle cx="24" cy="0"  r="1.5" fill="#6B1A2B" opacity="0.2"/>
+          <circle cx="0"  cy="24" r="1.5" fill="#6B1A2B" opacity="0.2"/>
+          <circle cx="24" cy="24" r="1.5" fill="#6B1A2B" opacity="0.2"/>
         </pattern>
       </defs>
-      <rect width="350" height="300" fill="url(#pc-fam)"/>
+      <rect width="400" height="460" fill="url(#pat-lace)"/>
+    </svg>`,
+
+    // Blanc — satin nacré avec reflets subtils
+    blanc: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-blanc" x="0" y="0" width="32" height="8" patternUnits="userSpaceOnUse">
+          <rect width="32" height="8" fill="#FAF5EE"/>
+          <rect x="0" y="0" width="32" height="2" fill="#F3EBD8" opacity="0.6"/>
+          <rect x="0" y="3" width="32" height="1" fill="#E8C97A" opacity="0.12"/>
+          <rect x="0" y="5" width="32" height="2" fill="#F3EBD8" opacity="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-blanc)"/>
+    </svg>`,
+
+    // Foulard Gélé — tissage Asooke headwrap
+    gele: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-gele" x="0" y="0" width="20" height="10" patternUnits="userSpaceOnUse">
+          <rect width="20" height="10" fill="#6B1A2B"/>
+          <rect x="0" y="0" width="20" height="3" fill="#8B2240" opacity="0.8"/>
+          <rect x="0" y="4" width="20" height="1" fill="#C9A84C" opacity="0.7"/>
+          <rect x="0" y="6" width="20" height="3" fill="#5A0F1E" opacity="0.7"/>
+          <line x1="5"  y1="0" x2="5"  y2="10" stroke="#C9A84C" stroke-width="0.4" opacity="0.25"/>
+          <line x1="10" y1="0" x2="10" y2="10" stroke="#C9A84C" stroke-width="0.4" opacity="0.25"/>
+          <line x1="15" y1="0" x2="15" y2="10" stroke="#C9A84C" stroke-width="0.4" opacity="0.25"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-gele)"/>
+    </svg>`,
+
+    // Foulard Simple — tissu fluide uni
+    simple: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-foulard-simple" x="0" y="0" width="40" height="4" patternUnits="userSpaceOnUse">
+          <rect width="40" height="4" fill="#8B2240"/>
+          <rect x="0" y="0" width="40" height="1" fill="#FAE9E6" opacity="0.1"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-foulard-simple)"/>
+    </svg>`,
+
+    // Foulard Broché — broderies dorées
+    broche: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-broche" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+          <rect width="32" height="32" fill="#6B1A2B"/>
+          <polygon points="16,4 20,12 28,12 22,18 24,26 16,22 8,26 10,18 4,12 12,12" fill="#C9A84C" opacity="0.3"/>
+          <line x1="0" y1="16" x2="32" y2="16" stroke="#C9A84C" stroke-width="0.4" opacity="0.15"/>
+          <line x1="16" y1="0" x2="16" y2="32" stroke="#C9A84C" stroke-width="0.4" opacity="0.15"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-broche)"/>
+    </svg>`,
+
+    // Shantoum — aspect nacré texturé
+    shantoum: `<svg width="100%" height="100%" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pat-shantoum" x="0" y="0" width="8" height="4" patternUnits="userSpaceOnUse">
+          <rect width="8" height="4" fill="#FAE9E6"/>
+          <rect x="0" y="0" width="4" height="2" fill="#E8B8B0" opacity="0.5"/>
+          <rect x="4" y="2" width="4" height="2" fill="#E8B8B0" opacity="0.5"/>
+          <line x1="0" y1="2" x2="8" y2="2" stroke="#C9A84C" stroke-width="0.3" opacity="0.2"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#pat-shantoum)"/>
     </svg>`
   }
 };
@@ -249,10 +295,14 @@ const EH = {
       return;
     }
     this.applyContact();
+    this.renderNav();
     this.renderCerStrip();
+    this.renderPagnes();
     this.renderTissus();
-    this.renderCollections();
+    this.renderFoulards();
+
     this.renderAccessoires();
+    this.renderBienetre();
     this.renderMariages();
     this.renderTemoignages();
     this.injectSchemaOrg();
@@ -322,6 +372,61 @@ const EH = {
     });
   },
 
+  // ── Navigation dropdown (construite depuis data.nav) ─────────────────────
+
+  renderNav() {
+    const list = document.getElementById('nav-links');
+    if (!list || !this.data.nav) return;
+
+    // Vider sauf l'éventuel bouton CTA mobile déjà présent
+    list.innerHTML = '';
+
+    list.innerHTML = this.data.nav.map(item => {
+      const hasSub = item.children && item.children.length > 0;
+      const sub = hasSub ? `
+        <ul class="nav-dropdown">
+          ${item.children.map(c => `
+            <li>
+              <a href="${c.anchor}" class="nav-dropdown-link">${esc(c.label)}</a>
+            </li>
+          `).join('')}
+        </ul>` : '';
+      return `
+        <li class="nav-item${hasSub ? ' nav-item--has-sub' : ''}">
+          <a href="${item.anchor}" class="nav-item-link"
+             ${hasSub ? 'aria-haspopup="true" aria-expanded="false"' : ''}>
+            ${esc(item.label)}${hasSub ? '<span class="nav-arrow" aria-hidden="true">▾</span>' : ''}
+          </a>
+          ${sub}
+        </li>`;
+    }).join('') + `<li class="nav-links-cta-mobile"><button class="nav-cta" onclick="EH.openRDV()">Prendre RDV</button></li>`;
+
+    // Mobile : accordion toggle (clic sur le label parent)
+    list.querySelectorAll('.nav-item--has-sub > .nav-item-link').forEach(link => {
+      link.addEventListener('click', e => {
+        if (window.innerWidth > 768) return; // desktop gère par CSS :hover
+        e.preventDefault();
+        const li = link.closest('.nav-item--has-sub');
+        const isOpen = li.classList.contains('is-open');
+        // Ferme tous les autres
+        list.querySelectorAll('.nav-item--has-sub').forEach(el => el.classList.remove('is-open'));
+        if (!isOpen) li.classList.add('is-open');
+        link.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    // Les liens feuilles ferment le menu hamburger
+    list.querySelectorAll('.nav-dropdown-link, a:not([aria-haspopup])').forEach(a => {
+      a.addEventListener('click', () => {
+        const btn = document.getElementById('nav-hamburger');
+        list.classList.remove('is-open');
+        list.querySelectorAll('.nav-item--has-sub').forEach(el => el.classList.remove('is-open'));
+        if (btn) { btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); }
+        document.body.style.overflow = '';
+      });
+    });
+  },
+
   // ── Bandeau cérémonies ────────────────────────────────────────────────────
 
   renderCerStrip() {
@@ -332,95 +437,68 @@ const EH = {
       .join('<div class="cer-strip-dot"></div>');
   },
 
-  // ── Tissus ────────────────────────────────────────────────────────────────
+  // ── Template carte tissu (partagé par toutes les sections produit) ─────────
+
+  _cardHTML(item, idPrefix, patterns) {
+    const patKey = item.id.replace('-', '');
+    const svgBg  = item.image
+      ? `<img src="${esc(item.image)}" alt="${esc(item.name)}" class="cover-img">`
+      : (patterns[item.id] || patterns[patKey] || `<rect width="400" height="460" fill="${item.overlayStart || '#3D0D18'}"/>`);
+    return `
+      <div class="tissu-card" id="${idPrefix}-${item.id}" data-eh-item="${idPrefix}" data-eh-id="${item.id}">
+        <div class="tissu-bg">${svgBg}</div>
+        <div class="tissu-overlay" style="background:linear-gradient(to top,${item.overlayStart||'rgba(61,13,24,0.85)'} 0%,${item.overlayMid||'rgba(61,13,24,0.2)'} 60%,transparent 100%);"></div>
+        <div class="tissu-content">
+          <div class="tissu-num" style="color:#C9A84C;">${esc(item.num||'')}</div>
+          ${item.flag ? `<div class="tissu-country"><span class="tissu-flag">${item.flag}</span> ${esc(item.country||'')}</div>` : `<div class="tissu-badge-label">${esc(item.badge||'')}</div>`}
+          <div class="tissu-name" style="color:#FAF5EE;">${esc(item.name)}</div>
+          <div class="tissu-div" style="background:var(--dore);"></div>
+          <p class="tissu-desc" style="color:rgba(242,212,208,0.8);">${esc(item.description||'')}</p>
+          <p class="tissu-role" style="color:var(--dore2);">${esc(item.exemples||item.role||'')}</p>
+        </div>
+      </div>`;
+  },
+
+  // ── Pagnes tissés (Asooke, Kanvo, Kente) ─────────────────────────────────
+
+  renderPagnes() {
+    const grid = document.getElementById('grid-pagnes');
+    if (!grid || !this.data.pagnes) return;
+    grid.innerHTML = this.data.pagnes.map(p => this._cardHTML(p, 'pagne', PATTERNS.tissus)).join('');
+  },
+
+  // ── Nos tissus (9 catégories) ─────────────────────────────────────────────
 
   renderTissus() {
-    const grid = document.getElementById('tissus-grid');
-    if (!grid) return;
-
-    grid.innerHTML = this.data.tissus.map(t => `
-      <div class="tissu-card" id="tissu-${t.id}" data-eh-item="tissu" data-eh-id="${t.id}">
-        <div class="tissu-bg">${bg(t, PATTERNS.tissus)}</div>
-        <div class="tissu-overlay" style="background:linear-gradient(to top,${t.overlayStart} 0%,${t.overlayMid} 60%,transparent 100%);"></div>
-        <div class="tissu-content">
-          <div class="tissu-num" style="color:#C9A84C;">${esc(t.num)}</div>
-          <div class="tissu-badge-label">${esc(t.badge)}</div>
-          <div class="tissu-name" style="color:#FAF5EE;">${esc(t.name)}</div>
-          <div class="tissu-div" style="background:var(--dore);"></div>
-          <p class="tissu-desc" style="color:rgba(242,212,208,0.8);">${esc(t.description)}</p>
-          <p class="tissu-role" style="color:var(--dore2);">${esc(t.exemples)}</p>
-        </div>
-      </div>
-    `).join('');
+    const grid = document.getElementById('grid-tissus');
+    if (!grid || !this.data.tissus) return;
+    grid.innerHTML = this.data.tissus.map(t => this._cardHTML(t, 'tissu', PATTERNS.tissus)).join('');
   },
 
-  // ── Collections ───────────────────────────────────────────────────────────
+  // ── Foulards ──────────────────────────────────────────────────────────────
 
-  renderCollections() {
-    const grid = document.getElementById('collections-grid');
-    if (!grid) return;
-
-    const main = this.data.collections.filter(c => c.col === 1);
-    const col2 = this.data.collections.filter(c => c.col === 2);
-    const col3 = this.data.collections.filter(c => c.col === 3);
-
-    const card = c => {
-      const overlay = c.overlayColor
-        ? `style="background:linear-gradient(160deg,transparent 30%,${c.overlayColor} 100%);"`
-        : '';
-      return `
-        <div class="coll-card coll-card-${c.size}" id="coll-${c.id}" data-eh-item="collection" data-eh-id="${c.id}">
-          <div class="coll-bg">${bg(c, PATTERNS.collections)}</div>
-          <div class="coll-overlay" ${overlay}></div>
-          <div class="coll-content">
-            <div class="coll-badge">${esc(c.badge)}</div>
-            <div class="coll-name">${esc(c.name).replace('\n', '<br>')}</div>
-            <div class="coll-sub">${esc(c.sub)}</div>
-          </div>
-        </div>`;
-    };
-
-    grid.innerHTML = `
-      ${main.map(card).join('')}
-      <div style="display:flex;flex-direction:column;gap:3px;">${col2.map(card).join('')}</div>
-      <div style="display:flex;flex-direction:column;gap:3px;">${col3.map(card).join('')}</div>
-    `;
+  renderFoulards() {
+    const grid = document.getElementById('grid-foulards');
+    if (!grid || !this.data.foulards) return;
+    grid.innerHTML = this.data.foulards.map(f => this._cardHTML(f, 'foulard', PATTERNS.tissus)).join('');
   },
 
-  // ── Accessoires ───────────────────────────────────────────────────────────
+  // ── Accessoires (7 catégories) ───────────────────────────────────────────
 
   renderAccessoires() {
-    const topGrid = document.getElementById('accessoires-top');
-    if (topGrid) {
-      topGrid.innerHTML = this.data.accessoires.topCards.map(c => `
-        <div class="acc-card acc-card--${c.bg}" id="acc-${c.id}" data-eh-item="accessoire" data-eh-id="${c.id}">
-          <div class="acc-card-deco">✦</div>
-          <div class="coll-badge">${esc(c.badge)}</div>
-          <div class="coll-name" style="color:var(--blanc);">${esc(c.name)}</div>
-          <p class="acc-card-desc">${esc(c.description)}</p>
-        </div>
-      `).join('');
-    }
+    const grid = document.getElementById('grid-accessoires');
+    if (!grid || !this.data.accessoires) return;
+    grid.innerHTML = this.data.accessoires
+      .map(a => this._cardHTML(a, 'acc', PATTERNS.tissus)).join('');
+  },
 
-    const eventailsRow = document.querySelector('#acc-eventails .acc-items-row');
-    if (eventailsRow) {
-      eventailsRow.innerHTML = this.data.accessoires.eventails.map(e => `
-        <div class="acc-item acc-item--blush" data-eh-item="eventail">
-          <div class="acc-item-title">${esc(e.name)}</div>
-          <p class="acc-item-desc">${esc(e.description)}</p>
-        </div>
-      `).join('');
-    }
+  // ── Bien-être ─────────────────────────────────────────────────────────────
 
-    const gelesRow = document.querySelector('#acc-geles .acc-items-row');
-    if (gelesRow) {
-      gelesRow.innerHTML = this.data.accessoires.geles.map(g => `
-        <div class="acc-item acc-item--blanc" data-eh-item="gele">
-          <div class="acc-item-title">${esc(g.name)}</div>
-          <p class="acc-item-desc">${esc(g.description)}</p>
-        </div>
-      `).join('');
-    }
+  renderBienetre() {
+    const grid = document.getElementById('grid-bienetre');
+    if (!grid || !this.data.bienetre) return;
+    grid.innerHTML = this.data.bienetre
+      .map(b => this._cardHTML(b, 'bienetre', PATTERNS.tissus)).join('');
   },
 
   // ── Mariage & Dot ─────────────────────────────────────────────────────────
@@ -459,7 +537,7 @@ const EH = {
   // ── Hover footer → highlight de l'élément ciblé ───────────────────────────
 
   initFooterHover() {
-    const CARD_SELECTOR = '.coll-card,.tissu-card,.tissus-extra-card,.m-card,.acc-card,.acc-bottom-card';
+    const CARD_SELECTOR = '.tissu-card,.tissus-extra-card,.m-card,.acc-card,.acc-bottom-card';
 
     document.querySelectorAll('.f-links a[href^="#"]').forEach(link => {
       link.addEventListener('mouseenter', () => {
@@ -553,8 +631,8 @@ const EH = {
       links.classList.contains('is-open') ? close() : open();
     });
 
-    // Ferme le menu au clic sur un lien
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    // Ferme le menu au clic sur un lien feuille (pas les parents avec dropdown)
+    links.querySelectorAll('a:not([aria-haspopup])').forEach(a => a.addEventListener('click', close));
 
     // Ferme si on appuie sur Échap
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
@@ -632,6 +710,12 @@ const EH = {
   // ── RDV : ouverture / fermeture du modal ─────────────────────────────────
 
   openRDV() {
+    // Ferme le menu mobile s'il est ouvert
+    const navLinks = document.getElementById('nav-links');
+    const navBtn   = document.getElementById('nav-hamburger');
+    if (navLinks) navLinks.classList.remove('is-open');
+    if (navBtn)   { navBtn.classList.remove('is-open'); navBtn.setAttribute('aria-expanded','false'); }
+
     const overlay = document.getElementById('rdv-overlay');
     if (!overlay) return;
     overlay.classList.add('is-open');
@@ -737,7 +821,7 @@ const EH = {
     const GRIDS = [
       '.tissu-card',
       '.tissus-extra-card',
-      '.coll-card',
+
       '.m-card',
       '.temo-card',
       '.acc-card',

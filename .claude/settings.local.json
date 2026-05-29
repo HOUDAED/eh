@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /tmp/eh-verify/*.png 2>/dev/null | head -20)",
+      "Read(//tmp/**)"
+    ]
+  }
+}

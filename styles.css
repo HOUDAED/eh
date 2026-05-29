@@ -18,6 +18,13 @@
 }
 
 html { scroll-behavior: smooth; }
+
+/* Compense la hauteur de la nav fixe (~98px desktop) pour toutes les ancres */
+.tissu-card, .catalogue-sec, .mariage,
+.newsletter, .map-section, .dot-section, .processus,
+.temoignages, .banner, .intro, .social-section {
+  scroll-margin-top: 110px;
+}
 body {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
@@ -88,6 +95,57 @@ nav {
 }
 .nav-cta:hover { background: var(--vin2); }
 
+/* ══ NAV DROPDOWN ═══════════════════════════════════ */
+.nav-item { position: relative; }
+.nav-item-link {
+  font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text); text-decoration: none; font-weight: 300;
+  transition: color 0.3s; position: relative;
+  display: flex; align-items: center; gap: 5px;
+}
+.nav-item-link::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 0.5px; background: var(--dore);
+  transform: scaleX(0); transition: transform 0.3s;
+}
+.nav-item-link:hover,
+.nav-item--has-sub:hover > .nav-item-link { color: var(--dore); }
+.nav-item-link:hover::after,
+.nav-item--has-sub:hover > .nav-item-link::after { transform: scaleX(1); }
+.nav-arrow {
+  font-size: 7px; opacity: 0.55; line-height: 1;
+  transition: transform 0.2s; display: inline-block;
+}
+.nav-item--has-sub:hover .nav-arrow { transform: rotate(180deg); }
+/* Pont invisible qui comble le gap entre le lien et le dropdown */
+.nav-item--has-sub::after {
+  content: ''; position: absolute;
+  top: 100%; left: 0; right: 0; height: 14px;
+}
+.nav-dropdown {
+  position: absolute; top: calc(100% + 10px); left: -16px;
+  background: var(--vin3); border: 0.5px solid rgba(201,168,76,0.22);
+  list-style: none; padding: 8px 0; min-width: 190px;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.22s, transform 0.22s, visibility 0.22s;
+  z-index: 200;
+}
+.nav-item--has-sub:hover .nav-dropdown {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translateY(0);
+}
+.nav-links .nav-dropdown a.nav-dropdown-link {
+  display: block; padding: 7px 20px;
+  font-size: 8.5px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(242,212,208,0.75); text-decoration: none;
+  transition: color 0.18s, padding-left 0.18s;
+}
+.nav-links .nav-dropdown a.nav-dropdown-link::after { display: none; }
+.nav-links .nav-dropdown a.nav-dropdown-link:hover {
+  color: var(--dore); padding-left: 26px;
+}
+
 /* ══ HERO ══════════════════════════════════════════ */
 .hero {
   min-height: 100vh;
@@ -98,17 +156,6 @@ nav {
 }
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
-}
-.hero-bands {
-  position: absolute; inset: 0; z-index: 1;
-  overflow: hidden;
-}
-.hero-band {
-  position: absolute;
-  width: 3px; height: 200%;
-  top: -50%; opacity: 0.12;
-  background: var(--dore);
-  transform-origin: top center;
 }
 .hero-content {
   position: relative; z-index: 10;
@@ -342,49 +389,6 @@ nav {
   font-size: 13px; line-height: 1.9; color: var(--muted);
 }
 
-/* ══ COLLECTIONS ════════════════════════════════════ */
-.collections {
-  padding: 7rem 5rem;
-  background: var(--blanc);
-}
-.coll-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 3px;
-}
-.coll-card {
-  position: relative; overflow: hidden; cursor: pointer;
-}
-.coll-card-main { grid-row: 1 / 3; min-height: 620px; }
-.coll-card-sm { min-height: 300px; }
-.coll-bg { position: absolute; inset: 0; transition: transform 0.7s ease; }
-.coll-card:hover .coll-bg { transform: scale(1.06); }
-.coll-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(160deg, transparent 30%, rgba(61,13,24,0.88) 100%);
-  z-index: 1;
-}
-.coll-content {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 2rem 2.5rem; z-index: 2;
-}
-.coll-badge {
-  display: inline-block;
-  font-size: 7px; letter-spacing: 3px; text-transform: uppercase;
-  padding: 4px 10px; background: var(--dore); color: var(--vin3);
-  margin-bottom: 0.75rem; font-weight: 400;
-}
-.coll-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 30px; font-weight: 300; color: var(--blanc);
-  line-height: 1.1; margin-bottom: 0.3rem; letter-spacing: 1px;
-}
-.coll-sub {
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: rgba(242,212,208,0.7);
-}
-
 /* ══ NOS TISSUS ═════════════════════════════════════ */
 .tissus {
   padding: 7rem 5rem;
@@ -451,6 +455,21 @@ nav {
 }
 .tissus-extra-card--light { background: var(--blanc); }
 .tissus-extra-card--blush { background: var(--blush3); }
+
+/* ══ CATALOGUE SECTIONS (pagnes / tissus / foulards / acc / bienetre) ════ */
+.catalogue-sec { padding: 7rem 5rem; background: var(--creme); }
+.catalogue-sec--vin   { background: var(--vin3); }
+.catalogue-sec--vin .sec-tag   { color: var(--dore); border-color: rgba(201,168,76,0.3); }
+.catalogue-sec--vin .sec-title { color: var(--blanc); }
+.catalogue-sec--vin .sec-title em { color: var(--blush); }
+.catalogue-sec--blush { background: var(--blush3); }
+.catalogue-sec--blanc { background: var(--blanc); }
+.tissu-grid-wrap { display: grid; gap: 3px; margin-top: 4rem; }
+#grid-pagnes      { grid-template-columns: repeat(3,1fr); }
+#grid-tissus      { grid-template-columns: repeat(3,1fr); }
+#grid-foulards    { grid-template-columns: repeat(4,1fr); }
+#grid-accessoires { grid-template-columns: repeat(4,1fr); }
+#grid-bienetre    { grid-template-columns: repeat(2,1fr); }
 
 /* ══ ACCESSOIRES ════════════════════════════════════ */
 .accessoires {
@@ -953,16 +972,15 @@ footer {
 .f-socials a:hover { color: var(--dore); }
 
 /* ══ SCROLL OFFSET (compense la nav fixe) ══════════ */
-#tissus, #collections, #accessoires, #mariage,
+#tissus, #accessoires, #mariage,
 #processus, #contact,
-[id^="tissu-"], [id^="coll-"], [id^="acc-"],
+[id^="tissu-"], [id^="acc-"],
 [id^="mariage-"] {
-  scroll-margin-top: 90px;
+  scroll-margin-top: 110px;
 }
 
 /* ══ IMAGE PRODUIT (remplace le SVG quand photo dispo) ══ */
-.tissu-bg img,
-.coll-bg img {
+.tissu-bg img {
   width: 100%; height: 100%;
   object-fit: cover; display: block;
 }
@@ -978,11 +996,6 @@ footer {
   transition: outline 0.3s;
 }
 
-.coll-card:has(> .coll-content:target),
-.coll-card:has(> .coll-content [id]:target) {
-  outline: 2px solid var(--dore);
-  outline-offset: 0;
-}
 
 .eh-highlight {
   outline: 2px solid var(--dore) !important;
@@ -1149,6 +1162,13 @@ footer {
   position: relative;
   overflow: hidden;
   min-height: 420px;
+  background: var(--creme2);
+}
+.map-loading {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted); pointer-events: none;
 }
 .map-iframe {
   position: absolute; inset: 0;
@@ -1461,8 +1481,9 @@ footer {
   .intro-right-top, .intro-right-bottom { padding: 2.5rem 2.5rem; }
 
   /* Sections padding */
-  .tissus, .collections, .accessoires,
+  .tissus, .accessoires,
   .temoignages, .processus { padding: 5rem 2.5rem; }
+  .catalogue-sec { padding: 5rem 2.5rem; }
   .mariage-inner { padding: 5rem 2.5rem; }
   .banner        { padding: 6rem 2.5rem; }
   .newsletter    { padding: 4rem 2.5rem; }
@@ -1475,10 +1496,9 @@ footer {
   .tissus-grid  { grid-template-columns: 1fr 1fr; }
   .mariage-grid { grid-template-columns: 1fr 1fr; }
   .temo-grid    { grid-template-columns: 1fr 1fr; }
+  #grid-pagnes, #grid-tissus, #grid-foulards,
+  #grid-accessoires, #grid-bienetre { grid-template-columns: 1fr 1fr; }
 
-  /* Collections : restructurée */
-  .coll-grid { grid-template-columns: 1fr 1fr; }
-  .coll-card-main { grid-row: auto; min-height: 460px; }
 
   /* Process : 4 → 2 */
   .proc-steps { grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -1548,6 +1568,39 @@ footer {
   /* Supprimer l'underline animé desktop */
   .nav-links a::after { display: none; }
 
+  /* ── Dropdown mobile : accordion ── */
+  .nav-item-link {
+    color: rgba(242,212,208,0.7);
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    font-size: 10px; letter-spacing: 5px;
+  }
+  .nav-item-link:hover { color: var(--dore); }
+  .nav-item--has-sub:hover > .nav-item-link { color: rgba(242,212,208,0.7); }
+  .nav-item--has-sub:hover > .nav-item-link::after { transform: scaleX(0); }
+  .nav-item--has-sub.is-open > .nav-item-link { color: var(--dore); }
+  .nav-dropdown {
+    position: static;
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: none; background: rgba(0,0,0,0.25);
+    border: none; min-width: unset;
+    padding: 0;
+    display: none;
+    transition: none;
+  }
+  .nav-item--has-sub:hover .nav-dropdown { display: none; }
+  .nav-item--has-sub.is-open .nav-dropdown { display: block; }
+  .nav-links .nav-dropdown a.nav-dropdown-link {
+    padding: 0.75rem 2rem 0.75rem 3.5rem;
+    font-size: 8.5px; letter-spacing: 3px;
+    color: rgba(242,212,208,0.55);
+    border-bottom: 0.5px solid rgba(201,168,76,0.07);
+  }
+  .nav-links .nav-dropdown a.nav-dropdown-link:hover {
+    color: var(--dore); padding-left: 3.5rem;
+  }
+  .nav-item--has-sub.is-open .nav-arrow { transform: rotate(180deg); }
+
   /* ── Bouton "Prendre RDV" dans l'overlay ── */
   .nav-links-cta-mobile {
     border-bottom: none !important;
@@ -1601,18 +1654,16 @@ footer {
   .intro-right-top, .intro-right-bottom { padding: 2rem 1.5rem; }
   .kw-title { font-size: 26px; }
 
-  /* ── Tissus ── */
+  /* ── Tissus & nouvelles sections catalogue ── */
   .tissus { padding: 4rem 1.5rem; }
   .tissus-grid { grid-template-columns: 1fr; }
   .tissu-card  { min-height: 360px; }
   .tissu-name  { font-size: 28px; }
   .tissus-extra { grid-template-columns: 1fr; }
+  .catalogue-sec { padding: 4rem 1.5rem; }
+  #grid-pagnes, #grid-tissus, #grid-foulards,
+  #grid-accessoires, #grid-bienetre { grid-template-columns: 1fr; }
 
-  /* ── Collections ── */
-  .collections { padding: 4rem 1.5rem; }
-  .coll-grid { display: flex; flex-direction: column; gap: 3px; }
-  .coll-card-main { min-height: 420px; }
-  .coll-card-sm   { min-height: 200px; }
 
   /* ── Accessoires ── */
   .accessoires { padding: 4rem 1.5rem; }

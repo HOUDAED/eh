@@ -65,7 +65,6 @@
   </div>
 
   <ul class="nav-links" id="nav-links">
-    <li><a href="#collections">Collections</a></li>
     <li><a href="#tissus">Nos Tissus</a></li>
     <li><a href="#accessoires">Accessoires</a></li>
     <li><a href="#mariage">Mariage & Dot</a></li>
@@ -125,7 +124,7 @@
         <strong>Elegance House Bénin</strong> est votre showroom haut de gamme de textiles et accessoires africains. Tissus dentelle, brocarde, pagnes Asooké, Kanvô, Kenté, bijoux, éventails, gélés — tout ce qu'il faut pour briller lors de votre dot, mariage ou grande cérémonie. En un seul lieu, à <strong>Abomey-Calavi</strong>.
       </p>
       <div class="hero-btns">
-        <button class="btn-gold" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">Voir nos collections</button>
+        <button class="btn-gold" onclick="document.getElementById('section-pagnes').scrollIntoView({behavior:'smooth'})">Voir nos tissus</button>
         <button class="btn-outline-blanc" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Nous contacter</button>
       </div>
     </div>
@@ -156,7 +155,7 @@
           <rect x="0" y="420" width="300" height="60" fill="#6B1A2B" opacity="0.4"/>
         </svg>
         <div class="hero-panel-overlay">
-          <div class="panel-badge">Collection 2026</div>
+          <div class="panel-badge">Sélection 2026</div>
           <div class="panel-title">Tenues de<br>mariage & dot</div>
           <div class="panel-div"></div>
           <div class="panel-sub">Asooké · Kente · Kanvô</div>
@@ -208,47 +207,50 @@
   </div>
 </section>
 
-<!-- ══ NOS TISSUS — rendu par app.js depuis data.tissus ═══════════════════ -->
-<section class="tissus" id="tissus">
+<!-- ══ PAGNES TISSÉS — rendu par app.js depuis data.pagnes ════════════════ -->
+<section class="catalogue-sec catalogue-sec--vin" id="section-pagnes">
   <div class="sec-head">
-    <div class="sec-tag">Notre sélection complète</div>
-    <h2 class="sec-title">Tissus & pagnes,<br><em>huit familles</em></h2>
+    <div class="sec-tag">Pagnes tissés d'Afrique</div>
+    <h2 class="sec-title">Asooke · Kanvo · <em>Kente</em></h2>
   </div>
-  <div class="tissus-grid" id="tissus-grid"></div>
+  <div class="tissu-grid-wrap" id="grid-pagnes"></div>
 </section>
 
-<!-- ══ COLLECTIONS — rendu par app.js depuis data.collections ════════════ -->
-<section class="collections" id="collections">
+<!-- ══ NOS TISSUS — rendu par app.js depuis data.tissus ════════════════════ -->
+<section class="catalogue-sec" id="section-tissus">
   <div class="sec-head">
-    <div class="sec-tag">Nos créations</div>
-    <h2 class="sec-title">Collections <em>nuptiales</em></h2>
+    <div class="sec-tag">Nos tissus</div>
+    <h2 class="sec-title">Dentelle, Wax, Brocade<br><em>& bien plus</em></h2>
   </div>
-  <div class="coll-grid" id="collections-grid"></div>
+  <div class="tissu-grid-wrap" id="grid-tissus"></div>
 </section>
+
+<!-- ══ FOULARDS — rendu par app.js depuis data.foulards ════════════════════ -->
+<section class="catalogue-sec catalogue-sec--blush" id="section-foulards">
+  <div class="sec-head">
+    <div class="sec-tag">Foulards & Gélés</div>
+    <h2 class="sec-title">L'art du <em>headwrap africain</em></h2>
+  </div>
+  <div class="tissu-grid-wrap" id="grid-foulards"></div>
+</section>
+
 
 <!-- ══ ACCESSOIRES — rendu par app.js depuis data.accessoires ════════════ -->
-<section class="accessoires" id="accessoires">
+<section class="catalogue-sec catalogue-sec--blanc" id="section-accessoires">
   <div class="sec-head">
     <div class="sec-tag">Accessoires de mode</div>
-    <h2 class="sec-title">L'art de la <em>parure complète</em></h2>
+    <h2 class="sec-title">La parure <em>complète</em></h2>
   </div>
+  <div class="tissu-grid-wrap" id="grid-accessoires"></div>
+</section>
 
-  <!-- Grille top (bijoux, chaussures, corail) : rendue par app.js -->
-  <div class="accessoires-grid" id="accessoires-top"></div>
-
-  <!-- Éventails & Gélés : structure statique, items rendus par app.js -->
-  <div class="acc-bottom">
-    <div class="acc-bottom-card acc-bottom-card--blanc" id="acc-eventails">
-      <div class="kw-tag">Éventails mariées</div>
-      <div class="kw-title">Trois collections<br>d'éventails</div>
-      <div class="acc-items-row"></div>
-    </div>
-    <div class="acc-bottom-card acc-bottom-card--creme2" id="acc-geles">
-      <div class="kw-tag">Gélés & Foulards</div>
-      <div class="kw-title">L'art du<br>headwrap africain</div>
-      <div class="acc-items-row"></div>
-    </div>
+<!-- ══ BIEN-ÊTRE — rendu par app.js depuis data.bienetre ════════════════ -->
+<section class="catalogue-sec catalogue-sec--blush" id="section-bienetre">
+  <div class="sec-head">
+    <div class="sec-tag">Bien-être</div>
+    <h2 class="sec-title">Parfum & <em>Déodorant</em></h2>
   </div>
+  <div class="tissu-grid-wrap" id="grid-bienetre"></div>
 </section>
 
 <!-- ══ MARIAGE & DOT — rendu par app.js depuis data.mariages ════════════ -->
@@ -391,7 +393,7 @@
       Appelez-nous : <strong><a data-eh="phone-href" href="tel:0190008300"><span data-eh="phone-text">0190008300</span></a></strong>
     </p>
     <div class="banner-btns">
-      <button class="btn-gold" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">Voir nos collections</button>
+      <button class="btn-gold" onclick="document.getElementById('section-pagnes').scrollIntoView({behavior:'smooth'})">Voir nos tissus</button>
       <button class="btn-blanc" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Nous contacter</button>
     </div>
   </div>
@@ -435,13 +437,15 @@
   <div class="map-grid">
 
     <div class="map-embed-wrap">
+      <div class="map-loading" id="map-loading">📍 Chargement de la carte…</div>
       <iframe
         id="map-iframe"
         class="map-iframe"
         src=""
         loading="lazy"
         allowfullscreen
-        title="Elegance House Bénin — Abomey-Calavi">
+        title="Elegance House Bénin — Abomey-Calavi"
+        onload="document.getElementById('map-loading').style.display='none'">
       </iframe>
     </div>
 
@@ -627,23 +631,24 @@
       <p class="f-brand-desc">Maison de mode haut de gamme spécialisée dans le textile africain — Asooké, Kanvô, Kenté, dentelle, brocarde, bijoux, éventails, gélés. Au cœur du mariage traditionnel et de la cérémonie de dot à Abomey-Calavi, Bénin.</p>
     </div>
     <div>
-      <div class="f-col-title">Collections</div>
+      <div class="f-col-title">Nos Produits</div>
       <ul class="f-links">
-        <li><a href="#tissu-pagne">Pagnes Tissés (Asooké, Kanvô, Kenté)</a></li>
-        <li><a href="#tissu-dentelle">Dentelle & Brocarde</a></li>
-        <li><a href="#tissu-wax">Wax Africain</a></li>
-        <li><a href="#tissu-t360">Tissu 360</a></li>
-        <li><a href="#tissu-femme">Tissus Femmes · Hommes · Mixtes</a></li>
+        <li><a href="#pagne-asoke">Asooke · Kanvo · Kente</a></li>
+        <li><a href="#tissu-dentelle">Dentelle · Brocade · Lace</a></li>
+        <li><a href="#tissu-wax">Wax · Sequin · Velours</a></li>
+        <li><a href="#foulard-gele">Gélé · Foulards · Shantoum</a></li>
+        <li><a href="#section-accessoires">Accessoires & Bijoux</a></li>
+        <li><a href="#section-bienetre">Bien-être · Parfum</a></li>
       </ul>
     </div>
     <div>
       <div class="f-col-title">Cérémonies</div>
       <ul class="f-links">
-        <li><a href="#mariage-dot">Cérémonie de Dot</a></li>
-        <li><a href="#mariage-traditionnel">Mariage Traditionnel</a></li>
-        <li><a href="#mariage-ceremonies">Grands Événements</a></li>
-        <li><a href="#coll-famille">Tenues Familiales</a></li>
-        <li><a href="#coll-signature">Haute Gamme</a></li>
+        <li><a href="#mariage">Mariage & Dot</a></li>
+        <li><a href="#mariage">Cérémonie de Dot</a></li>
+        <li><a href="#processus">Notre expérience</a></li>
+
+        <li><a href="#contact">Prendre rendez-vous</a></li>
       </ul>
     </div>
     <div>
@@ -664,7 +669,7 @@
             <ul class="f-hours-list" id="f-hours-list"></ul>
           </div>
         </li>
-        <li><a data-eh="whatsapp" href="#">WhatsApp disponible</a></li>
+        <li><a href="#" onclick="EH.openRDV();return false;">Prendre rendez-vous</a></li>
       </ul>
     </div>
   </div>

@@ -1,6 +1,3 @@
-# Supabase - fichier de config avec credentials
-js/supabase-client.js
-
 # Supabase - script de setup BDD
 data/supabase_setup.sql
 

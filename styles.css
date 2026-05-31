@@ -1780,3 +1780,66 @@ footer {
 .hero-ornament-line { animation: fadeUp 0.7s ease 0.35s both; }
 .hero-desc        { animation: fadeUp 0.7s ease 0.45s both; }
 .hero-btns        { animation: fadeUp 0.7s ease 0.6s both; }
+
+/* ══ FILTRAGE SOUS-CATÉGORIES ═══════════════════════ */
+.tissu-card.sc-hidden { display: none; }
+
+.nav-dropdown-link.sc-active {
+  color: var(--dore) !important;
+  padding-left: 26px;
+}
+.nav-dropdown-link.sc-active::before {
+  content: '▸ '; font-size: 8px;
+}
+
+.sc-filter-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(201,168,76,0.08);
+  border: 0.5px solid rgba(201,168,76,0.3);
+}
+.sc-filter-label {
+  font-size: 10px; letter-spacing: 2px; color: var(--text);
+  text-transform: uppercase;
+}
+.sc-filter-label strong { color: var(--dore); font-weight: 400; }
+.sc-filter-reset {
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); font-family: 'Jost', sans-serif; font-weight: 300;
+  padding: 4px 10px; transition: color 0.2s;
+}
+.sc-filter-reset:hover { color: var(--vin); }
+
+/* Sections sombres (pagnes) */
+.catalogue-sec--vin .sc-filter-label { color: rgba(242,212,208,0.65); }
+.catalogue-sec--vin .sc-filter-label strong { color: var(--dore2); }
+.catalogue-sec--vin .sc-filter-reset { color: rgba(242,212,208,0.35); }
+.catalogue-sec--vin .sc-filter-reset:hover { color: var(--dore); }
+.catalogue-sec--vin .sc-filter-bar { background: rgba(201,168,76,0.06); border-color: rgba(201,168,76,0.2); }
+
+/* ══ LOADER SUPABASE ════════════════════════════════ */
+#eh-loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--vin3);
+  display: flex; align-items: center; justify-content: center;
+}
+.eh-loader-inner { text-align: center; }
+.eh-loader-brand {
+  font-family: 'Cinzel', serif;
+  font-size: 24px; font-weight: 300; letter-spacing: 6px;
+  color: var(--dore); margin-bottom: 2rem;
+}
+.eh-loader-dots { display: flex; gap: 8px; justify-content: center; }
+.eh-loader-dots span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--dore); opacity: 0.3;
+  animation: eh-pulse 1.2s ease-in-out infinite;
+}
+.eh-loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.eh-loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes eh-pulse {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%       { opacity: 1;   transform: scale(1);   }
+}

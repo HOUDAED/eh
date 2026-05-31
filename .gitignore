@@ -1,0 +1,27 @@
+# Supabase - fichier de config avec credentials
+js/supabase-client.js
+
+# Supabase - script de setup BDD
+data/supabase_setup.sql
+
+# Raccourcis Windows
+*.lnk
+
+# Fichiers système OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/settings.json
+*.swp
+*.swo
+
+# Claude Code - paramètres locaux
+.claude/settings.local.json
+
+# Dépendances (si npm utilisé un jour)
+node_modules/
+
+# Logs
+*.log

@@ -1,5 +1,7 @@
 'use strict';
 
+import { supabase } from './supabase-client.js';
+
 /* ══════════════════════════════════════════════════════════════════════════
    ELEGANCE HOUSE — Application Front-End
    Architecture : ce fichier lit data/content.json et construit le DOM.
@@ -286,21 +288,21 @@ const EH = {
   data: null,
 
   async init() {
+    this._showLoader();
     try {
-      const res  = await fetch('./data/content.json');
-      if (!res.ok) throw new Error(res.status);
-      this.data = await res.json();
+      await this._loadFromSupabase();
     } catch (e) {
-      console.error('[EH] Impossible de charger content.json :', e);
+      console.error('[EH] Supabase error:', e);
+      this._showError();
       return;
     }
+    this._hideLoader();
     this.applyContact();
     this.renderNav();
     this.renderCerStrip();
     this.renderPagnes();
     this.renderTissus();
     this.renderFoulards();
-
     this.renderAccessoires();
     this.renderBienetre();
     this.renderMariages();
@@ -309,9 +311,143 @@ const EH = {
     this.renderRDV();
     this.initHoursPopup();
     this.initMobileNav();
+    this.initNavFiltering();
     this.initFooterHover();
     this.initExportButton();
     this.initScrollAnimations();
+  },
+
+  // ── Chargement Supabase ───────────────────────────────────────────────────
+
+  async _loadFromSupabase() {
+    const [
+      { data: settings,    error: e1 },
+      { data: schedule,    error: e2 },
+      { data: categories,  error: e3 },
+      { data: sousCats,    error: e4 },
+      { data: products,    error: e5 },
+      { data: ceremonies,  error: e6 },
+      { data: temoignages, error: e7 },
+      { data: cerStrip,    error: e8 },
+      { data: rdvTypes,    error: e9 },
+      { data: rdvSlots,    error: e10 },
+    ] = await Promise.all([
+      supabase.from('site_settings').select('*').single(),
+      supabase.from('schedule').select('*').order('sort_order'),
+      supabase.from('categories').select('*').order('sort_order'),
+      supabase.from('sous_categories').select('*').order('sort_order'),
+      supabase.from('products').select('*').order('sort_order'),
+      supabase.from('ceremonies').select('*').order('sort_order'),
+      supabase.from('temoignages').select('*').order('sort_order'),
+      supabase.from('cer_strip').select('*').order('sort_order'),
+      supabase.from('rdv_types').select('*').order('sort_order'),
+      supabase.from('rdv_slots').select('*').order('sort_order'),
+    ]);
+
+    const firstError = e1||e2||e3||e4||e5||e6||e7||e8||e9||e10;
+    if (firstError) throw firstError;
+
+    const norm = p => ({
+      ...p,
+      image:        p.image_url    || '',
+      overlayStart: p.overlay_start,
+      overlayMid:   p.overlay_mid,
+      exemples:     p.exemples || p.badge || '',
+    });
+
+    // Index : sous_category_id → category_id
+    const scCat = {};
+    const scOrder = {};
+    sousCats.forEach(sc => { scCat[sc.id] = sc.category_id; scOrder[sc.id] = sc.sort_order; });
+
+    // Trier les produits : ordre sous-cat, puis ordre produit
+    const sorted = [...products].sort((a, b) =>
+      (scOrder[a.sous_category_id] || 0) - (scOrder[b.sous_category_id] || 0) ||
+      (a.sort_order || 0) - (b.sort_order || 0)
+    );
+
+    // Grouper par catégorie
+    const byCat = {};
+    sorted.forEach(p => {
+      const cat = scCat[p.sous_category_id];
+      if (cat) { if (!byCat[cat]) byCat[cat] = []; byCat[cat].push(norm(p)); }
+    });
+
+    this.data = {
+      site:        { ...settings, schedule },
+      seo:         {},
+      nav:         this._buildNavFromCategories(categories, sousCats),
+      cerStrip:    cerStrip.map(r => r.text),
+      pagnes:      byCat['pagnes']      || [],
+      tissus:      byCat['tissus']      || [],
+      foulards:    byCat['foulards']    || [],
+      accessoires: byCat['accessoires'] || [],
+      bienetre:    byCat['bienetre']    || [],
+      mariages:    ceremonies.map(c => ({ ...c, tissus: (c.tissus||'').split(',').map(t=>t.trim()).filter(Boolean) })),
+      temoignages,
+      rdv: {
+        visitTypes: rdvTypes.map(r => ({ value: r.value, label: r.label })),
+        timeSlots:  rdvSlots.map(r => ({ value: r.value, label: r.label })),
+      },
+    };
+  },
+
+  _buildNavFromCategories(categories, sousCats) {
+    return [
+      ...categories.map(cat => ({
+        label:  cat.label,
+        anchor: `#${cat.section_id}`,
+        children: sousCats
+          .filter(sc => sc.category_id === cat.id)
+          .map(sc => ({
+            label:   sc.label,
+            anchor:  `#${cat.section_id}`,  // scroll vers la section
+            filter:  sc.id,                   // valeur du filtre
+            section: cat.section_id,          // section à filtrer
+          })),
+      })),
+      { label: 'Mariage & Dot', anchor: '#mariage',  children: [] },
+      { label: 'Contact',       anchor: '#contact',   children: [] },
+    ];
+  },
+
+  _showLoader() {
+    let el = document.getElementById('eh-loader');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'eh-loader';
+      el.innerHTML = `<div class="eh-loader-inner">
+        <div class="eh-loader-brand">Elegance House</div>
+        <div class="eh-loader-dots"><span></span><span></span><span></span></div>
+      </div>`;
+      document.body.prepend(el);
+    }
+    document.body.style.overflow = 'hidden';
+  },
+
+  _hideLoader() {
+    const el = document.getElementById('eh-loader');
+    if (el) {
+      el.style.opacity = '0';
+      el.style.transition = 'opacity 0.4s';
+      setTimeout(() => el.remove(), 400);
+    }
+    document.body.style.overflow = '';
+  },
+
+  _showError() {
+    const el = document.getElementById('eh-loader');
+    if (el) el.innerHTML = `<div class="eh-loader-inner">
+      <div class="eh-loader-brand">Elegance House</div>
+      <p style="color:rgba(242,212,208,0.6);font-size:13px;margin-top:1rem;">
+        Impossible de charger le catalogue.<br>Vérifiez votre connexion et rechargez la page.
+      </p>
+      <button onclick="location.reload()" style="margin-top:1.5rem;padding:10px 24px;
+        background:var(--dore);border:none;cursor:pointer;font-family:inherit;
+        font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#3D0D18;">
+        Recharger
+      </button>
+    </div>`;
   },
 
   // ── Informations de contact (injectées partout via data-eh="*") ────────────
@@ -387,7 +523,9 @@ const EH = {
         <ul class="nav-dropdown">
           ${item.children.map(c => `
             <li>
-              <a href="${c.anchor}" class="nav-dropdown-link">${esc(c.label)}</a>
+              <a href="${c.anchor}" class="nav-dropdown-link"
+             ${c.filter ? `data-filter="${esc(c.filter)}" data-section="${esc(c.section)}"` : ''}
+          >${esc(c.label)}</a>
             </li>
           `).join('')}
         </ul>` : '';
@@ -445,7 +583,7 @@ const EH = {
       ? `<img src="${esc(item.image)}" alt="${esc(item.name)}" class="cover-img">`
       : (patterns[item.id] || patterns[patKey] || `<rect width="400" height="460" fill="${item.overlayStart || '#3D0D18'}"/>`);
     return `
-      <div class="tissu-card" id="${idPrefix}-${item.id}" data-eh-item="${idPrefix}" data-eh-id="${item.id}">
+      <div class="tissu-card" id="${idPrefix}-${item.id}" data-eh-item="${idPrefix}" data-eh-id="${item.id}" data-sc="${esc(item.sous_category_id || item.id)}">
         <div class="tissu-bg">${svgBg}</div>
         <div class="tissu-overlay" style="background:linear-gradient(to top,${item.overlayStart||'rgba(61,13,24,0.85)'} 0%,${item.overlayMid||'rgba(61,13,24,0.2)'} 60%,transparent 100%);"></div>
         <div class="tissu-content">
@@ -641,6 +779,70 @@ const EH = {
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) close();
     });
+  },
+
+  // ── Filtrage par sous-catégorie (clic sur dropdown nav) ─────────────────
+
+  initNavFiltering() {
+    // Clic sur un item dropdown → filtrer les cards de sa section
+    document.querySelectorAll('.nav-dropdown-link[data-filter]').forEach(link => {
+      link.addEventListener('click', () => {
+        const { filter, section } = link.dataset;
+        if (filter && section) this._applyFilter(section, filter, link);
+      });
+    });
+
+    // Clic sur le lien parent (desktop) → réafficher tout
+    document.querySelectorAll('.nav-item--has-sub > .nav-item-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) return;
+        const href = link.getAttribute('href');
+        if (href?.startsWith('#')) this._clearFilter(href.slice(1));
+      });
+    });
+  },
+
+  _applyFilter(sectionId, filter, activeLink) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    section.querySelectorAll('.tissu-card').forEach(card => {
+      card.classList.toggle('sc-hidden', card.dataset.sc !== filter);
+    });
+
+    // Marquer le lien actif dans le dropdown
+    document.querySelectorAll(`.nav-dropdown-link[data-section="${sectionId}"]`)
+      .forEach(l => l.classList.remove('sc-active'));
+    activeLink.classList.add('sc-active');
+
+    this._setFilterBar(sectionId, filter, activeLink.textContent.trim());
+  },
+
+  _clearFilter(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    section.querySelectorAll('.tissu-card').forEach(card => card.classList.remove('sc-hidden'));
+    document.querySelectorAll(`.nav-dropdown-link[data-section="${sectionId}"]`)
+      .forEach(l => l.classList.remove('sc-active'));
+    this._setFilterBar(sectionId, null);
+  },
+
+  _setFilterBar(sectionId, filter, label) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    let bar = section.querySelector('.sc-filter-bar');
+    if (!filter) { if (bar) bar.remove(); return; }
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.className = 'sc-filter-bar';
+      const head = section.querySelector('.sec-head');
+      if (head) head.after(bar); else section.prepend(bar);
+    }
+    bar.innerHTML = `
+      <span class="sc-filter-label">Filtre : <strong>${esc(label || filter)}</strong></span>
+      <button class="sc-filter-reset" data-clear-section="${esc(sectionId)}">Voir tout ×</button>`;
+    bar.querySelector('.sc-filter-reset')
+      .addEventListener('click', () => this._clearFilter(sectionId));
   },
 
   // ── Schema.org JSON-LD (référencement local Google) ──────────────────────
@@ -920,6 +1122,10 @@ async function nlSubmit() {
     alert('Veuillez renseigner au minimum votre prénom et votre numéro WhatsApp.');
     return;
   }
+  if (!/^[\d\s\+\-]{6,20}$/.test(whatsapp)) {
+    alert('Numéro WhatsApp invalide. Exemple : 0190008300');
+    return;
+  }
 
   // Désactiver le bouton pour éviter le double-envoi
   var btn = document.querySelector('.nl-btn');
@@ -1033,6 +1239,10 @@ function rdvSubmit() {
     alert('Veuillez renseigner votre prénom et votre numéro WhatsApp.');
     return;
   }
+  if (!/^[\d\s\+\-]{6,20}$/.test(whatsapp)) {
+    alert('Numéro WhatsApp invalide. Exemple : 0190008300');
+    return;
+  }
   if (!objet.value) {
     alert('Veuillez préciser l\'objet de votre visite.');
     return;
@@ -1098,6 +1308,13 @@ function rdvSubmit() {
   document.getElementById('rdv-form').style.display    = 'none';
   document.getElementById('rdv-success').style.display = 'flex';
 }
+
+// ── Ré-exposition des globals (nécessaire avec type="module") ────────────────
+
+window.EH        = EH;
+window.nlSubmit  = nlSubmit;
+window.nlExport  = nlExport;
+window.rdvSubmit = rdvSubmit;
 
 // ── Démarrage ────────────────────────────────────────────────────────────────
 
